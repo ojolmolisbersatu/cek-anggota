@@ -11,7 +11,6 @@
   <title>Cek Keanggotaan OMB</title>
 
   <!-- FONT -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -25,12 +24,11 @@
     rel="stylesheet"
   >
 
-
   <style>
 
-    /* =========================================
+    /* =====================================================
        RESET
-    ========================================= */
+    ====================================================== */
 
     * {
       box-sizing: border-box;
@@ -40,16 +38,13 @@
 
     html {
       width: 100%;
-      max-width: 100%;
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
     }
 
     body {
       width: 100%;
-      min-width: 0;
       min-height: 100vh;
-
       overflow-x: hidden;
 
       font-family: "Poppins", sans-serif;
@@ -57,13 +52,13 @@
       background:
         radial-gradient(
           circle at top left,
-          rgba(11, 139, 67, 0.12),
+          rgba(27, 125, 65, 0.12),
           transparent 30%
         ),
         linear-gradient(
           180deg,
-          #f5f8f6 0%,
-          #edf2ee 100%
+          #f4f7f5 0%,
+          #edf1ee 100%
         );
 
       color: #243029;
@@ -74,43 +69,35 @@
       font-family: inherit;
     }
 
-    button {
-      -webkit-tap-highlight-color: transparent;
-    }
 
-
-    /* =========================================
+    /* =====================================================
        APP
-    ========================================= */
+    ====================================================== */
 
     .app {
       width: 100%;
       max-width: 720px;
-
       margin: 0 auto;
-
-      padding-bottom:
-        max(30px, env(safe-area-inset-bottom));
+      padding-bottom: 30px;
     }
 
 
-    /* =========================================
+    /* =====================================================
        HEADER
-    ========================================= */
+    ====================================================== */
 
     .hero {
       position: relative;
+      overflow: hidden;
 
       width: 100%;
-
-      overflow: hidden;
 
       text-align: center;
 
       padding:
-        24px
+        22px
         max(16px, env(safe-area-inset-right))
-        28px
+        26px
         max(16px, env(safe-area-inset-left));
 
       background:
@@ -118,13 +105,13 @@
           135deg,
           #075d2b 0%,
           #087337 55%,
-          #0b9749 100%
+          #0b8b43 100%
         );
 
       color: #ffffff;
 
       box-shadow:
-        0 6px 20px rgba(0, 70, 30, 0.18);
+        0 5px 18px rgba(0, 70, 30, 0.18);
     }
 
     .hero::before {
@@ -132,16 +119,15 @@
 
       position: absolute;
 
-      width: 210px;
-      height: 210px;
-
-      top: -130px;
-      left: -80px;
+      width: 180px;
+      height: 180px;
 
       border-radius: 50%;
 
-      background:
-        rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
+
+      top: -110px;
+      left: -70px;
     }
 
     .hero::after {
@@ -149,76 +135,56 @@
 
       position: absolute;
 
-      width: 180px;
-      height: 180px;
-
-      right: -90px;
-      bottom: -120px;
+      width: 160px;
+      height: 160px;
 
       border-radius: 50%;
 
-      background:
-        rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.04);
+
+      right: -80px;
+      bottom: -110px;
     }
 
     .logo-box {
       position: relative;
       z-index: 1;
 
-      width: 76px;
-      height: 76px;
+      width: 74px;
+      height: 74px;
 
       margin: 0 auto 10px;
+
+      border-radius: 50%;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border-radius: 50%;
-
       background: #ffffff;
 
       box-shadow:
-        0 10px 24px rgba(0,0,0,0.22);
-
-      animation:
-        logoAppear 0.6s ease;
-    }
-
-    @keyframes logoAppear {
-
-      from {
-        opacity: 0;
-        transform: scale(0.85);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-
+        0 8px 20px rgba(0,0,0,0.22);
     }
 
     .logo-box img {
-      width: 66px;
-      height: 66px;
-
-      object-fit: cover;
+      width: 64px;
+      height: 64px;
 
       border-radius: 50%;
+
+      object-fit: cover;
+      display: block;
     }
 
     .hero h1 {
       position: relative;
       z-index: 1;
 
-      font-size:
-        clamp(20px, 5vw, 28px);
-
-      font-weight: 800;
-
+      font-size: clamp(20px, 5vw, 27px);
       line-height: 1.2;
 
+      font-weight: 800;
       letter-spacing: 0.4px;
     }
 
@@ -228,19 +194,16 @@
 
       margin-top: 5px;
 
-      font-size:
-        clamp(10px, 2.8vw, 13px);
+      font-size: clamp(10px, 2.8vw, 13px);
 
-      color:
-        rgba(255,255,255,0.85);
-
+      color: rgba(255,255,255,0.86);
       font-weight: 500;
     }
 
 
-    /* =========================================
+    /* =====================================================
        CONTENT
-    ========================================= */
+    ====================================================== */
 
     .content {
       width: 100%;
@@ -253,9 +216,9 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
        SEARCH
-    ========================================= */
+    ====================================================== */
 
     .search-card {
       width: 100%;
@@ -264,47 +227,37 @@
 
       display: flex;
       align-items: center;
-
       gap: 8px;
 
       border-radius: 18px;
 
-      background:
-        rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.90);
+
+      box-shadow:
+        0 8px 25px rgba(20, 70, 40, 0.10);
 
       border:
         1px solid rgba(0,0,0,0.04);
-
-      box-shadow:
-        0 8px 25px rgba(20,70,40,0.10);
     }
 
     .search-input {
-      flex: 1 1 auto;
-
+      flex: 1;
       min-width: 0;
-      width: 100%;
 
       height: 50px;
 
-      padding: 0 14px;
-
-      border:
-        1px solid #dce4df;
-
+      border: 1px solid #dce4df;
       border-radius: 13px;
 
+      padding: 0 14px;
+
       outline: none;
-
-      background: #f8faf9;
-
-      color: #25332b;
 
       font-size: 14px;
       font-weight: 500;
 
-      transition:
-        0.2s ease;
+      background: #f8faf9;
+      color: #25332b;
     }
 
     .search-input:focus {
@@ -319,13 +272,13 @@
     .search-button {
       flex: 0 0 auto;
 
-      min-width: 68px;
+      min-width: 70px;
       height: 50px;
-
-      padding: 0 15px;
 
       border: none;
       border-radius: 13px;
+
+      padding: 0 15px;
 
       cursor: pointer;
 
@@ -343,14 +296,10 @@
 
       box-shadow:
         0 5px 14px rgba(8,115,55,0.25);
-
-      transition:
-        transform 0.15s ease,
-        opacity 0.15s ease;
     }
 
     .search-button:active {
-      transform: scale(0.96);
+      transform: scale(0.97);
     }
 
     .search-button:disabled {
@@ -359,157 +308,17 @@
     }
 
 
-    /* =========================================
-       STATISTICS AWAL
-    ========================================= */
-
-    .stats-section {
-      margin-top: 18px;
-    }
-
-    .stats-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 10px;
-
-      margin-bottom: 10px;
-    }
-
-    .stats-title {
-      font-size: 13px;
-      font-weight: 800;
-
-      color: #526158;
-    }
-
-    .stats-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-      gap: 9px;
-    }
-
-    .stat-card {
-      position: relative;
-
-      min-width: 0;
-
-      overflow: hidden;
-
-      padding: 13px 9px;
-
-      border-radius: 17px;
-
-      background:
-        rgba(255,255,255,0.88);
-
-      border:
-        1px solid rgba(0,0,0,0.04);
-
-      box-shadow:
-        0 6px 18px rgba(20,70,40,0.08);
-
-      text-align: center;
-
-      animation:
-        fadeUp 0.5s ease both;
-    }
-
-    .stat-card:nth-child(2) {
-      animation-delay: 0.08s;
-    }
-
-    .stat-card:nth-child(3) {
-      animation-delay: 0.16s;
-    }
-
-    @keyframes fadeUp {
-
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-    .stat-icon {
-      font-size: 19px;
-    }
-
-    .stat-number {
-      margin-top: 4px;
-
-      font-size: 21px;
-      font-weight: 800;
-
-      color: #087337;
-
-      line-height: 1;
-    }
-
-    .stat-label {
-      margin-top: 6px;
-
-      font-size: 9px;
-      font-weight: 700;
-
-      color: #7c8780;
-
-      line-height: 1.3;
-    }
-
-    .stats-button {
-      width: 100%;
-
-      margin-top: 11px;
-
-      padding: 10px;
-
-      border:
-        1px solid #dce8df;
-
-      border-radius: 13px;
-
-      cursor: pointer;
-
-      background:
-        rgba(255,255,255,0.7);
-
-      color: #087337;
-
-      font-size: 12px;
-      font-weight: 800;
-
-      transition:
-        0.2s ease;
-    }
-
-    .stats-button:active {
-      transform: scale(0.98);
-    }
-
-
-    /* =========================================
+    /* =====================================================
        MESSAGE
-    ========================================= */
+    ====================================================== */
 
     .message {
       display: none;
 
       width: 100%;
 
-      margin-top: 18px;
-
-      padding: 17px;
+      margin-top: 16px;
+      padding: 15px;
 
       border-radius: 16px;
 
@@ -517,10 +326,10 @@
 
       background: #ffffff;
 
-      color: #68736d;
-
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
+
+      color: #68736d;
 
       box-shadow:
         0 6px 20px rgba(0,0,0,0.05);
@@ -528,8 +337,7 @@
 
     .message.show {
       display: block;
-      animation:
-        fadeUp 0.25s ease;
+      animation: fadeIn 0.25s ease;
     }
 
     .message.error {
@@ -549,8 +357,7 @@
 
       background: #0a813e;
 
-      animation:
-        blink 1s infinite;
+      animation: blink 1s infinite;
     }
 
     @keyframes blink {
@@ -567,129 +374,115 @@
     }
 
 
-    /* =========================================
-       MULTIPLE RESULT
-    ========================================= */
+    /* =====================================================
+       STATISTIK AWAL
+    ====================================================== */
 
-    .multiple-results {
-      display: none;
-
+    .stats-section {
       margin-top: 18px;
+      animation: fadeUp 0.45s ease;
     }
 
-    .multiple-results.show {
-      display: block;
-      animation:
-        fadeUp 0.3s ease;
-    }
+    .stats-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    .result-title {
       margin-bottom: 10px;
 
-      font-size: 13px;
-      font-weight: 800;
+      padding: 0 2px;
 
-      color: #526158;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+
+      color: #657168;
     }
 
-    .result-list {
+    .stats-grid {
       display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
       gap: 9px;
     }
 
-    .result-item {
-      width: 100%;
+    .stat-card {
+      min-width: 0;
 
-      padding: 12px;
+      padding: 13px 8px;
 
-      display: flex;
-      align-items: center;
+      border-radius: 17px;
 
-      gap: 12px;
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f4f8f5
+        );
 
       border:
-        1px solid #e3ebe5;
+        1px solid #e5ece7;
 
-      border-radius: 16px;
+      box-shadow:
+        0 7px 18px rgba(20,70,40,0.07);
+    }
+
+    .stat-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .stat-number {
+      font-size: clamp(18px, 5vw, 24px);
+      font-weight: 800;
+
+      line-height: 1.1;
+
+      color: #087337;
+    }
+
+    .stat-label {
+      margin-top: 4px;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      line-height: 1.3;
+
+      color: #77827b;
+    }
+
+    .stat-button {
+      width: 100%;
+
+      margin-top: 12px;
+      padding: 12px;
+
+      border: none;
+      border-radius: 14px;
 
       cursor: pointer;
 
-      background:
-        rgba(255,255,255,0.90);
+      background: #e8f4ec;
 
-      box-shadow:
-        0 5px 16px rgba(20,70,40,0.07);
+      color: #087337;
 
-      text-align: left;
-
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease;
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    .result-item:active {
+    .stat-button:active {
       transform: scale(0.98);
     }
 
-    .result-photo {
-      width: 48px;
-      height: 48px;
 
-      flex: 0 0 auto;
-
-      overflow: hidden;
-
-      border-radius: 50%;
-
-      background: #edf2ee;
-    }
-
-    .result-photo img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-    }
-
-    .result-info {
-      flex: 1;
-
-      min-width: 0;
-    }
-
-    .result-name {
-      overflow: hidden;
-
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      font-size: 14px;
-      font-weight: 800;
-
-      color: #26342c;
-    }
-
-    .result-meta {
-      margin-top: 3px;
-
-      font-size: 10px;
-      font-weight: 600;
-
-      color: #7b8780;
-    }
-
-    .result-arrow {
-      color: #087337;
-
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-
-    /* =========================================
+    /* =====================================================
        MEMBER CARD
-    ========================================= */
+    ====================================================== */
 
     .member-card {
       display: none;
@@ -713,20 +506,19 @@
         1px solid rgba(0,0,0,0.05);
 
       box-shadow:
-        0 12px 32px rgba(20,70,40,0.13);
+        0 12px 32px rgba(20, 70, 40, 0.13);
     }
 
     .member-card.show {
       display: block;
-      animation:
-        showCard 0.35s ease;
+      animation: showCard 0.35s ease;
     }
 
     @keyframes showCard {
 
       from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(10px);
       }
 
       to {
@@ -750,9 +542,9 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
        PROFILE
-    ========================================= */
+    ====================================================== */
 
     .profile {
       padding: 22px 18px 18px;
@@ -769,8 +561,6 @@
 
       margin: 0 auto 12px;
 
-      overflow: hidden;
-
       border-radius: 50%;
 
       padding: 4px;
@@ -786,6 +576,8 @@
 
       box-shadow:
         0 8px 22px rgba(20,80,45,0.18);
+
+      overflow: hidden;
     }
 
     .profile-photo img {
@@ -802,11 +594,9 @@
     }
 
     .member-name {
-      font-size:
-        clamp(20px, 5vw, 26px);
+      font-size: clamp(20px, 5vw, 26px);
 
       font-weight: 800;
-
       line-height: 1.2;
 
       color: #26342c;
@@ -818,7 +608,6 @@
       display: inline-block;
 
       margin-top: 8px;
-
       padding: 5px 12px;
 
       border-radius: 30px;
@@ -833,82 +622,56 @@
       letter-spacing: 0.8px;
     }
 
+
+    /* =====================================================
+       BADGE STATUS
+    ====================================================== */
+
     .status-badge {
       display: inline-flex;
+
       align-items: center;
+      justify-content: center;
 
       gap: 6px;
 
       margin-top: 10px;
-
-      padding: 6px 12px;
+      padding: 7px 13px;
 
       border-radius: 30px;
 
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 800;
-
-      letter-spacing: 0.4px;
     }
 
-    .status-dot {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-    }
-
-    .status-aktif {
+    .status-active {
+      background: #e7f7ed;
       color: #087337;
-      background: #e8f7ed;
     }
 
-    .status-aktif .status-dot {
-      background: #16a34a;
+    .status-inactive {
+      background: #f1f2f1;
+      color: #707770;
     }
 
-    .status-resmi {
-      color: #087337;
-      background: #e8f7ed;
+    .status-pending {
+      background: #fff7df;
+      color: #a77500;
     }
 
-    .status-resmi .status-dot {
-      background: #16a34a;
-    }
-
-    .status-menunggu {
-      color: #a66c00;
-      background: #fff6dc;
-    }
-
-    .status-menunggu .status-dot {
-      background: #e0a500;
-    }
-
-    .status-nonaktif {
-      color: #b13c3c;
+    .status-warning {
       background: #fff0f0;
-    }
-
-    .status-nonaktif .status-dot {
-      background: #d94a4a;
-    }
-
-    .status-default {
-      color: #68736d;
-      background: #f0f2f1;
-    }
-
-    .status-default .status-dot {
-      background: #87918b;
+      color: #c34242;
     }
 
 
-    /* =========================================
-       INFO
-    ========================================= */
+    /* =====================================================
+       INFO GRID
+    ====================================================== */
 
     .info-grid {
+      width: 100%;
+
       display: grid;
 
       grid-template-columns:
@@ -960,9 +723,9 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
        MOTOR
-    ========================================= */
+    ====================================================== */
 
     .motor-section {
       padding: 0 16px 18px;
@@ -1012,6 +775,8 @@
     }
 
     .ojol-row {
+      width: 100%;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1036,7 +801,6 @@
       max-width: 65%;
 
       overflow: hidden;
-
       text-overflow: ellipsis;
       white-space: nowrap;
 
@@ -1056,12 +820,107 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
+       HASIL NAMA GANDA
+    ====================================================== */
+
+    .multiple-results {
+      display: none;
+
+      margin-top: 18px;
+    }
+
+    .multiple-results.show {
+      display: block;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .multiple-title {
+      margin-bottom: 10px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      color: #4f5c54;
+    }
+
+    .member-option {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      margin-bottom: 9px;
+      padding: 12px;
+
+      border: 1px solid #e5ebe7;
+      border-radius: 17px;
+
+      cursor: pointer;
+
+      background: #ffffff;
+
+      text-align: left;
+
+      box-shadow:
+        0 5px 15px rgba(20,70,40,0.05);
+
+      transition: transform 0.2s ease;
+    }
+
+    .member-option:active {
+      transform: scale(0.98);
+    }
+
+    .member-option-photo {
+      width: 46px;
+      height: 46px;
+
+      flex: 0 0 46px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      background: #edf1ee;
+    }
+
+    .member-option-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .member-option-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      color: #26342c;
+    }
+
+    .member-option-detail {
+      margin-top: 3px;
+
+      font-size: 10px;
+      font-weight: 600;
+
+      color: #7a857e;
+    }
+
+
+    /* =====================================================
        FOOTER
-    ========================================= */
+    ====================================================== */
 
     .footer {
-      padding: 24px 10px 5px;
+      width: 100%;
+
+      padding: 22px 10px 5px;
 
       text-align: center;
 
@@ -1077,22 +936,19 @@
 
     .footer a {
       color: #087337;
-
       font-weight: 700;
-
       text-decoration: none;
     }
 
 
-    /* =========================================
-       MODAL UMUM
-    ========================================= */
+    /* =====================================================
+       MODAL
+    ====================================================== */
 
     .modal {
       display: none;
 
       position: fixed;
-
       z-index: 9999;
 
       inset: 0;
@@ -1105,20 +961,130 @@
       align-items: center;
       justify-content: center;
 
-      background:
-        rgba(0,0,0,0.68);
+      background: rgba(0,0,0,0.55);
 
-      backdrop-filter:
-        blur(5px);
+      backdrop-filter: blur(5px);
     }
 
     .modal.show {
       display: flex;
-      animation:
-        modalFade 0.2s ease;
+      animation: fadeIn 0.25s ease;
     }
 
-    @keyframes modalFade {
+    .modal-box {
+      position: relative;
+
+      width: min(94vw, 580px);
+      max-height: 85dvh;
+
+      overflow-y: auto;
+
+      padding: 22px;
+
+      border-radius: 24px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.25);
+
+      animation: modalUp 0.3s ease;
+    }
+
+    .modal-title {
+      margin-bottom: 16px;
+
+      font-size: 18px;
+      font-weight: 800;
+
+      color: #26342c;
+    }
+
+    .close-modal {
+      position: absolute;
+
+      top: 12px;
+      right: 12px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      background: #f0f3f1;
+
+      color: #465048;
+
+      font-size: 22px;
+    }
+
+
+    /* =====================================================
+       STATISTIK DETAIL
+    ====================================================== */
+
+    .detail-stat {
+      margin-top: 16px;
+    }
+
+    .detail-stat-title {
+      margin-bottom: 9px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      color: #5e6a62;
+    }
+
+    .detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      padding: 11px 13px;
+
+      border-radius: 13px;
+
+      background: #f6f9f7;
+    }
+
+    .detail-name {
+      font-size: 12px;
+      font-weight: 700;
+
+      color: #465249;
+    }
+
+    .detail-number {
+      padding: 4px 10px;
+
+      border-radius: 20px;
+
+      background: #e6f3ea;
+
+      color: #087337;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+
+    /* =====================================================
+       ANIMATION
+    ====================================================== */
+
+    @keyframes fadeIn {
 
       from {
         opacity: 0;
@@ -1130,34 +1096,25 @@
 
     }
 
-    .modal-box {
-      position: relative;
+    @keyframes fadeUp {
 
-      width:
-        min(100%, 560px);
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
 
-      max-height: 85dvh;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-      overflow-y: auto;
-
-      padding: 20px;
-
-      border-radius: 24px;
-
-      background: #ffffff;
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.25);
-
-      animation:
-        modalUp 0.25s ease;
     }
 
     @keyframes modalUp {
 
       from {
         opacity: 0;
-        transform: translateY(20px) scale(0.98);
+        transform: translateY(15px) scale(0.97);
       }
 
       to {
@@ -1167,174 +1124,30 @@
 
     }
 
-    .modal-close {
-      position: absolute;
 
-      top: 10px;
-      right: 10px;
-
-      width: 38px;
-      height: 38px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      cursor: pointer;
-
-      background: #f1f4f2;
-
-      color: #455149;
-
-      font-size: 22px;
-    }
-
-    .modal-title {
-      padding-right: 35px;
-
-      font-size: 19px;
-      font-weight: 800;
-
-      color: #26342c;
-    }
-
-    .modal-subtitle {
-      margin-top: 4px;
-
-      font-size: 11px;
-
-      color: #7c8780;
-    }
-
-
-    /* =========================================
-       STATISTICS DETAIL
-    ========================================= */
-
-    .stat-detail-list {
-      margin-top: 20px;
-
-      display: grid;
-
-      gap: 10px;
-    }
-
-    .stat-detail-item {
-      padding: 13px;
-
-      border:
-        1px solid #e7ece8;
-
-      border-radius: 15px;
-
-      background: #fafcfb;
-    }
-
-    .stat-detail-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 10px;
-    }
-
-    .stat-detail-name {
-      font-size: 12px;
-      font-weight: 700;
-
-      color: #354139;
-    }
-
-    .stat-detail-number {
-      font-size: 13px;
-      font-weight: 800;
-
-      color: #087337;
-    }
-
-    .bar {
-      width: 100%;
-      height: 7px;
-
-      margin-top: 9px;
-
-      overflow: hidden;
-
-      border-radius: 20px;
-
-      background: #e8eeea;
-    }
-
-    .bar-fill {
-      height: 100%;
-
-      border-radius: 20px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #087337,
-          #19a757
-        );
-
-      transition:
-        width 0.7s ease;
-    }
-
-
-    /* =========================================
-       PHOTO MODAL
-    ========================================= */
-
-    .photo-modal-box {
-      position: relative;
-
-      width:
-        min(92vw, 520px);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .photo-modal-box img {
-      display: block;
-
-      max-width: 100%;
-      max-height: 80dvh;
-
-      border-radius: 18px;
-
-      object-fit: contain;
-
-      box-shadow:
-        0 15px 45px rgba(0,0,0,0.45);
-    }
-
-
-    /* =========================================
+    /* =====================================================
        RESPONSIVE
-    ========================================= */
+    ====================================================== */
 
     @media (max-width: 480px) {
 
       .hero {
-        padding-top: 19px;
-        padding-bottom: 22px;
+        padding-top: 18px;
+        padding-bottom: 20px;
       }
 
       .logo-box {
-        width: 66px;
-        height: 66px;
+        width: 64px;
+        height: 64px;
       }
 
       .logo-box img {
-        width: 57px;
-        height: 57px;
+        width: 56px;
+        height: 56px;
       }
 
       .hero h1 {
-        font-size: 19px;
+        font-size: 18px;
       }
 
       .content {
@@ -1342,6 +1155,7 @@
       }
 
       .search-card {
+        gap: 7px;
         padding: 7px;
       }
 
@@ -1350,12 +1164,20 @@
         height: 48px;
       }
 
-      .stat-number {
-        font-size: 19px;
+      .stats-grid {
+        gap: 7px;
+      }
+
+      .stat-card {
+        padding: 12px 5px;
       }
 
       .stat-label {
         font-size: 8px;
+      }
+
+      .member-card {
+        border-radius: 20px;
       }
 
       .profile {
@@ -1368,8 +1190,8 @@
       }
 
       .info-grid {
-        padding: 12px;
         gap: 8px;
+        padding: 12px;
       }
 
       .info-box {
@@ -1380,7 +1202,12 @@
         padding: 0 12px 14px;
       }
 
+      .modal-box {
+        padding: 20px 16px;
+      }
+
     }
+
 
     @media (max-width: 360px) {
 
@@ -1388,6 +1215,7 @@
         flex-direction: column;
       }
 
+      .search-input,
       .search-button {
         width: 100%;
       }
@@ -1455,6 +1283,14 @@
       </div>
 
 
+      <!-- MESSAGE -->
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+
       <!-- STATISTIK AWAL -->
 
       <section
@@ -1462,14 +1298,9 @@
         class="stats-section"
       >
 
-        <div class="stats-header">
-
-          <div class="stats-title">
-            📊 Statistik OMB
-          </div>
-
+        <div class="stats-title">
+          📊 Statistik OMB
         </div>
-
 
         <div class="stats-grid">
 
@@ -1478,14 +1309,14 @@
             <div class="stat-icon">👥</div>
 
             <div
-              id="statAktif"
+              id="statActive"
               class="stat-number"
             >
               -
             </div>
 
             <div class="stat-label">
-              ANGGOTA AKTIF
+              Anggota Aktif
             </div>
 
           </div>
@@ -1503,7 +1334,7 @@
             </div>
 
             <div class="stat-label">
-              MEREK MOTOR
+              Jenis Motor
             </div>
 
           </div>
@@ -1521,7 +1352,7 @@
             </div>
 
             <div class="stat-label">
-              APLIKASI OJOL
+              Aplikasi Ojol
             </div>
 
           </div>
@@ -1531,21 +1362,13 @@
 
         <button
           type="button"
-          class="stats-button"
+          class="stat-button"
           onclick="openStats()"
         >
-          📈 Lihat Statistik OMB Lengkap
+          📊 Lihat Statistik OMB
         </button>
 
       </section>
-
-
-      <!-- MESSAGE -->
-
-      <div
-        id="message"
-        class="message"
-      ></div>
 
 
       <!-- HASIL NAMA GANDA -->
@@ -1553,21 +1376,7 @@
       <section
         id="multipleResults"
         class="multiple-results"
-      >
-
-        <div
-          id="resultTitle"
-          class="result-title"
-        >
-          Beberapa anggota ditemukan
-        </div>
-
-        <div
-          id="resultList"
-          class="result-list"
-        ></div>
-
-      </section>
+      ></section>
 
 
       <!-- MEMBER CARD -->
@@ -1585,7 +1394,6 @@
           <div
             class="profile-photo"
             onclick="previewFoto()"
-            title="Tekan untuk melihat foto"
           >
 
             <img
@@ -1613,19 +1421,13 @@
           </div>
 
 
-          <!-- BADGE STATUS OTOMATIS -->
+          <!-- STATUS OTOMATIS -->
 
           <div
-            id="memberStatusBadge"
-            class="status-badge status-default"
+            id="statusBadge"
+            class="status-badge status-active"
           >
-
-            <span class="status-dot"></span>
-
-            <span id="memberStatusText">
-              STATUS BELUM DIKETAHUI
-            </span>
-
+            🟢 ANGGOTA RESMI
           </div>
 
         </div>
@@ -1654,7 +1456,7 @@
           <div class="info-box">
 
             <div class="info-label">
-              ℹ️ Status Database
+              STATUS
             </div>
 
             <div
@@ -1740,9 +1542,9 @@
   </div>
 
 
-  <!-- =========================================
+  <!-- =====================================================
        MODAL STATISTIK
-  ========================================== -->
+  ====================================================== -->
 
   <div
     id="statsModal"
@@ -1754,7 +1556,7 @@
 
       <button
         type="button"
-        class="modal-close"
+        class="close-modal"
         onclick="closeStats()"
       >
         ×
@@ -1762,49 +1564,87 @@
 
 
       <div class="modal-title">
-        📊 Statistik OMB
-      </div>
-
-      <div class="modal-subtitle">
-        Ringkasan database keanggotaan Ojol Molis Bersatu
+        📊 Statistik Lengkap OMB
       </div>
 
 
-      <div
-        id="statsDetail"
-        class="stat-detail-list"
-      ></div>
+      <div class="detail-stat">
+
+        <div class="detail-stat-title">
+          👥 Status Keanggotaan
+        </div>
+
+        <div
+          id="statusStatsList"
+          class="detail-list"
+        ></div>
+
+      </div>
+
+
+      <div class="detail-stat">
+
+        <div class="detail-stat-title">
+          🛵 Pengguna Merek Motor
+        </div>
+
+        <div
+          id="motorStatsList"
+          class="detail-list"
+        ></div>
+
+      </div>
+
+
+      <div class="detail-stat">
+
+        <div class="detail-stat-title">
+          📱 Pengguna Aplikasi Ojol
+        </div>
+
+        <div
+          id="ojolStatsList"
+          class="detail-list"
+        ></div>
+
+      </div>
 
     </div>
 
   </div>
 
 
-  <!-- =========================================
+  <!-- =====================================================
        MODAL FOTO
-  ========================================== -->
+  ====================================================== -->
 
   <div
     id="photoModal"
     class="modal"
-    onclick="tutupPreview(event)"
+    onclick="closePhotoOutside(event)"
   >
 
-    <div class="photo-modal-box">
+    <div class="modal-box">
 
       <button
         type="button"
-        class="modal-close"
+        class="close-modal"
         onclick="closePreview()"
       >
         ×
       </button>
 
-
       <img
         id="previewImage"
         src=""
         alt="Preview Foto Anggota"
+        style="
+          width:100%;
+          max-height:75dvh;
+          object-fit:contain;
+          border-radius:16px;
+          display:block;
+        "
       >
 
     </div>
@@ -1814,43 +1654,32 @@
 
   <script>
 
-    /* =========================================
-       KONFIGURASI API
-    ========================================== */
+    /* =====================================================
+       API BARU
+    ====================================================== */
 
     const API_URL =
-      "https://script.google.com/macros/s/AKfycbxQDJadpCK6VNjV4l4tWjWscNbCBHWonU2Z639lJ6IlJ2wfx4lfALZJUN3SgMOTrciD/exec";
+      "https://script.google.com/macros/s/AKfycbzb6GMMUCHmauRDRLksHaGjDvWWbDeD_yw7RI_egTuUSKFKR3q0cBTVsYfZoISi21NhMw/exec";
 
 
-    /* =========================================
+    /* =====================================================
        FOTO DEFAULT
-    ========================================== */
+    ====================================================== */
 
     const FOTO_DEFAULT =
       "https://cdn-icons-png.flaticon.com/512/149/149071.png";
 
 
-    /* =========================================
-       DATA STATISTIK
-       SEMENTARA
-    ========================================== */
+    /* =====================================================
+       SIMPAN DATA STATISTIK
+    ====================================================== */
 
-    let statistikOMB = {
-
-      anggotaAktif: "-",
-
-      jumlahMerekMotor: "-",
-
-      jumlahAplikasiOjol: "-",
-
-      detail: []
-
-    };
+    let statisticsData = null;
 
 
-    /* =========================================
+    /* =====================================================
        ENTER = CARI
-    ========================================== */
+    ====================================================== */
 
     document
       .getElementById("keyword")
@@ -1870,41 +1699,47 @@
       );
 
 
-    /* =========================================
-       LOAD STATISTIK
-    ========================================== */
+    /* =====================================================
+       LOAD STATISTIK SAAT HALAMAN DIBUKA
+    ====================================================== */
 
     document.addEventListener(
       "DOMContentLoaded",
       function() {
 
-        loadStatistik();
+        loadStatistics();
 
       }
     );
 
 
-    async function loadStatistik() {
+    /* =====================================================
+       LOAD STATISTIK
+    ====================================================== */
+
+    async function loadStatistics() {
 
       try {
 
-        const url =
-          API_URL +
-          "?stats=1&t=" +
-          Date.now();
-
-
         const response =
           await fetch(
-            url,
+            API_URL +
+            "?action=statistics&t=" +
+            Date.now(),
             {
+              method: "GET",
               cache: "no-store"
             }
           );
 
 
         if (!response.ok) {
-          return;
+
+          throw new Error(
+            "HTTP " +
+            response.status
+          );
+
         }
 
 
@@ -1912,84 +1747,24 @@
           await response.json();
 
 
-        /*
-         * Mendukung format:
-         *
-         * {
-         *   type: "stats",
-         *   anggotaAktif: 50,
-         *   jumlahMerekMotor: 5,
-         *   jumlahAplikasiOjol: 4,
-         *   detail: [...]
-         * }
-         *
-         * atau:
-         *
-         * {
-         *   stats: {...}
-         * }
-         */
-
-        const stats =
-          data.stats || data;
+        console.log(
+          "STATISTIK API:",
+          data
+        );
 
 
-        if (
-          stats &&
-          (
-            stats.anggotaAktif !== undefined ||
-            stats.totalAktif !== undefined
-          )
-        ) {
-
-          statistikOMB = {
-
-            anggotaAktif:
-              stats.anggotaAktif ??
-              stats.totalAktif ??
-              "-",
-
-            jumlahMerekMotor:
-              stats.jumlahMerekMotor ??
-              stats.totalMerekMotor ??
-              "-",
-
-            jumlahAplikasiOjol:
-              stats.jumlahAplikasiOjol ??
-              stats.totalAplikasiOjol ??
-              "-",
-
-            detail:
-              stats.detail ||
-              stats.details ||
-              []
-
-          };
+        statisticsData = data;
 
 
-          document
-            .getElementById("statAktif")
-            .textContent =
-            statistikOMB.anggotaAktif;
+        tampilStatistikAwal(
+          data
+        );
 
-
-          document
-            .getElementById("statMotor")
-            .textContent =
-            statistikOMB.jumlahMerekMotor;
-
-
-          document
-            .getElementById("statOjol")
-            .textContent =
-            statistikOMB.jumlahAplikasiOjol;
-
-        }
 
       } catch (error) {
 
-        console.log(
-          "Statistik belum tersedia:",
+        console.error(
+          "Gagal load statistik:",
           error
         );
 
@@ -1998,41 +1773,85 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
+       TAMPILKAN 3 KARTU STATISTIK
+    ====================================================== */
+
+    function tampilStatistikAwal(data) {
+
+      const stats =
+        data.statistics ||
+        data.statistik ||
+        data;
+
+
+      const totalAktif =
+        stats.totalAnggotaAktif ??
+        stats.anggotaAktif ??
+        stats.activeMembers ??
+        0;
+
+
+      const totalMotor =
+        stats.totalJenisMotor ??
+        stats.jumlahMerekMotor ??
+        stats.totalMotor ??
+        stats.motorCount ??
+        0;
+
+
+      const totalOjol =
+        stats.totalAplikasiOjol ??
+        stats.jumlahAplikasiOjol ??
+        stats.totalOjol ??
+        stats.ojolCount ??
+        0;
+
+
+      document
+        .getElementById("statActive")
+        .textContent =
+        totalAktif;
+
+
+      document
+        .getElementById("statMotor")
+        .textContent =
+        totalMotor;
+
+
+      document
+        .getElementById("statOjol")
+        .textContent =
+        totalOjol;
+
+    }
+
+
+    /* =====================================================
        CARI ANGGOTA
-    ========================================== */
+    ====================================================== */
 
     async function cariAnggota() {
 
       const input =
         document.getElementById("keyword");
 
-
       const keyword =
         input.value.trim();
-
 
       const message =
         document.getElementById("message");
 
-
       const card =
         document.getElementById("memberCard");
 
-
       const multipleResults =
-        document.getElementById(
-          "multipleResults"
-        );
-
+        document.getElementById("multipleResults");
 
       const button =
-        document.getElementById(
-          "searchButton"
-        );
+        document.getElementById("searchButton");
 
-
-      /* VALIDASI */
 
       if (!keyword) {
 
@@ -2065,7 +1884,6 @@
 
       message.classList.add("show");
 
-
       button.disabled = true;
 
       button.textContent = "...";
@@ -2073,22 +1891,15 @@
 
       try {
 
-        const url =
-          API_URL +
-          "?q=" +
-          encodeURIComponent(keyword) +
-          "&t=" +
-          Date.now();
-
-
         const response =
           await fetch(
-            url,
+            API_URL +
+            "?q=" +
+            encodeURIComponent(keyword) +
+            "&t=" +
+            Date.now(),
             {
               method: "GET",
-
-              redirect: "follow",
-
               cache: "no-store"
             }
           );
@@ -2108,54 +1919,42 @@
           await response.json();
 
 
-        /* =================================
-           CEK HASIL GANDA
+        console.log(
+          "SEARCH API:",
+          data
+        );
 
-           Mendukung:
-           data.results
-           data.members
-           data.data
-        ================================= */
 
-        const results =
-          Array.isArray(data.results)
-            ? data.results
-            : Array.isArray(data.members)
-            ? data.members
-            : Array.isArray(data.data)
-            ? data.data
-            : null;
-
+        /* NAMA GANDA */
 
         if (
-          results &&
-          results.length > 1
+          data.multiple === true ||
+          data.multipleResults ||
+          (
+            Array.isArray(data.results) &&
+            data.results.length > 1
+          )
         ) {
+
+          const results =
+            data.results ||
+            data.members ||
+            data.data ||
+            [];
+
+
+          tampilMultipleResults(
+            results
+          );
 
           message.classList.remove("show");
 
-          tampilMultipleResults(results);
-
           return;
 
         }
 
 
-        /* JIKA HASIL 1 DALAM ARRAY */
-
-        if (
-          results &&
-          results.length === 1
-        ) {
-
-          tampilData(results[0]);
-
-          return;
-
-        }
-
-
-        /* TIDAK DITEMUKAN */
+        /* DATA TIDAK DITEMUKAN */
 
         if (
           !data ||
@@ -2176,9 +1975,41 @@
         }
 
 
-        /* HASIL TUNGGAL */
+        /* JIKA BACKEND MENGEMBALIKAN ARRAY */
+
+        if (
+          Array.isArray(data.results)
+        ) {
+
+          if (data.results.length === 1) {
+
+            tampilData(
+              data.results[0]
+            );
+
+            return;
+
+          }
+
+          if (data.results.length > 1) {
+
+            tampilMultipleResults(
+              data.results
+            );
+
+            message.classList.remove("show");
+
+            return;
+
+          }
+
+        }
+
+
+        /* DATA TUNGGAL */
 
         tampilData(data);
+
 
       } catch (error) {
 
@@ -2186,7 +2017,6 @@
           "ERROR API:",
           error
         );
-
 
         tampilPesan(
           "❌ Gagal terhubung ke database. Coba lagi beberapa saat.",
@@ -2204,9 +2034,9 @@
     }
 
 
-    /* =========================================
-       MULTIPLE RESULTS
-    ========================================== */
+    /* =====================================================
+       TAMPILKAN NAMA GANDA
+    ====================================================== */
 
     function tampilMultipleResults(results) {
 
@@ -2216,130 +2046,154 @@
         );
 
 
-      const list =
-        document.getElementById(
-          "resultList"
-        );
+      if (
+        !results ||
+        results.length === 0
+      ) {
+
+        container.classList.remove("show");
+
+        return;
+
+      }
 
 
-      document
-        .getElementById("resultTitle")
-        .textContent =
-        results.length +
-        " anggota ditemukan. Pilih salah satu:";
+      let html =
+        `
+        <div class="multiple-title">
+          👥 Ditemukan ${results.length} anggota. Pilih anggota yang dimaksud:
+        </div>
+        `;
 
 
-      list.innerHTML = "";
+      results.forEach(function(member, index) {
 
-
-      results.forEach(
-        function(member) {
-
-          const nama =
+        const nama =
+          escapeHtml(
             member.nama ||
             member.namaPanggilan ||
             member.namaLengkap ||
-            "-";
-
-
-          const id =
-            member.id ||
-            "-";
-
-
-          const domisili =
-            member.domisili ||
-            "";
-
-
-          const foto =
-            member.foto ||
-            FOTO_DEFAULT;
-
-
-          const item =
-            document.createElement("button");
-
-
-          item.type =
-            "button";
-
-
-          item.className =
-            "result-item";
-
-
-          item.innerHTML =
-            '<div class="result-photo">' +
-              '<img src="' +
-              escapeHtml(foto) +
-              '" alt="Foto anggota">' +
-            '</div>' +
-
-            '<div class="result-info">' +
-
-              '<div class="result-name">' +
-                escapeHtml(nama) +
-              '</div>' +
-
-              '<div class="result-meta">' +
-                escapeHtml(id) +
-                (
-                  domisili
-                    ? " • " +
-                      escapeHtml(domisili)
-                    : ""
-                ) +
-              '</div>' +
-
-            '</div>' +
-
-            '<div class="result-arrow">›</div>';
-
-
-          item.addEventListener(
-            "click",
-            function() {
-
-              container.classList.remove(
-                "show"
-              );
-
-              tampilData(member);
-
-            }
+            "Tanpa Nama"
           );
 
 
-          list.appendChild(item);
+        const id =
+          escapeHtml(
+            member.id ||
+            "-"
+          );
 
-        }
-      );
+
+        const domisili =
+          escapeHtml(
+            member.domisili ||
+            "-"
+          );
+
+
+        const foto =
+          member.foto ||
+          FOTO_DEFAULT;
+
+
+        html +=
+          `
+          <button
+            type="button"
+            class="member-option"
+            onclick="pilihMember(${index})"
+          >
+
+            <img
+              class="member-option-photo"
+              src="${escapeHtml(foto)}"
+              onerror="this.src='${FOTO_DEFAULT}'"
+              alt="Foto ${nama}"
+            >
+
+            <div class="member-option-info">
+
+              <div class="member-option-name">
+                ${nama}
+              </div>
+
+              <div class="member-option-detail">
+                ${id} • ${domisili}
+              </div>
+
+            </div>
+
+          </button>
+          `;
+
+      });
+
+
+      container.innerHTML =
+        html;
+
+
+      container._members =
+        results;
 
 
       container.classList.add("show");
 
+
+      container.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+
     }
 
 
-    /* =========================================
+    /* =====================================================
+       PILIH HASIL NAMA GANDA
+    ====================================================== */
+
+    function pilihMember(index) {
+
+      const container =
+        document.getElementById(
+          "multipleResults"
+        );
+
+
+      const members =
+        container._members ||
+        [];
+
+
+      const member =
+        members[index];
+
+
+      if (!member) {
+
+        return;
+
+      }
+
+
+      container.classList.remove("show");
+
+      tampilData(member);
+
+    }
+
+
+    /* =====================================================
        TAMPILKAN DATA
-    ========================================== */
+    ====================================================== */
 
     function tampilData(data) {
 
       const message =
         document.getElementById("message");
 
-
       const card =
         document.getElementById("memberCard");
-
-
-      const multipleResults =
-        document.getElementById(
-          "multipleResults"
-        );
 
 
       const nama =
@@ -2382,8 +2236,6 @@
         "";
 
 
-      /* TEKS */
-
       document
         .getElementById("memberName")
         .textContent =
@@ -2420,12 +2272,10 @@
         aplikasiOjol;
 
 
-      /* BADGE STATUS */
+      updateStatusBadge(
+        status
+      );
 
-      updateStatusBadge(status);
-
-
-      /* FOTO */
 
       const photo =
         document.getElementById(
@@ -2436,14 +2286,8 @@
       photo.onerror =
         function() {
 
-          if (
-            this.src !== FOTO_DEFAULT
-          ) {
-
-            this.src =
-              FOTO_DEFAULT;
-
-          }
+          this.src =
+            FOTO_DEFAULT;
 
         };
 
@@ -2452,31 +2296,21 @@
         foto || FOTO_DEFAULT;
 
 
-      /* SEMBUNYIKAN PESAN */
-
       message.classList.remove("show");
 
       message.classList.remove("error");
 
-      multipleResults.classList.remove("show");
-
-
-      /* TAMPILKAN CARD */
 
       card.classList.add("show");
 
 
-      /* SCROLL */
-
       setTimeout(
         function() {
 
-          card.scrollIntoView(
-            {
-              behavior: "smooth",
-              block: "start"
-            }
-          );
+          card.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
 
         },
         100
@@ -2485,114 +2319,82 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
        BADGE STATUS OTOMATIS
-    ========================================== */
+    ====================================================== */
 
     function updateStatusBadge(status) {
 
       const badge =
         document.getElementById(
-          "memberStatusBadge"
+          "statusBadge"
         );
 
 
       const text =
-        document.getElementById(
-          "memberStatusText"
-        );
-
-
-      const value =
         String(status || "")
-          .trim()
-          .toLowerCase();
+          .toLowerCase()
+          .trim();
 
 
       badge.className =
         "status-badge";
 
 
-      /*
-       * STATUS AKTIF / RESMI
-      */
-
       if (
-        value.includes("aktif") ||
-        value.includes("resmi") ||
-        value.includes("valid")
+        text.includes("aktif") ||
+        text.includes("resmi")
       ) {
 
         badge.classList.add(
-          "status-aktif"
+          "status-active"
         );
 
-        text.textContent =
-          "✓ ANGGOTA RESMI OMB";
+        badge.textContent =
+          "🟢 ANGGOTA RESMI";
 
-      }
-
-      /*
-       * MENUNGGU / PROSES
-      */
-
-      else if (
-        value.includes("menunggu") ||
-        value.includes("proses") ||
-        value.includes("pending")
+      } else if (
+        text.includes("pending") ||
+        text.includes("proses") ||
+        text.includes("verifikasi")
       ) {
 
         badge.classList.add(
-          "status-menunggu"
+          "status-pending"
         );
 
-        text.textContent =
-          "MENUNGGU VERIFIKASI";
+        badge.textContent =
+          "🟡 DALAM VERIFIKASI";
 
-      }
-
-      /*
-       * NONAKTIF
-      */
-
-      else if (
-        value.includes("nonaktif") ||
-        value.includes("keluar") ||
-        value.includes("batal")
+      } else if (
+        text.includes("nonaktif") ||
+        text.includes("keluar")
       ) {
 
         badge.classList.add(
-          "status-nonaktif"
+          "status-inactive"
         );
 
-        text.textContent =
-          "ANGGOTA TIDAK AKTIF";
+        badge.textContent =
+          "⚪ TIDAK AKTIF";
 
-      }
-
-      /*
-       * DEFAULT
-      */
-
-      else {
+      } else {
 
         badge.classList.add(
-          "status-default"
+          "status-warning"
         );
 
-        text.textContent =
-          status
-            ? String(status).toUpperCase()
-            : "STATUS BELUM DIKETAHUI";
+        badge.textContent =
+          "🔴 STATUS BELUM VALID";
 
       }
 
     }
 
 
-    /* =========================================
+    /* =====================================================
        PESAN
-    ========================================== */
+    ====================================================== */
 
     function tampilPesan(
       text,
@@ -2623,9 +2425,9 @@
     }
 
 
-    /* =========================================
-       POPUP STATISTIK
-    ========================================== */
+    /* =====================================================
+       OPEN STATISTIK
+    ====================================================== */
 
     function openStats() {
 
@@ -2635,140 +2437,12 @@
         );
 
 
-      const container =
-        document.getElementById(
-          "statsDetail"
-        );
-
-
-      container.innerHTML = "";
-
-
-      /*
-       * RINGKASAN UTAMA
-      */
-
-      const summary = [
-
-        {
-          name: "👥 Anggota Aktif",
-          value: statistikOMB.anggotaAktif
-        },
-
-        {
-          name: "🛵 Jumlah Merek Motor",
-          value: statistikOMB.jumlahMerekMotor
-        },
-
-        {
-          name: "📱 Jumlah Aplikasi Ojol",
-          value: statistikOMB.jumlahAplikasiOjol
-        }
-
-      ];
-
-
-      summary.forEach(
-        function(item) {
-
-          container.appendChild(
-            createStatItem(
-              item.name,
-              item.value,
-              100
-            )
-          );
-
-        }
+      tampilStatistikLengkap(
+        statisticsData
       );
 
 
-      /*
-       * DETAIL TAMBAHAN
-      */
-
-      if (
-        Array.isArray(
-          statistikOMB.detail
-        )
-      ) {
-
-        statistikOMB.detail.forEach(
-          function(item) {
-
-            container.appendChild(
-              createStatItem(
-                item.name ||
-                item.label ||
-                "Data",
-
-                item.value ||
-                item.total ||
-                0,
-
-                item.percent ||
-                0
-              )
-            );
-
-          }
-        );
-
-      }
-
-
       modal.classList.add("show");
-
-    }
-
-
-    function createStatItem(
-      name,
-      value,
-      percent
-    ) {
-
-      const item =
-        document.createElement("div");
-
-
-      item.className =
-        "stat-detail-item";
-
-
-      const width =
-        Math.min(
-          Math.max(
-            Number(percent) || 0,
-            0
-          ),
-          100
-        );
-
-
-      item.innerHTML =
-        '<div class="stat-detail-top">' +
-
-          '<div class="stat-detail-name">' +
-            escapeHtml(String(name)) +
-          '</div>' +
-
-          '<div class="stat-detail-number">' +
-            escapeHtml(String(value)) +
-          '</div>' +
-
-        '</div>' +
-
-        '<div class="bar">' +
-
-          '<div class="bar-fill" style="width:' +
-            width +
-          '%"></div>' +
-
-        '</div>';
-
-
-      return item;
 
     }
 
@@ -2796,9 +2470,180 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
+       STATISTIK LENGKAP
+    ====================================================== */
+
+    function tampilStatistikLengkap(data) {
+
+      const stats =
+        data?.statistics ||
+        data?.statistik ||
+        data ||
+        {};
+
+
+      const statusData =
+        stats.status ||
+        stats.statusAnggota ||
+        {};
+
+
+      const motorData =
+        stats.motor ||
+        stats.motorStats ||
+        stats.merekMotor ||
+        {};
+
+
+      const ojolData =
+        stats.ojol ||
+        stats.aplikasiOjol ||
+        stats.ojolStats ||
+        {};
+
+
+      renderStatList(
+        "statusStatsList",
+        statusData
+      );
+
+
+      renderStatList(
+        "motorStatsList",
+        motorData
+      );
+
+
+      renderStatList(
+        "ojolStatsList",
+        ojolData
+      );
+
+    }
+
+
+    function renderStatList(
+      elementId,
+      data
+    ) {
+
+      const element =
+        document.getElementById(
+          elementId
+        );
+
+
+      let entries =
+        [];
+
+
+      if (
+        Array.isArray(data)
+      ) {
+
+        entries =
+          data.map(function(item) {
+
+            return {
+
+              name:
+                item.name ||
+                item.nama ||
+                item.label ||
+                "-",
+
+              value:
+                item.value ||
+                item.jumlah ||
+                item.total ||
+                0
+
+            };
+
+          });
+
+      } else if (
+        data &&
+        typeof data === "object"
+      ) {
+
+        entries =
+          Object.entries(data)
+          .map(function(item) {
+
+            return {
+
+              name: item[0],
+
+              value: item[1]
+
+            };
+
+          });
+
+      }
+
+
+      if (
+        entries.length === 0
+      ) {
+
+        element.innerHTML =
+          `
+          <div class="detail-item">
+            <span class="detail-name">
+              Data belum tersedia
+            </span>
+          </div>
+          `;
+
+        return;
+
+      }
+
+
+      entries.sort(
+        function(a, b) {
+
+          return (
+            Number(b.value) -
+            Number(a.value)
+          );
+
+        }
+      );
+
+
+      element.innerHTML =
+        entries
+        .map(
+          function(item) {
+
+            return `
+              <div class="detail-item">
+
+                <div class="detail-name">
+                  ${escapeHtml(item.name)}
+                </div>
+
+                <div class="detail-number">
+                  ${escapeHtml(item.value)}
+                </div>
+
+              </div>
+            `;
+
+          }
+        )
+        .join("");
+
+    }
+
+
+    /* =====================================================
        PREVIEW FOTO
-    ========================================== */
+    ====================================================== */
 
     function previewFoto() {
 
@@ -2842,7 +2687,7 @@
     }
 
 
-    function tutupPreview(event) {
+    function closePhotoOutside(event) {
 
       if (
         event.target.id === "photoModal"
@@ -2855,15 +2700,17 @@
     }
 
 
-    /* =========================================
+    /* =====================================================
        ESC
-    ========================================== */
+    ====================================================== */
 
     document.addEventListener(
       "keydown",
       function(event) {
 
-        if (event.key === "Escape") {
+        if (
+          event.key === "Escape"
+        ) {
 
           closePreview();
 
@@ -2875,18 +2722,35 @@
     );
 
 
-    /* =========================================
+    /* =====================================================
        ESCAPE HTML
-    ========================================== */
+    ====================================================== */
 
     function escapeHtml(value) {
 
-      return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+      return String(
+        value ?? ""
+      )
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+      .replace(
+        /</g,
+        "&lt;"
+      )
+      .replace(
+        />/g,
+        "&gt;"
+      )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+      .replace(
+        /'/g,
+        "&#039;"
+      );
 
     }
 
