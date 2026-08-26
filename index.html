@@ -10,7 +10,7 @@
 
   <title>Cek Keanggotaan OMB</title>
 
-  <!-- FONT -->
+  <!-- GOOGLE FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -43,7 +43,6 @@
     }
 
     body {
-      width: 100%;
       min-height: 100vh;
       overflow-x: hidden;
 
@@ -52,13 +51,13 @@
       background:
         radial-gradient(
           circle at top left,
-          rgba(27, 125, 65, 0.12),
+          rgba(11, 139, 67, 0.12),
           transparent 30%
         ),
         linear-gradient(
           180deg,
-          #f4f7f5 0%,
-          #edf1ee 100%
+          #f5f8f6 0%,
+          #edf2ee 100%
         );
 
       color: #243029;
@@ -67,6 +66,10 @@
     button,
     input {
       font-family: inherit;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
     }
 
 
@@ -78,7 +81,7 @@
       width: 100%;
       max-width: 720px;
       margin: 0 auto;
-      padding-bottom: 30px;
+      padding-bottom: 35px;
     }
 
 
@@ -90,14 +93,12 @@
       position: relative;
       overflow: hidden;
 
-      width: 100%;
-
       text-align: center;
 
       padding:
-        22px
+        24px
         max(16px, env(safe-area-inset-right))
-        26px
+        28px
         max(16px, env(safe-area-inset-left));
 
       background:
@@ -111,10 +112,27 @@
       color: #ffffff;
 
       box-shadow:
-        0 5px 18px rgba(0, 70, 30, 0.18);
+        0 6px 20px rgba(0, 70, 30, 0.18);
     }
 
     .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 200px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.05);
+
+      top: -110px;
+      left: -80px;
+    }
+
+    .hero::after {
       content: "";
 
       position: absolute;
@@ -124,34 +142,21 @@
 
       border-radius: 50%;
 
-      background: rgba(255,255,255,0.05);
+      background:
+        rgba(255,255,255,0.04);
 
-      top: -110px;
-      left: -70px;
+      right: -90px;
+      bottom: -120px;
     }
 
-    .hero::after {
-      content: "";
-
-      position: absolute;
-
-      width: 160px;
-      height: 160px;
-
-      border-radius: 50%;
-
-      background: rgba(255,255,255,0.04);
-
-      right: -80px;
-      bottom: -110px;
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .logo-box {
-      position: relative;
-      z-index: 1;
-
-      width: 74px;
-      height: 74px;
+      width: 76px;
+      height: 76px;
 
       margin: 0 auto 10px;
 
@@ -164,40 +169,48 @@
       background: #ffffff;
 
       box-shadow:
-        0 8px 20px rgba(0,0,0,0.22);
+        0 8px 22px rgba(0,0,0,0.22);
+
+      animation:
+        logoFloat 3s ease-in-out infinite;
     }
 
     .logo-box img {
-      width: 64px;
-      height: 64px;
-
-      border-radius: 50%;
+      width: 66px;
+      height: 66px;
 
       object-fit: cover;
-      display: block;
+      border-radius: 50%;
+    }
+
+    @keyframes logoFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+
     }
 
     .hero h1 {
-      position: relative;
-      z-index: 1;
-
-      font-size: clamp(20px, 5vw, 27px);
-      line-height: 1.2;
-
+      font-size: clamp(20px, 5vw, 28px);
       font-weight: 800;
+      line-height: 1.2;
       letter-spacing: 0.4px;
     }
 
     .hero p {
-      position: relative;
-      z-index: 1;
-
       margin-top: 5px;
 
-      font-size: clamp(10px, 2.8vw, 13px);
-
-      color: rgba(255,255,255,0.86);
+      font-size: 12px;
       font-weight: 500;
+
+      color:
+        rgba(255,255,255,0.86);
     }
 
 
@@ -206,8 +219,6 @@
     ====================================================== */
 
     .content {
-      width: 100%;
-
       padding:
         16px
         max(14px, env(safe-area-inset-right))
@@ -223,21 +234,21 @@
     .search-card {
       width: 100%;
 
-      padding: 9px;
-
       display: flex;
-      align-items: center;
       gap: 8px;
+
+      padding: 8px;
 
       border-radius: 18px;
 
-      background: rgba(255,255,255,0.90);
-
-      box-shadow:
-        0 8px 25px rgba(20, 70, 40, 0.10);
+      background:
+        rgba(255,255,255,0.92);
 
       border:
         1px solid rgba(0,0,0,0.04);
+
+      box-shadow:
+        0 10px 28px rgba(20,70,40,0.10);
     }
 
     .search-input {
@@ -246,18 +257,21 @@
 
       height: 50px;
 
-      border: 1px solid #dce4df;
-      border-radius: 13px;
-
       padding: 0 14px;
+
+      border:
+        1px solid #dce5df;
+
+      border-radius: 13px;
 
       outline: none;
 
+      background: #f8faf9;
+
+      color: #25332b;
+
       font-size: 14px;
       font-weight: 500;
-
-      background: #f8faf9;
-      color: #25332b;
     }
 
     .search-input:focus {
@@ -272,13 +286,13 @@
     .search-button {
       flex: 0 0 auto;
 
-      min-width: 70px;
+      min-width: 72px;
       height: 50px;
+
+      padding: 0 16px;
 
       border: none;
       border-radius: 13px;
-
-      padding: 0 15px;
 
       cursor: pointer;
 
@@ -295,7 +309,11 @@
       font-weight: 700;
 
       box-shadow:
-        0 5px 14px rgba(8,115,55,0.25);
+        0 5px 15px rgba(8,115,55,0.25);
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
     }
 
     .search-button:active {
@@ -309,6 +327,129 @@
 
 
     /* =====================================================
+       STATISTIK AWAL
+    ====================================================== */
+
+    .stats-section {
+      margin-top: 18px;
+    }
+
+    .stats-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 10px;
+    }
+
+    .stats-title {
+      font-size: 13px;
+      font-weight: 800;
+
+      color: #4c5a51;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 9px;
+    }
+
+    .stat-card {
+      min-width: 0;
+
+      padding: 13px 10px;
+
+      text-align: center;
+
+      border-radius: 17px;
+
+      background:
+        rgba(255,255,255,0.92);
+
+      border:
+        1px solid rgba(0,0,0,0.04);
+
+      box-shadow:
+        0 8px 20px rgba(20,70,40,0.08);
+
+      animation:
+        statAppear 0.45s ease both;
+    }
+
+    .stat-card:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    .stat-card:nth-child(3) {
+      animation-delay: 0.16s;
+    }
+
+    @keyframes statAppear {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    .stat-icon {
+      font-size: 18px;
+    }
+
+    .stat-number {
+      margin-top: 3px;
+
+      font-size: 20px;
+      font-weight: 800;
+
+      color: #087337;
+    }
+
+    .stat-label {
+      margin-top: 1px;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      color: #7a867e;
+
+      line-height: 1.25;
+    }
+
+    .stats-more-button {
+      width: 100%;
+
+      margin-top: 11px;
+      padding: 11px;
+
+      border:
+        1px solid #dce9df;
+
+      border-radius: 14px;
+
+      cursor: pointer;
+
+      background:
+        rgba(255,255,255,0.75);
+
+      color: #087337;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
        MESSAGE
     ====================================================== */
 
@@ -317,8 +458,8 @@
 
       width: 100%;
 
-      margin-top: 16px;
-      padding: 15px;
+      margin-top: 18px;
+      padding: 16px;
 
       border-radius: 16px;
 
@@ -326,10 +467,10 @@
 
       background: #ffffff;
 
+      color: #68736d;
+
       font-size: 13px;
       font-weight: 600;
-
-      color: #68736d;
 
       box-shadow:
         0 6px 20px rgba(0,0,0,0.05);
@@ -337,7 +478,6 @@
 
     .message.show {
       display: block;
-      animation: fadeIn 0.25s ease;
     }
 
     .message.error {
@@ -357,7 +497,8 @@
 
       background: #0a813e;
 
-      animation: blink 1s infinite;
+      animation:
+        blink 1s infinite;
     }
 
     @keyframes blink {
@@ -375,108 +516,115 @@
 
 
     /* =====================================================
-       STATISTIK AWAL
+       HASIL NAMA GANDA
     ====================================================== */
 
-    .stats-section {
+    .multiple-results {
+      display: none;
+
       margin-top: 18px;
-      animation: fadeUp 0.45s ease;
     }
 
-    .stats-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .multiple-results.show {
+      display: block;
+      animation: showCard 0.35s ease;
+    }
 
+    .multiple-title {
       margin-bottom: 10px;
 
-      padding: 0 2px;
+      font-size: 13px;
+      font-weight: 700;
 
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-
-      color: #657168;
+      color: #56635b;
     }
 
-    .stats-grid {
+    .result-list {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
       gap: 9px;
     }
 
-    .stat-card {
-      min-width: 0;
+    .result-item {
+      width: 100%;
 
-      padding: 13px 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 12px;
+
+      border:
+        1px solid #e2e9e4;
 
       border-radius: 17px;
 
-      text-align: center;
+      cursor: pointer;
 
       background:
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #f4f8f5
-        );
+        rgba(255,255,255,0.94);
 
-      border:
-        1px solid #e5ece7;
+      text-align: left;
 
       box-shadow:
         0 7px 18px rgba(20,70,40,0.07);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .stat-icon {
-      font-size: 20px;
-      margin-bottom: 4px;
+    .result-item:active {
+      transform: scale(0.98);
     }
 
-    .stat-number {
-      font-size: clamp(18px, 5vw, 24px);
+    .result-photo {
+      width: 48px;
+      height: 48px;
+
+      flex: 0 0 48px;
+
+      overflow: hidden;
+
+      border-radius: 50%;
+
+      background: #edf2ee;
+    }
+
+    .result-photo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .result-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .result-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      font-size: 14px;
       font-weight: 800;
 
-      line-height: 1.1;
-
-      color: #087337;
+      color: #28352d;
     }
 
-    .stat-label {
-      margin-top: 4px;
+    .result-id {
+      margin-top: 2px;
 
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 700;
 
-      line-height: 1.3;
-
-      color: #77827b;
-    }
-
-    .stat-button {
-      width: 100%;
-
-      margin-top: 12px;
-      padding: 12px;
-
-      border: none;
-      border-radius: 14px;
-
-      cursor: pointer;
-
-      background: #e8f4ec;
-
       color: #087337;
-
-      font-size: 12px;
-      font-weight: 800;
     }
 
-    .stat-button:active {
-      transform: scale(0.98);
+    .result-arrow {
+      font-size: 20px;
+      color: #8b968f;
     }
 
 
@@ -486,8 +634,6 @@
 
     .member-card {
       display: none;
-
-      width: 100%;
 
       margin-top: 18px;
 
@@ -506,12 +652,14 @@
         1px solid rgba(0,0,0,0.05);
 
       box-shadow:
-        0 12px 32px rgba(20, 70, 40, 0.13);
+        0 12px 32px rgba(20,70,40,0.13);
     }
 
     .member-card.show {
       display: block;
-      animation: showCard 0.35s ease;
+
+      animation:
+        showCard 0.35s ease;
     }
 
     @keyframes showCard {
@@ -529,7 +677,6 @@
     }
 
     .top-line {
-      width: 100%;
       height: 4px;
 
       background:
@@ -561,6 +708,8 @@
 
       margin: 0 auto 12px;
 
+      overflow: hidden;
+
       border-radius: 50%;
 
       padding: 4px;
@@ -576,8 +725,6 @@
 
       box-shadow:
         0 8px 22px rgba(20,80,45,0.18);
-
-      overflow: hidden;
     }
 
     .profile-photo img {
@@ -600,8 +747,6 @@
       line-height: 1.2;
 
       color: #26342c;
-
-      word-break: break-word;
     }
 
     .member-id {
@@ -622,46 +767,44 @@
       letter-spacing: 0.8px;
     }
 
-
-    /* =====================================================
-       BADGE STATUS
-    ====================================================== */
-
     .status-badge {
       display: inline-flex;
-
       align-items: center;
-      justify-content: center;
-
       gap: 6px;
 
       margin-top: 10px;
-      padding: 7px 13px;
+      padding: 6px 12px;
 
       border-radius: 30px;
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
+
+      letter-spacing: 0.3px;
     }
 
-    .status-active {
-      background: #e7f7ed;
-      color: #087337;
+    .status-badge.active {
+      background: #e7f6eb;
+      color: #178342;
     }
 
-    .status-inactive {
-      background: #f1f2f1;
-      color: #707770;
+    .status-badge.inactive {
+      background: #fff1f1;
+      color: #c44747;
     }
 
-    .status-pending {
-      background: #fff7df;
-      color: #a77500;
+    .status-badge.pending {
+      background: #fff7e2;
+      color: #b77c00;
     }
 
-    .status-warning {
-      background: #fff0f0;
-      color: #c34242;
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: currentColor;
     }
 
 
@@ -670,8 +813,6 @@
     ====================================================== */
 
     .info-grid {
-      width: 100%;
-
       display: grid;
 
       grid-template-columns:
@@ -708,7 +849,7 @@
 
       color: #7c8780;
 
-      letter-spacing: 0.8px;
+      letter-spacing: 0.7px;
 
       text-transform: uppercase;
     }
@@ -746,10 +887,7 @@
     }
 
     .motor-box {
-      width: 100%;
-
       margin-top: 12px;
-
       padding: 15px;
 
       border-radius: 17px;
@@ -766,8 +904,6 @@
     }
 
     .motor-name {
-      overflow-wrap: anywhere;
-
       font-size: 15px;
       font-weight: 800;
 
@@ -775,8 +911,6 @@
     }
 
     .ojol-row {
-      width: 100%;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -821,106 +955,11 @@
 
 
     /* =====================================================
-       HASIL NAMA GANDA
-    ====================================================== */
-
-    .multiple-results {
-      display: none;
-
-      margin-top: 18px;
-    }
-
-    .multiple-results.show {
-      display: block;
-      animation: fadeUp 0.35s ease;
-    }
-
-    .multiple-title {
-      margin-bottom: 10px;
-
-      font-size: 13px;
-      font-weight: 800;
-
-      color: #4f5c54;
-    }
-
-    .member-option {
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-
-      gap: 12px;
-
-      margin-bottom: 9px;
-      padding: 12px;
-
-      border: 1px solid #e5ebe7;
-      border-radius: 17px;
-
-      cursor: pointer;
-
-      background: #ffffff;
-
-      text-align: left;
-
-      box-shadow:
-        0 5px 15px rgba(20,70,40,0.05);
-
-      transition: transform 0.2s ease;
-    }
-
-    .member-option:active {
-      transform: scale(0.98);
-    }
-
-    .member-option-photo {
-      width: 46px;
-      height: 46px;
-
-      flex: 0 0 46px;
-
-      border-radius: 50%;
-
-      object-fit: cover;
-
-      background: #edf1ee;
-    }
-
-    .member-option-info {
-      min-width: 0;
-      flex: 1;
-    }
-
-    .member-option-name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      font-size: 13px;
-      font-weight: 800;
-
-      color: #26342c;
-    }
-
-    .member-option-detail {
-      margin-top: 3px;
-
-      font-size: 10px;
-      font-weight: 600;
-
-      color: #7a857e;
-    }
-
-
-    /* =====================================================
        FOOTER
     ====================================================== */
 
     .footer {
-      width: 100%;
-
-      padding: 22px 10px 5px;
+      padding: 25px 10px 5px;
 
       text-align: center;
 
@@ -949,6 +988,7 @@
       display: none;
 
       position: fixed;
+
       z-index: 9999;
 
       inset: 0;
@@ -961,128 +1001,19 @@
       align-items: center;
       justify-content: center;
 
-      background: rgba(0,0,0,0.55);
+      background:
+        rgba(0,0,0,0.55);
 
-      backdrop-filter: blur(5px);
+      backdrop-filter:
+        blur(5px);
     }
 
     .modal.show {
       display: flex;
-      animation: fadeIn 0.25s ease;
+
+      animation:
+        fadeIn 0.2s ease;
     }
-
-    .modal-box {
-      position: relative;
-
-      width: min(94vw, 580px);
-      max-height: 85dvh;
-
-      overflow-y: auto;
-
-      padding: 22px;
-
-      border-radius: 24px;
-
-      background: #ffffff;
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,0.25);
-
-      animation: modalUp 0.3s ease;
-    }
-
-    .modal-title {
-      margin-bottom: 16px;
-
-      font-size: 18px;
-      font-weight: 800;
-
-      color: #26342c;
-    }
-
-    .close-modal {
-      position: absolute;
-
-      top: 12px;
-      right: 12px;
-
-      width: 38px;
-      height: 38px;
-
-      border: none;
-      border-radius: 50%;
-
-      cursor: pointer;
-
-      background: #f0f3f1;
-
-      color: #465048;
-
-      font-size: 22px;
-    }
-
-
-    /* =====================================================
-       STATISTIK DETAIL
-    ====================================================== */
-
-    .detail-stat {
-      margin-top: 16px;
-    }
-
-    .detail-stat-title {
-      margin-bottom: 9px;
-
-      font-size: 12px;
-      font-weight: 800;
-
-      color: #5e6a62;
-    }
-
-    .detail-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .detail-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 12px;
-
-      padding: 11px 13px;
-
-      border-radius: 13px;
-
-      background: #f6f9f7;
-    }
-
-    .detail-name {
-      font-size: 12px;
-      font-weight: 700;
-
-      color: #465249;
-    }
-
-    .detail-number {
-      padding: 4px 10px;
-
-      border-radius: 20px;
-
-      background: #e6f3ea;
-
-      color: #087337;
-
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-
-    /* =====================================================
-       ANIMATION
-    ====================================================== */
 
     @keyframes fadeIn {
 
@@ -1096,25 +1027,31 @@
 
     }
 
-    @keyframes fadeUp {
+    .modal-box {
+      position: relative;
 
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
+      width: min(100%, 520px);
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      max-height: 85dvh;
 
+      overflow-y: auto;
+
+      border-radius: 24px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 20px 55px rgba(0,0,0,0.25);
+
+      animation:
+        modalUp 0.3s ease;
     }
 
     @keyframes modalUp {
 
       from {
         opacity: 0;
-        transform: translateY(15px) scale(0.97);
+        transform: translateY(20px) scale(0.97);
       }
 
       to {
@@ -1122,6 +1059,169 @@
         transform: translateY(0) scale(1);
       }
 
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px;
+
+      border-bottom:
+        1px solid #edf0ee;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+
+      color: #28352d;
+    }
+
+    .close-button {
+      width: 36px;
+      height: 36px;
+
+      border: none;
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      background: #f1f4f2;
+
+      color: #59645d;
+
+      font-size: 21px;
+    }
+
+    .stats-modal-content {
+      padding: 16px;
+    }
+
+    .stats-detail-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+    .detail-stat {
+      padding: 15px;
+
+      border-radius: 16px;
+
+      background: #f5f8f6;
+
+      border:
+        1px solid #e8eeea;
+    }
+
+    .detail-number {
+      font-size: 22px;
+      font-weight: 800;
+
+      color: #087337;
+    }
+
+    .detail-label {
+      margin-top: 2px;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      color: #78847d;
+    }
+
+    .stats-list-section {
+      margin-top: 20px;
+    }
+
+    .stats-list-title {
+      margin-bottom: 9px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      color: #56635b;
+
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stats-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stats-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      padding: 12px 13px;
+
+      border-radius: 14px;
+
+      background: #f7f9f8;
+
+      border:
+        1px solid #edf1ee;
+    }
+
+    .stats-list-name {
+      font-size: 12px;
+      font-weight: 700;
+
+      color: #405047;
+    }
+
+    .stats-list-total {
+      min-width: 32px;
+
+      padding: 4px 8px;
+
+      border-radius: 20px;
+
+      text-align: center;
+
+      background: #e7f4eb;
+
+      color: #087337;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+
+    /* =====================================================
+       MODAL FOTO
+    ====================================================== */
+
+    .photo-modal-content {
+      position: relative;
+
+      width: min(92vw, 520px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-modal-content img {
+      max-width: 100%;
+      max-height: 80dvh;
+
+      border-radius: 18px;
+
+      object-fit: contain;
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,0.45);
     }
 
 
@@ -1132,36 +1232,26 @@
     @media (max-width: 480px) {
 
       .hero {
-        padding-top: 18px;
-        padding-bottom: 20px;
+        padding-top: 19px;
+        padding-bottom: 22px;
       }
 
       .logo-box {
-        width: 64px;
-        height: 64px;
+        width: 66px;
+        height: 66px;
       }
 
       .logo-box img {
-        width: 56px;
-        height: 56px;
+        width: 57px;
+        height: 57px;
       }
 
       .hero h1 {
-        font-size: 18px;
+        font-size: 19px;
       }
 
       .content {
-        padding: 12px 12px 20px;
-      }
-
-      .search-card {
-        gap: 7px;
-        padding: 7px;
-      }
-
-      .search-input,
-      .search-button {
-        height: 48px;
+        padding: 13px 12px 20px;
       }
 
       .stats-grid {
@@ -1169,7 +1259,11 @@
       }
 
       .stat-card {
-        padding: 12px 5px;
+        padding: 12px 6px;
+      }
+
+      .stat-number {
+        font-size: 18px;
       }
 
       .stat-label {
@@ -1185,29 +1279,20 @@
       }
 
       .profile-photo {
-        width: 86px;
-        height: 86px;
+        width: 88px;
+        height: 88px;
       }
 
       .info-grid {
+        padding: 12px;
         gap: 8px;
-        padding: 12px;
-      }
-
-      .info-box {
-        padding: 12px;
       }
 
       .motor-section {
         padding: 0 12px 14px;
       }
 
-      .modal-box {
-        padding: 20px 16px;
-      }
-
     }
-
 
     @media (max-width: 360px) {
 
@@ -1215,12 +1300,15 @@
         flex-direction: column;
       }
 
-      .search-input,
       .search-button {
         width: 100%;
       }
 
       .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-detail-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1235,22 +1323,28 @@
   <div class="app">
 
 
-    <!-- HEADER -->
+    <!-- =================================================
+         HEADER
+    ================================================== -->
 
     <header class="hero">
 
-      <div class="logo-box">
+      <div class="hero-content">
 
-        <img
-          src="https://drive.google.com/thumbnail?id=1WOCYeF-v5IAqF7QnaoakBiLukuULA5Cd&sz=w300"
-          alt="Logo OMB"
-        >
+        <div class="logo-box">
+
+          <img
+            src="https://drive.google.com/thumbnail?id=1WOCYeF-v5IAqF7QnaoakBiLukuULA5Cd&sz=w300"
+            alt="Logo OMB"
+          >
+
+        </div>
+
+        <h1>CEK KEANGGOTAAN OMB</h1>
+
+        <p>Ojol Molis Bersatu</p>
 
       </div>
-
-      <h1>CEK KEANGGOTAAN OMB</h1>
-
-      <p>Ojol Molis Bersatu</p>
 
     </header>
 
@@ -1258,7 +1352,9 @@
     <main class="content">
 
 
-      <!-- SEARCH -->
+      <!-- =================================================
+           SEARCH
+      ================================================== -->
 
       <div class="search-card">
 
@@ -1266,7 +1362,7 @@
           type="search"
           id="keyword"
           class="search-input"
-          placeholder="🔎 Cari ID atau nama anggota..."
+          placeholder="🔎 Cari ID atau nama..."
           autocomplete="off"
           enterkeyhint="search"
         >
@@ -1275,7 +1371,6 @@
           type="button"
           id="searchButton"
           class="search-button"
-          onclick="cariAnggota()"
         >
           Cari
         </button>
@@ -1283,33 +1378,50 @@
       </div>
 
 
-      <!-- MESSAGE -->
+      <!-- =================================================
+           STATISTIK AWAL
+      ================================================== -->
 
-      <div
-        id="message"
-        class="message"
-      ></div>
+      <section class="stats-section">
 
+        <div class="stats-header">
 
-      <!-- STATISTIK AWAL -->
+          <div class="stats-title">
+            📊 Statistik OMB
+          </div>
 
-      <section
-        id="statsSection"
-        class="stats-section"
-      >
-
-        <div class="stats-title">
-          📊 Statistik OMB
         </div>
 
         <div class="stats-grid">
 
           <div class="stat-card">
 
-            <div class="stat-icon">👥</div>
+            <div class="stat-icon">
+              👥
+            </div>
 
             <div
-              id="statActive"
+              id="statTotal"
+              class="stat-number"
+            >
+              -
+            </div>
+
+            <div class="stat-label">
+              Total Anggota
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">
+              🟢
+            </div>
+
+            <div
+              id="statAktif"
               class="stat-number"
             >
               -
@@ -1324,7 +1436,9 @@
 
           <div class="stat-card">
 
-            <div class="stat-icon">🛵</div>
+            <div class="stat-icon">
+              🛵
+            </div>
 
             <div
               id="statMotor"
@@ -1334,25 +1448,7 @@
             </div>
 
             <div class="stat-label">
-              Jenis Motor
-            </div>
-
-          </div>
-
-
-          <div class="stat-card">
-
-            <div class="stat-icon">📱</div>
-
-            <div
-              id="statOjol"
-              class="stat-number"
-            >
-              -
-            </div>
-
-            <div class="stat-label">
-              Aplikasi Ojol
+              Data Motor
             </div>
 
           </div>
@@ -1362,24 +1458,52 @@
 
         <button
           type="button"
-          class="stat-button"
-          onclick="openStats()"
+          class="stats-more-button"
+          onclick="bukaStatistik()"
         >
-          📊 Lihat Statistik OMB
+          Lihat Statistik OMB →
         </button>
 
       </section>
 
 
-      <!-- HASIL NAMA GANDA -->
+      <!-- =================================================
+           MESSAGE
+      ================================================== -->
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+
+      <!-- =================================================
+           MULTIPLE RESULTS
+      ================================================== -->
 
       <section
         id="multipleResults"
         class="multiple-results"
-      ></section>
+      >
+
+        <div
+          id="multipleTitle"
+          class="multiple-title"
+        >
+          Pilih anggota:
+        </div>
+
+        <div
+          id="resultList"
+          class="result-list"
+        ></div>
+
+      </section>
 
 
-      <!-- MEMBER CARD -->
+      <!-- =================================================
+           MEMBER CARD
+      ================================================== -->
 
       <section
         id="memberCard"
@@ -1394,6 +1518,7 @@
           <div
             class="profile-photo"
             onclick="previewFoto()"
+            title="Tekan untuk melihat foto"
           >
 
             <img
@@ -1421,19 +1546,21 @@
           </div>
 
 
-          <!-- STATUS OTOMATIS -->
-
           <div
             id="statusBadge"
-            class="status-badge status-active"
+            class="status-badge pending"
           >
-            🟢 ANGGOTA RESMI
+
+            <span class="status-dot"></span>
+
+            <span id="statusBadgeText">
+              STATUS
+            </span>
+
           </div>
 
         </div>
 
-
-        <!-- INFO -->
 
         <div class="info-grid">
 
@@ -1456,7 +1583,7 @@
           <div class="info-box">
 
             <div class="info-label">
-              STATUS
+              🟢 Status Keanggotaan
             </div>
 
             <div
@@ -1470,8 +1597,6 @@
 
         </div>
 
-
-        <!-- MOTOR -->
 
         <div class="motor-section">
 
@@ -1496,7 +1621,6 @@
                 📱 Aplikasi Ojol
               </div>
 
-
               <div
                 id="memberOjol"
                 class="ojol-value"
@@ -1513,7 +1637,9 @@
       </section>
 
 
-      <!-- FOOTER -->
+      <!-- =================================================
+           FOOTER
+      ================================================== -->
 
       <footer class="footer">
 
@@ -1522,17 +1648,7 @@
         </div>
 
         <div class="footer-credit">
-
-          Created by
-
-          <a
-            href="https://instagram.com/fikrielektrik"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Fikri Elektrik
-          </a>
-
+          Created by Fikri Elektrik
         </div>
 
       </footer>
@@ -1549,63 +1665,124 @@
   <div
     id="statsModal"
     class="modal"
-    onclick="closeStatsOutside(event)"
+    onclick="tutupModalStatistik(event)"
   >
 
     <div class="modal-box">
 
-      <button
-        type="button"
-        class="close-modal"
-        onclick="closeStats()"
-      >
-        ×
-      </button>
+      <div class="modal-header">
 
-
-      <div class="modal-title">
-        📊 Statistik Lengkap OMB
-      </div>
-
-
-      <div class="detail-stat">
-
-        <div class="detail-stat-title">
-          👥 Status Keanggotaan
+        <div class="modal-title">
+          📊 Statistik OMB
         </div>
 
-        <div
-          id="statusStatsList"
-          class="detail-list"
-        ></div>
+        <button
+          type="button"
+          class="close-button"
+          onclick="closeStatistik()"
+        >
+          ×
+        </button>
 
       </div>
 
 
-      <div class="detail-stat">
+      <div class="stats-modal-content">
 
-        <div class="detail-stat-title">
-          🛵 Pengguna Merek Motor
+        <div class="stats-detail-grid">
+
+          <div class="detail-stat">
+
+            <div
+              id="detailTotal"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              TOTAL ANGGOTA
+            </div>
+
+          </div>
+
+
+          <div class="detail-stat">
+
+            <div
+              id="detailAktif"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              ANGGOTA AKTIF
+            </div>
+
+          </div>
+
+
+          <div class="detail-stat">
+
+            <div
+              id="detailMotor"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              PENGGUNA MOTOR
+            </div>
+
+          </div>
+
+
+          <div class="detail-stat">
+
+            <div
+              id="detailOjol"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              PENGGUNA OJOL
+            </div>
+
+          </div>
+
         </div>
 
-        <div
-          id="motorStatsList"
-          class="detail-list"
-        ></div>
 
-      </div>
+        <div class="stats-list-section">
 
+          <div class="stats-list-title">
+            🛵 Berdasarkan Merek Motor
+          </div>
 
-      <div class="detail-stat">
+          <div
+            id="motorStatsList"
+            class="stats-list"
+          ></div>
 
-        <div class="detail-stat-title">
-          📱 Pengguna Aplikasi Ojol
         </div>
 
-        <div
-          id="ojolStatsList"
-          class="detail-list"
-        ></div>
+
+        <div class="stats-list-section">
+
+          <div class="stats-list-title">
+            📱 Berdasarkan Aplikasi Ojol
+          </div>
+
+          <div
+            id="ojolStatsList"
+            class="stats-list"
+          ></div>
+
+        </div>
 
       </div>
 
@@ -1621,30 +1798,30 @@
   <div
     id="photoModal"
     class="modal"
-    onclick="closePhotoOutside(event)"
+    onclick="tutupPreview(event)"
   >
 
-    <div class="modal-box">
+    <div class="photo-modal-content">
 
       <button
         type="button"
-        class="close-modal"
+        class="close-button"
+        style="
+          position:absolute;
+          top:-14px;
+          right:-10px;
+          z-index:2;
+        "
         onclick="closePreview()"
       >
         ×
       </button>
 
+
       <img
         id="previewImage"
         src=""
         alt="Preview Foto Anggota"
-        style="
-          width:100%;
-          max-height:75dvh;
-          object-fit:contain;
-          border-radius:16px;
-          display:block;
-        "
       >
 
     </div>
@@ -1655,7 +1832,7 @@
   <script>
 
     /* =====================================================
-       API BARU
+       KONFIGURASI API
     ====================================================== */
 
     const API_URL =
@@ -1671,32 +1848,47 @@
 
 
     /* =====================================================
-       SIMPAN DATA STATISTIK
+       DATA STATISTIK
     ====================================================== */
 
-    let statisticsData = null;
+    let statistikData = null;
 
 
     /* =====================================================
-       ENTER = CARI
+       DOM
     ====================================================== */
 
-    document
-      .getElementById("keyword")
-      .addEventListener(
-        "keydown",
-        function(event) {
+    const inputKeyword =
+      document.getElementById("keyword");
 
-          if (event.key === "Enter") {
+    const searchButton =
+      document.getElementById("searchButton");
 
-            event.preventDefault();
 
-            cariAnggota();
+    /* =====================================================
+       ENTER
+    ====================================================== */
 
-          }
+    inputKeyword.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Enter") {
+
+          event.preventDefault();
+
+          cariAnggota();
 
         }
-      );
+
+      }
+    );
+
+
+    searchButton.addEventListener(
+      "click",
+      cariAnggota
+    );
 
 
     /* =====================================================
@@ -1707,65 +1899,56 @@
       "DOMContentLoaded",
       function() {
 
-        loadStatistics();
+        loadStatistik();
 
       }
     );
 
 
     /* =====================================================
-       LOAD STATISTIK
+       FETCH API
     ====================================================== */
 
-    async function loadStatistics() {
+    async function fetchAPI(url) {
+
+      const response =
+        await fetch(
+          url,
+          {
+            method: "GET",
+            redirect: "follow",
+            cache: "no-store"
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "HTTP Error " +
+          response.status
+        );
+
+      }
+
+
+      const text =
+        await response.text();
+
 
       try {
 
-        const response =
-          await fetch(
-            API_URL +
-            "?action=statistics&t=" +
-            Date.now(),
-            {
-              method: "GET",
-              cache: "no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "HTTP " +
-            response.status
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        console.log(
-          "STATISTIK API:",
-          data
-        );
-
-
-        statisticsData = data;
-
-
-        tampilStatistikAwal(
-          data
-        );
-
+        return JSON.parse(text);
 
       } catch (error) {
 
         console.error(
-          "Gagal load statistik:",
-          error
+          "Response API:",
+          text
+        );
+
+        throw new Error(
+          "Response API tidak valid."
         );
 
       }
@@ -1774,56 +1957,266 @@
 
 
     /* =====================================================
-       TAMPILKAN 3 KARTU STATISTIK
+       LOAD STATISTIK
     ====================================================== */
 
-    function tampilStatistikAwal(data) {
+    async function loadStatistik() {
 
-      const stats =
-        data.statistics ||
-        data.statistik ||
-        data;
+      try {
 
-
-      const totalAktif =
-        stats.totalAnggotaAktif ??
-        stats.anggotaAktif ??
-        stats.activeMembers ??
-        0;
+        const url =
+          API_URL +
+          "?action=stats&t=" +
+          Date.now();
 
 
-      const totalMotor =
-        stats.totalJenisMotor ??
-        stats.jumlahMerekMotor ??
-        stats.totalMotor ??
-        stats.motorCount ??
-        0;
+        const data =
+          await fetchAPI(url);
+
+
+        if (
+          !data ||
+          data.status !== true
+        ) {
+
+          throw new Error(
+            "Data statistik tidak valid."
+          );
+
+        }
+
+
+        statistikData =
+          data;
+
+
+        document
+          .getElementById("statTotal")
+          .textContent =
+          data.totalAnggota ?? 0;
+
+
+        document
+          .getElementById("statAktif")
+          .textContent =
+          data.totalAktif ?? 0;
+
+
+        document
+          .getElementById("statMotor")
+          .textContent =
+          data.totalPenggunaMotor ?? 0;
+
+
+        renderStatistikModal(data);
+
+      } catch (error) {
+
+        console.error(
+          "ERROR STATISTIK:",
+          error
+        );
+
+
+        document
+          .getElementById("statTotal")
+          .textContent =
+          "-";
+
+
+        document
+          .getElementById("statAktif")
+          .textContent =
+          "-";
+
+
+        document
+          .getElementById("statMotor")
+          .textContent =
+          "-";
+
+      }
+
+    }
+
+
+    /* =====================================================
+       RENDER STATISTIK POPUP
+    ====================================================== */
+
+    function renderStatistikModal(data) {
+
+      document
+        .getElementById("detailTotal")
+        .textContent =
+        data.totalAnggota ?? 0;
+
+
+      document
+        .getElementById("detailAktif")
+        .textContent =
+        data.totalAktif ?? 0;
+
+
+      document
+        .getElementById("detailMotor")
+        .textContent =
+        data.totalPenggunaMotor ?? 0;
 
 
       const totalOjol =
-        stats.totalAplikasiOjol ??
-        stats.jumlahAplikasiOjol ??
-        stats.totalOjol ??
-        stats.ojolCount ??
-        0;
+        Array.isArray(data.ojol)
+          ? data.ojol.reduce(
+              function(total, item) {
+
+                return (
+                  total +
+                  Number(item.total || 0)
+                );
+
+              },
+              0
+            )
+          : 0;
 
 
       document
-        .getElementById("statActive")
-        .textContent =
-        totalAktif;
-
-
-      document
-        .getElementById("statMotor")
-        .textContent =
-        totalMotor;
-
-
-      document
-        .getElementById("statOjol")
+        .getElementById("detailOjol")
         .textContent =
         totalOjol;
+
+
+      renderStatsList(
+        "motorStatsList",
+        data.motor || []
+      );
+
+
+      renderStatsList(
+        "ojolStatsList",
+        data.ojol || []
+      );
+
+    }
+
+
+    /* =====================================================
+       RENDER LIST STATISTIK
+    ====================================================== */
+
+    function renderStatsList(
+      elementId,
+      items
+    ) {
+
+      const container =
+        document.getElementById(elementId);
+
+
+      container.innerHTML = "";
+
+
+      if (
+        !Array.isArray(items) ||
+        items.length === 0
+      ) {
+
+        container.innerHTML =
+          '<div class="stats-list-item">' +
+          '<div class="stats-list-name">Belum ada data</div>' +
+          '</div>';
+
+        return;
+
+      }
+
+
+      items.forEach(
+        function(item) {
+
+          const row =
+            document.createElement("div");
+
+
+          row.className =
+            "stats-list-item";
+
+
+          const name =
+            document.createElement("div");
+
+
+          name.className =
+            "stats-list-name";
+
+
+          name.textContent =
+            item.name || "-";
+
+
+          const total =
+            document.createElement("div");
+
+
+          total.className =
+            "stats-list-total";
+
+
+          total.textContent =
+            item.total ?? 0;
+
+
+          row.appendChild(name);
+          row.appendChild(total);
+
+          container.appendChild(row);
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       BUKA / TUTUP STATISTIK
+    ====================================================== */
+
+    function bukaStatistik() {
+
+      if (!statistikData) {
+
+        loadStatistik();
+
+      }
+
+
+      document
+        .getElementById("statsModal")
+        .classList
+        .add("show");
+
+    }
+
+
+    function closeStatistik() {
+
+      document
+        .getElementById("statsModal")
+        .classList
+        .remove("show");
+
+    }
+
+
+    function tutupModalStatistik(event) {
+
+      if (
+        event.target.id === "statsModal"
+      ) {
+
+        closeStatistik();
+
+      }
 
     }
 
@@ -1834,37 +2227,41 @@
 
     async function cariAnggota() {
 
-      const input =
-        document.getElementById("keyword");
-
       const keyword =
-        input.value.trim();
+        inputKeyword.value.trim();
+
 
       const message =
         document.getElementById("message");
 
+
       const card =
         document.getElementById("memberCard");
 
+
       const multipleResults =
-        document.getElementById("multipleResults");
+        document.getElementById(
+          "multipleResults"
+        );
 
-      const button =
-        document.getElementById("searchButton");
 
+      /* HIDE HASIL LAMA */
+
+      card.classList.remove("show");
+
+      multipleResults.classList.remove("show");
+
+
+      /* VALIDASI */
 
       if (!keyword) {
-
-        card.classList.remove("show");
-
-        multipleResults.classList.remove("show");
 
         tampilPesan(
           "Masukkan ID atau nama anggota terlebih dahulu.",
           true
         );
 
-        input.focus();
+        inputKeyword.focus();
 
         return;
 
@@ -1873,10 +2270,6 @@
 
       /* LOADING */
 
-      card.classList.remove("show");
-
-      multipleResults.classList.remove("show");
-
       message.classList.remove("error");
 
       message.innerHTML =
@@ -1884,80 +2277,79 @@
 
       message.classList.add("show");
 
-      button.disabled = true;
 
-      button.textContent = "...";
+      searchButton.disabled = true;
+
+      searchButton.textContent = "...";
 
 
       try {
 
-        const response =
-          await fetch(
-            API_URL +
-            "?q=" +
-            encodeURIComponent(keyword) +
-            "&t=" +
-            Date.now(),
-            {
-              method: "GET",
-              cache: "no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "HTTP Error " +
-            response.status
-          );
-
-        }
+        const url =
+          API_URL +
+          "?q=" +
+          encodeURIComponent(keyword) +
+          "&t=" +
+          Date.now();
 
 
         const data =
-          await response.json();
+          await fetchAPI(url);
 
 
-        console.log(
-          "SEARCH API:",
-          data
-        );
+        /* ===============================================
+           TIDAK ADA DATA
+        =============================================== */
 
+        if (!data) {
 
-        /* NAMA GANDA */
-
-        if (
-          data.multiple === true ||
-          data.multipleResults ||
-          (
-            Array.isArray(data.results) &&
-            data.results.length > 1
-          )
-        ) {
-
-          const results =
-            data.results ||
-            data.members ||
-            data.data ||
-            [];
-
-
-          tampilMultipleResults(
-            results
+          tampilPesan(
+            "❌ Data anggota tidak ditemukan.",
+            true
           );
-
-          message.classList.remove("show");
 
           return;
 
         }
 
 
-        /* DATA TIDAK DITEMUKAN */
+        /* ===============================================
+           NAMA GANDA / MULTIPLE
+        =============================================== */
 
         if (
-          !data ||
+          data.multiple === true
+        ) {
+
+          const members =
+            data.members ||
+            data.results ||
+            [];
+
+
+          if (
+            Array.isArray(members) &&
+            members.length > 0
+          ) {
+
+            message.classList.remove("show");
+
+            tampilHasilGanda(
+              members
+            );
+
+            return;
+
+          }
+
+        }
+
+
+        /* ===============================================
+           DATA TIDAK DITEMUKAN
+        =============================================== */
+
+        if (
           data.found === false
         ) {
 
@@ -1975,40 +2367,16 @@
         }
 
 
-        /* JIKA BACKEND MENGEMBALIKAN ARRAY */
+        /* ===============================================
+           DATA TUNGGAL
+        =============================================== */
 
-        if (
-          Array.isArray(data.results)
-        ) {
-
-          if (data.results.length === 1) {
-
-            tampilData(
-              data.results[0]
-            );
-
-            return;
-
-          }
-
-          if (data.results.length > 1) {
-
-            tampilMultipleResults(
-              data.results
-            );
-
-            message.classList.remove("show");
-
-            return;
-
-          }
-
-        }
+        const member =
+          data.member ||
+          data;
 
 
-        /* DATA TUNGGAL */
-
-        tampilData(data);
+        tampilData(member);
 
 
       } catch (error) {
@@ -2018,6 +2386,7 @@
           error
         );
 
+
         tampilPesan(
           "❌ Gagal terhubung ke database. Coba lagi beberapa saat.",
           true
@@ -2025,9 +2394,9 @@
 
       } finally {
 
-        button.disabled = false;
+        searchButton.disabled = false;
 
-        button.textContent = "Cari";
+        searchButton.textContent = "Cari";
 
       }
 
@@ -2035,156 +2404,117 @@
 
 
     /* =====================================================
-       TAMPILKAN NAMA GANDA
+       TAMPIL HASIL NAMA GANDA
     ====================================================== */
 
-    function tampilMultipleResults(results) {
+    function tampilHasilGanda(members) {
 
       const container =
+        document.getElementById("resultList");
+
+
+      const multipleResults =
         document.getElementById(
           "multipleResults"
         );
 
 
-      if (
-        !results ||
-        results.length === 0
-      ) {
-
-        container.classList.remove("show");
-
-        return;
-
-      }
+      const title =
+        document.getElementById(
+          "multipleTitle"
+        );
 
 
-      let html =
-        `
-        <div class="multiple-title">
-          👥 Ditemukan ${results.length} anggota. Pilih anggota yang dimaksud:
-        </div>
-        `;
+      container.innerHTML = "";
 
 
-      results.forEach(function(member, index) {
+      title.textContent =
+        "Ditemukan " +
+        members.length +
+        " anggota. Pilih anggota yang dimaksud:";
 
-        const nama =
-          escapeHtml(
+
+      members.forEach(
+        function(member) {
+
+          const button =
+            document.createElement("button");
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "result-item";
+
+
+          const foto =
+            member.foto ||
+            FOTO_DEFAULT;
+
+
+          const nama =
             member.nama ||
             member.namaPanggilan ||
             member.namaLengkap ||
-            "Tanpa Nama"
-          );
+            "-";
 
 
-        const id =
-          escapeHtml(
+          const id =
             member.id ||
-            "-"
+            "-";
+
+
+          button.innerHTML =
+            '<div class="result-photo">' +
+              '<img src="' +
+              escapeHtml(foto) +
+              '" alt="Foto">' +
+            '</div>' +
+
+            '<div class="result-info">' +
+              '<div class="result-name">' +
+                escapeHtml(nama) +
+              '</div>' +
+
+              '<div class="result-id">' +
+                escapeHtml(id) +
+              '</div>' +
+            '</div>' +
+
+            '<div class="result-arrow">›</div>';
+
+
+          button.addEventListener(
+            "click",
+            function() {
+
+              tampilData(member);
+
+            }
           );
 
 
-        const domisili =
-          escapeHtml(
-            member.domisili ||
-            "-"
-          );
+          container.appendChild(button);
+
+        }
+      );
 
 
-        const foto =
-          member.foto ||
-          FOTO_DEFAULT;
+      multipleResults.classList.add("show");
 
 
-        html +=
-          `
-          <button
-            type="button"
-            class="member-option"
-            onclick="pilihMember(${index})"
-          >
-
-            <img
-              class="member-option-photo"
-              src="${escapeHtml(foto)}"
-              onerror="this.src='${FOTO_DEFAULT}'"
-              alt="Foto ${nama}"
-            >
-
-            <div class="member-option-info">
-
-              <div class="member-option-name">
-                ${nama}
-              </div>
-
-              <div class="member-option-detail">
-                ${id} • ${domisili}
-              </div>
-
-            </div>
-
-          </button>
-          `;
-
-      });
-
-
-      container.innerHTML =
-        html;
-
-
-      container._members =
-        results;
-
-
-      container.classList.add("show");
-
-
-      container.scrollIntoView({
+      multipleResults.scrollIntoView({
         behavior: "smooth",
-        block: "nearest"
+        block: "start"
       });
 
     }
 
 
     /* =====================================================
-       PILIH HASIL NAMA GANDA
-    ====================================================== */
-
-    function pilihMember(index) {
-
-      const container =
-        document.getElementById(
-          "multipleResults"
-        );
-
-
-      const members =
-        container._members ||
-        [];
-
-
-      const member =
-        members[index];
-
-
-      if (!member) {
-
-        return;
-
-      }
-
-
-      container.classList.remove("show");
-
-      tampilData(member);
-
-    }
-
-
-    /* =====================================================
-       TAMPILKAN DATA
+       TAMPILKAN DATA ANGGOTA
     ====================================================== */
 
     function tampilData(data) {
@@ -2192,8 +2522,15 @@
       const message =
         document.getElementById("message");
 
+
       const card =
         document.getElementById("memberCard");
+
+
+      const multipleResults =
+        document.getElementById(
+          "multipleResults"
+        );
 
 
       const nama =
@@ -2205,7 +2542,6 @@
 
       const id =
         data.id ||
-        data.idAnggota ||
         "-";
 
 
@@ -2226,15 +2562,15 @@
 
       const aplikasiOjol =
         data.aplikasiOjol ||
-        data.ojol ||
         "-";
 
 
       const foto =
         data.foto ||
-        data.fotoVermuk ||
         "";
 
+
+      /* TEXT */
 
       document
         .getElementById("memberName")
@@ -2272,22 +2608,28 @@
         aplikasiOjol;
 
 
-      updateStatusBadge(
-        status
-      );
+      /* STATUS BADGE */
 
+      updateStatusBadge(status);
+
+
+      /* FOTO */
 
       const photo =
-        document.getElementById(
-          "memberPhoto"
-        );
+        document.getElementById("memberPhoto");
 
 
       photo.onerror =
         function() {
 
-          this.src =
-            FOTO_DEFAULT;
+          if (
+            this.src !== FOTO_DEFAULT
+          ) {
+
+            this.src =
+              FOTO_DEFAULT;
+
+          }
 
         };
 
@@ -2296,10 +2638,16 @@
         foto || FOTO_DEFAULT;
 
 
+      /* HIDE */
+
       message.classList.remove("show");
 
       message.classList.remove("error");
 
+      multipleResults.classList.remove("show");
+
+
+      /* SHOW CARD */
 
       card.classList.add("show");
 
@@ -2320,7 +2668,7 @@
 
 
     /* =====================================================
-       BADGE STATUS OTOMATIS
+       UPDATE STATUS BADGE
     ====================================================== */
 
     function updateStatusBadge(status) {
@@ -2332,60 +2680,64 @@
 
 
       const text =
+        document.getElementById(
+          "statusBadgeText"
+        );
+
+
+      const value =
         String(status || "")
-          .toLowerCase()
-          .trim();
+          .trim()
+          .toLowerCase();
 
 
-      badge.className =
-        "status-badge";
+      badge.classList.remove(
+        "active",
+        "inactive",
+        "pending"
+      );
 
 
       if (
-        text.includes("aktif") ||
-        text.includes("resmi")
+        value === "aktif" ||
+        value === "active"
       ) {
 
         badge.classList.add(
-          "status-active"
+          "active"
         );
 
-        badge.textContent =
-          "🟢 ANGGOTA RESMI";
+        text.textContent =
+          "✓ ANGGOTA RESMI AKTIF";
 
-      } else if (
-        text.includes("pending") ||
-        text.includes("proses") ||
-        text.includes("verifikasi")
+      }
+
+      else if (
+
+        value.includes("nonaktif") ||
+        value.includes("tidak aktif") ||
+        value.includes("inactive")
+
       ) {
 
         badge.classList.add(
-          "status-pending"
+          "inactive"
         );
 
-        badge.textContent =
-          "🟡 DALAM VERIFIKASI";
+        text.textContent =
+          "✕ TIDAK AKTIF";
 
-      } else if (
-        text.includes("nonaktif") ||
-        text.includes("keluar")
-      ) {
+      }
+
+      else {
 
         badge.classList.add(
-          "status-inactive"
+          "pending"
         );
 
-        badge.textContent =
-          "⚪ TIDAK AKTIF";
-
-      } else {
-
-        badge.classList.add(
-          "status-warning"
-        );
-
-        badge.textContent =
-          "🔴 STATUS BELUM VALID";
+        text.textContent =
+          "● " +
+          String(status || "STATUS");
 
       }
 
@@ -2421,222 +2773,6 @@
         message.classList.remove("error");
 
       }
-
-    }
-
-
-    /* =====================================================
-       OPEN STATISTIK
-    ====================================================== */
-
-    function openStats() {
-
-      const modal =
-        document.getElementById(
-          "statsModal"
-        );
-
-
-      tampilStatistikLengkap(
-        statisticsData
-      );
-
-
-      modal.classList.add("show");
-
-    }
-
-
-    function closeStats() {
-
-      document
-        .getElementById("statsModal")
-        .classList
-        .remove("show");
-
-    }
-
-
-    function closeStatsOutside(event) {
-
-      if (
-        event.target.id === "statsModal"
-      ) {
-
-        closeStats();
-
-      }
-
-    }
-
-
-    /* =====================================================
-       STATISTIK LENGKAP
-    ====================================================== */
-
-    function tampilStatistikLengkap(data) {
-
-      const stats =
-        data?.statistics ||
-        data?.statistik ||
-        data ||
-        {};
-
-
-      const statusData =
-        stats.status ||
-        stats.statusAnggota ||
-        {};
-
-
-      const motorData =
-        stats.motor ||
-        stats.motorStats ||
-        stats.merekMotor ||
-        {};
-
-
-      const ojolData =
-        stats.ojol ||
-        stats.aplikasiOjol ||
-        stats.ojolStats ||
-        {};
-
-
-      renderStatList(
-        "statusStatsList",
-        statusData
-      );
-
-
-      renderStatList(
-        "motorStatsList",
-        motorData
-      );
-
-
-      renderStatList(
-        "ojolStatsList",
-        ojolData
-      );
-
-    }
-
-
-    function renderStatList(
-      elementId,
-      data
-    ) {
-
-      const element =
-        document.getElementById(
-          elementId
-        );
-
-
-      let entries =
-        [];
-
-
-      if (
-        Array.isArray(data)
-      ) {
-
-        entries =
-          data.map(function(item) {
-
-            return {
-
-              name:
-                item.name ||
-                item.nama ||
-                item.label ||
-                "-",
-
-              value:
-                item.value ||
-                item.jumlah ||
-                item.total ||
-                0
-
-            };
-
-          });
-
-      } else if (
-        data &&
-        typeof data === "object"
-      ) {
-
-        entries =
-          Object.entries(data)
-          .map(function(item) {
-
-            return {
-
-              name: item[0],
-
-              value: item[1]
-
-            };
-
-          });
-
-      }
-
-
-      if (
-        entries.length === 0
-      ) {
-
-        element.innerHTML =
-          `
-          <div class="detail-item">
-            <span class="detail-name">
-              Data belum tersedia
-            </span>
-          </div>
-          `;
-
-        return;
-
-      }
-
-
-      entries.sort(
-        function(a, b) {
-
-          return (
-            Number(b.value) -
-            Number(a.value)
-          );
-
-        }
-      );
-
-
-      element.innerHTML =
-        entries
-        .map(
-          function(item) {
-
-            return `
-              <div class="detail-item">
-
-                <div class="detail-name">
-                  ${escapeHtml(item.name)}
-                </div>
-
-                <div class="detail-number">
-                  ${escapeHtml(item.value)}
-                </div>
-
-              </div>
-            `;
-
-          }
-        )
-        .join("");
 
     }
 
@@ -2687,7 +2823,7 @@
     }
 
 
-    function closePhotoOutside(event) {
+    function tutupPreview(event) {
 
       if (
         event.target.id === "photoModal"
@@ -2714,7 +2850,7 @@
 
           closePreview();
 
-          closeStats();
+          closeStatistik();
 
         }
 
@@ -2728,29 +2864,27 @@
 
     function escapeHtml(value) {
 
-      return String(
-        value ?? ""
-      )
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-      .replace(
-        /</g,
-        "&lt;"
-      )
-      .replace(
-        />/g,
-        "&gt;"
-      )
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-      .replace(
-        /'/g,
-        "&#039;"
-      );
+      return String(value || "")
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
     }
 
