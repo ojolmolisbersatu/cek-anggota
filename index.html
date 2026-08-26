@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Cek Keanggotaan OMB</title>
+
+
+  <!-- Font -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+
+    body {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      min-height: 100vh;
+
+      overflow-x: hidden;
+
+      font-family: "Poppins", sans-serif;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(27, 125, 65, 0.12),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #f4f7f5 0%,
+          #edf1ee 100%
+        );
+
+      color: #243029;
+    }
+
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       APP
+    ========================= */
+
+    .app {
+      width: 100%;
+      max-width: 720px;
+      min-width: 0;
+
+      margin: 0 auto;
+
+      padding-bottom: 30px;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .hero {
+
+      width: 100%;
+      min-width: 0;
+
+      position: relative;
+      overflow: hidden;
+
+      text-align: center;
+
+      padding:
+        22px
+        max(16px, env(safe-area-inset-right))
+        26px
+        max(16px, env(safe-area-inset-left));
+
+      background:
+        linear-gradient(
+          135deg,
+          #075d2b 0%,
+          #087337 55%,
+          #0b8b43 100%
+        );
+
+      color: #ffffff;
+
+      box-shadow:
+        0 5px 18px
+        rgba(0, 70, 30, 0.18);
+    }
+
+
+    .hero::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.05);
+
+      top: -110px;
+      left: -70px;
+    }
+
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      right: -80px;
+      bottom: -110px;
+    }
+
+
+    .logo-box {
+
+      position: relative;
+      z-index: 1;
+
+      width: 74px;
+      height: 74px;
+
+      margin:
+        0 auto 10px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.22);
+    }
+
+
+    .logo-box img {
+
+      width: 64px;
+      height: 64px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+      display: block;
+    }
+
+
+    .hero h1 {
+
+      position: relative;
+      z-index: 1;
+
+      font-size:
+        clamp(20px, 5vw, 27px);
+
+      line-height: 1.2;
+
+      font-weight: 800;
+
+      letter-spacing: 0.4px;
+
+      word-break: break-word;
+    }
+
+
+    .hero p {
+
+      position: relative;
+      z-index: 1;
+
+      margin-top: 5px;
+
+      font-size:
+        clamp(10px, 2.8vw, 13px);
+
+      color:
+        rgba(255,255,255,0.86);
+
+      font-weight: 500;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+
+      width: 100%;
+      min-width: 0;
+
+      padding:
+        16px
+        max(14px, env(safe-area-inset-right))
+        25px
+        max(14px, env(safe-area-inset-left));
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-card {
+
+      width: 100%;
+      min-width: 0;
+
+      padding: 9px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,0.88);
+
+      box-shadow:
+        0 8px 25px
+        rgba(20, 70, 40, 0.10);
+
+      border:
+        1px solid
+        rgba(0,0,0,0.04);
+    }
+
+
+    .search-input {
+
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+
+      height: 50px;
+
+      border:
+        1px solid #dce4df;
+
+      border-radius: 13px;
+
+      padding:
+        0 14px;
+
+      outline: none;
+
+      font-size: 15px;
+      font-weight: 500;
+
+      background: #f8faf9;
+
+      color: #25332b;
+    }
+
+
+    .search-input:focus {
+
+      background: #ffffff;
+
+      border-color: #0a7c3d;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(10,124,61,0.10);
+    }
+
+
+    .search-button {
+
+      flex: 0 0 auto;
+
+      min-width: 68px;
+      height: 50px;
+
+      border: none;
+      border-radius: 13px;
+
+      padding: 0 15px;
+
+      cursor: pointer;
+
+      background:
+        linear-gradient(
+          135deg,
+          #087337,
+          #0b9147
+        );
+
+      color: white;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      box-shadow:
+        0 5px 14px
+        rgba(8,115,55,0.25);
+
+      -webkit-tap-highlight-color:
+        transparent;
+    }
+
+
+    .search-button:active {
+      transform: scale(0.97);
+    }
+
+
+    .search-button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .message {
+
+      display: none;
+
+      width: 100%;
+
+      margin-top: 18px;
+      padding: 17px;
+
+      border-radius: 16px;
+
+      text-align: center;
+
+      background: #ffffff;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      color: #68736d;
+
+      box-shadow:
+        0 6px 20px
+        rgba(0,0,0,0.05);
+    }
+
+
+    .message.show {
+      display: block;
+    }
+
+
+    .message.error {
+
+      color: #bd3d3d;
+
+      background: #fff7f7;
+    }
+
+
+    .loading-dot {
+
+      display: inline-block;
+
+      width: 8px;
+      height: 8px;
+
+      margin-right: 7px;
+
+      border-radius: 50%;
+
+      background: #0a813e;
+
+      animation:
+        blink 1s infinite;
+    }
+
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 0.25;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =========================
+       MEMBER CARD
+    ========================= */
+
+    .member-card {
+
+      display: none;
+
+      width: 100%;
+      min-width: 0;
+
+      margin-top: 18px;
+
+      overflow: hidden;
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.98),
+          rgba(248,250,249,0.96)
+        );
+
+      border:
+        1px solid
+        rgba(0,0,0,0.05);
+
+      box-shadow:
+        0 12px 32px
+        rgba(20, 70, 40, 0.13);
+    }
+
+
+    .member-card.show {
+
+      display: block;
+
+      animation:
+        showCard 0.35s ease;
+    }
+
+
+    @keyframes showCard {
+
+      from {
+        opacity: 0;
+        transform:
+          translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0);
+      }
+
+    }
+
+
+    .top-line {
+
+      width: 100%;
+      height: 4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #087337,
+          #0b8f45,
+          #e0b72d
+        );
+    }
+
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    .profile {
+
+      padding:
+        22px 18px 18px;
+
+      text-align: center;
+
+      border-bottom:
+        1px solid #edf0ee;
+    }
+
+
+    .profile-photo {
+
+      width: 96px;
+      height: 96px;
+
+      margin:
+        0 auto 12px;
+
+      border-radius: 50%;
+
+      padding: 4px;
+
+      cursor: pointer;
+
+      background:
+        linear-gradient(
+          135deg,
+          #087337,
+          #e0b72d
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(20,80,45,0.18);
+
+      overflow: hidden;
+
+      -webkit-tap-highlight-color:
+        transparent;
+    }
+
+
+    .profile-photo img {
+
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      background: #edf1ee;
+    }
+
+
+    .member-name {
+
+      font-size:
+        clamp(20px, 5vw, 26px);
+
+      font-weight: 800;
+
+      line-height: 1.2;
+
+      color: #26342c;
+
+      word-break: break-word;
+    }
+
+
+    .member-id {
+
+      display: inline-block;
+
+      margin-top: 8px;
+
+      padding:
+        5px 12px;
+
+      border-radius: 30px;
+
+      background: #e8f4ec;
+
+      color: #087337;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 0.8px;
+    }
+
+
+    /* =========================
+       INFO GRID
+    ========================= */
+
+    .info-grid {
+
+      width: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+
+      padding: 16px;
+    }
+
+
+    .info-box {
+
+      min-width: 0;
+
+      padding: 14px;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fafcfb,
+          #f2f6f3
+        );
+
+      border:
+        1px solid #e8eeea;
+    }
+
+
+    .info-label {
+
+      display: flex;
+      align-items: center;
+
+      gap: 5px;
+
+      margin-bottom: 7px;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      color: #7c8780;
+
+      letter-spacing: 0.8px;
+
+      text-transform: uppercase;
+    }
+
+
+    .info-value {
+
+      overflow-wrap: anywhere;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      color: #26342c;
+    }
+
+
+    /* =========================
+       MOTOR
+    ========================= */
+
+    .motor-section {
+      padding: 0 16px 18px;
+    }
+
+
+    .section-title {
+
+      display: flex;
+      align-items: center;
+
+      gap: 7px;
+
+      padding-bottom: 9px;
+
+      border-bottom:
+        1px solid #e7ece8;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 0.7px;
+
+      color: #59665f;
+    }
+
+
+    .motor-box {
+
+      width: 100%;
+      min-width: 0;
+
+      margin-top: 12px;
+
+      padding: 15px;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f7faf8,
+          #edf5ef
+        );
+
+      border:
+        1px solid #e0e9e3;
+    }
+
+
+    .motor-name {
+
+      overflow-wrap: anywhere;
+
+      font-size: 15px;
+      font-weight: 800;
+
+      color: #2d3a33;
+    }
+
+
+    .ojol-row {
+
+      width: 100%;
+      min-width: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 13px;
+      padding-top: 12px;
+
+      border-top:
+        1px solid #dce8df;
+    }
+
+
+    .ojol-label {
+
+      min-width: 0;
+
+      display: flex;
+      align-items: center;
+
+      gap: 7px;
+
+      font-size: 11px;
+      font-weight: 600;
+
+      color: #77827b;
+    }
+
+
+    .ojol-value {
+
+      flex: 0 1 auto;
+
+      max-width: 65%;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      padding:
+        6px 11px;
+
+      border-radius: 20px;
+
+      background: #ffffff;
+
+      color: #087337;
+
+      box-shadow:
+        0 4px 12px
+        rgba(20,80,45,0.08);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+
+      width: 100%;
+
+      padding:
+        22px 10px 5px;
+
+      text-align: center;
+
+      color: #88928c;
+
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+
+    /* =========================
+       MODAL FOTO
+    ========================= */
+
+    .photo-modal {
+
+      display: none;
+
+      position: fixed;
+
+      z-index: 9999;
+
+      inset: 0;
+
+      width: 100vw;
+      height: 100dvh;
+
+      padding:
+        max(20px, env(safe-area-inset-top))
+        max(20px, env(safe-area-inset-right))
+        max(20px, env(safe-area-inset-bottom))
+        max(20px, env(safe-area-inset-left));
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        rgba(0,0,0,0.82);
+
+      backdrop-filter:
+        blur(5px);
+    }
+
+
+    .photo-modal.show {
+      display: flex;
+    }
+
+
+    .modal-content {
+
+      position: relative;
+
+      width:
+        min(92vw, 520px);
+
+      max-height:
+        85dvh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .modal-content img {
+
+      display: block;
+
+      max-width: 100%;
+      max-height: 80dvh;
+
+      border-radius: 18px;
+
+      object-fit: contain;
+
+      box-shadow:
+        0 15px 45px
+        rgba(0,0,0,0.45);
+    }
+
+
+    .close-modal {
+
+      position: absolute;
+
+      top: -14px;
+      right: -10px;
+
+      width: 40px;
+      height: 40px;
+
+      border: none;
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      background: #ffffff;
+
+      color: #333333;
+
+      font-size: 24px;
+      font-weight: 600;
+
+      box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.25);
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 480px) {
+
+      .app {
+        width: 100%;
+        max-width: 100%;
+      }
+
+
+      .hero {
+        padding-top: 18px;
+        padding-bottom: 20px;
+      }
+
+
+      .logo-box {
+        width: 64px;
+        height: 64px;
+      }
+
+
+      .logo-box img {
+        width: 56px;
+        height: 56px;
+      }
+
+
+      .hero h1 {
+        font-size: 18px;
+      }
+
+
+      .hero p {
+        font-size: 10px;
+      }
+
+
+      .content {
+        padding: 12px 12px 20px;
+      }
+
+
+      .search-card {
+        gap: 7px;
+        padding: 7px;
+        border-radius: 16px;
+      }
+
+
+      .search-input {
+        min-width: 0;
+        height: 48px;
+        font-size: 14px;
+      }
+
+
+      .search-button {
+        min-width: 62px;
+        height: 48px;
+        padding: 0 12px;
+        font-size: 13px;
+      }
+
+
+      .member-card {
+        border-radius: 20px;
+      }
+
+
+      .profile {
+        padding: 20px 14px 16px;
+      }
+
+
+      .profile-photo {
+        width: 86px;
+        height: 86px;
+      }
+
+
+      .info-grid {
+        gap: 8px;
+        padding: 12px;
+      }
+
+
+      .info-box {
+        padding: 12px;
+      }
+
+
+      .info-value {
+        font-size: 13px;
+      }
+
+
+      .motor-section {
+        padding: 0 12px 14px;
+      }
+
+
+      .motor-box {
+        padding: 13px;
+      }
+
+    }
+
+
+    @media (max-width: 360px) {
+
+      .search-card {
+        flex-direction: column;
+      }
+
+
+      .search-input {
+        width: 100%;
+      }
+
+
+      .search-button {
+        width: 100%;
+      }
+
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .ojol-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+
+      .ojol-value {
+        max-width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="app">
+
+
+    <!-- HEADER -->
+
+    <header class="hero">
+
+      <div class="logo-box">
+
+        <img
+          src="https://drive.google.com/thumbnail?id=1WOCYeF-v5IAqF7QnaoakBiLukuULA5Cd&sz=w300"
+          alt="Logo OMB"
+        >
+
+      </div>
+
+
+      <h1>
+        CEK KEANGGOTAAN OMB
+      </h1>
+
+
+      <p>
+        Ojol Molis Bersatu
+      </p>
+
+    </header>
+
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+
+      <!-- SEARCH -->
+
+      <div class="search-card">
+
+        <input
+          type="search"
+          id="keyword"
+          class="search-input"
+          placeholder="🔎 Cari ID atau nama panggilan..."
+          autocomplete="off"
+          enterkeyhint="search"
+        >
+
+
+        <button
+          type="button"
+          id="searchButton"
+          class="search-button"
+          onclick="cariAnggota()"
+        >
+          Cari
+        </button>
+
+      </div>
+
+
+      <!-- MESSAGE -->
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+
+      <!-- MEMBER CARD -->
+
+      <section
+        id="memberCard"
+        class="member-card"
+      >
+
+        <div class="top-line"></div>
+
+
+        <!-- PROFILE -->
+
+        <div class="profile">
+
+          <div
+            class="profile-photo"
+            onclick="previewFoto()"
+            title="Tekan untuk melihat foto"
+          >
+
+            <img
+              id="memberPhoto"
+              src=""
+              alt="Foto Anggota"
+            >
+
+          </div>
+
+
+          <h2
+            id="memberName"
+            class="member-name"
+          >
+            -
+          </h2>
+
+
+          <div
+            id="memberId"
+            class="member-id"
+          >
+            OMB-000
+          </div>
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <div class="info-grid">
+
+          <div class="info-box">
+
+            <div class="info-label">
+              📍 Domisili
+            </div>
+
+
+            <div
+              id="memberDomisili"
+              class="info-value"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-box">
+
+            <div class="info-label">
+              🟢 Status
+            </div>
+
+
+            <div
+              id="memberStatus"
+              class="info-value"
+            >
+              -
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOTOR -->
+
+        <div class="motor-section">
+
+          <div class="section-title">
+            🛵 DATA MOTOR
+          </div>
+
+
+          <div class="motor-box">
+
+            <div
+              id="memberMotor"
+              class="motor-name"
+            >
+              -
+            </div>
+
+
+            <div class="ojol-row">
+
+              <div class="ojol-label">
+                📱 Aplikasi Ojol
+              </div>
+
+
+              <div
+                id="memberOjol"
+                class="ojol-value"
+              >
+                -
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FOOTER -->
+
+      <footer class="footer">
+
+        © 2026 OMB • Ojol Molis Bersatu Semarang
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- MODAL FOTO -->
+
+  <div
+    id="photoModal"
+    class="photo-modal"
+    onclick="tutupPreview(event)"
+  >
+
+    <div class="modal-content">
+
+      <button
+        type="button"
+        class="close-modal"
+        onclick="closePreview()"
+      >
+        ×
+      </button>
+
+
+      <img
+        id="previewImage"
+        src=""
+        alt="Preview Foto Anggota"
+      >
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =====================================================
+       KONFIGURASI API
+       ===================================================== */
+
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbxQDJadpCK6VNjV4l4tWjWscNbCBHWonU2Z639lJ6IlJ2wfx4lfALZJUN3SgMOTrciD/exec";
+
+
+    /* =====================================================
+       FOTO DEFAULT
+       ===================================================== */
+
+    const FOTO_DEFAULT =
+      "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
+
+    /* =====================================================
+       ENTER = CARI
+       ===================================================== */
+
+    document
+      .getElementById("keyword")
+      .addEventListener(
+        "keydown",
+        function(event) {
+
+          if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            cariAnggota();
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       CARI ANGGOTA
+       ===================================================== */
+
+    function cariAnggota() {
+
+      const keyword =
+        document
+          .getElementById("keyword")
+          .value
+          .trim();
+
+
+      const message =
+        document
+          .getElementById("message");
+
+
+      const card =
+        document
+          .getElementById("memberCard");
+
+
+      const button =
+        document
+          .getElementById("searchButton");
+
+
+      /* VALIDASI */
+
+      if (!keyword) {
+
+        card
+          .classList
+          .remove("show");
+
+
+        tampilPesan(
+          "Masukkan ID atau nama panggilan anggota terlebih dahulu.",
+          true
+        );
+
+        return;
+
+      }
+
+
+      /* VALIDASI API URL */
+
+      if (
+        !API_URL ||
+        API_URL.includes(
+          "PASTE_URL_APPS_SCRIPT"
+        )
+      ) {
+
+        tampilPesan(
+          "❌ URL API Google Apps Script belum diatur.",
+          true
+        );
+
+        return;
+
+      }
+
+
+      /* LOADING */
+
+      card
+        .classList
+        .remove("show");
+
+
+      message
+        .classList
+        .remove("error");
+
+
+      message.innerHTML =
+        '<span class="loading-dot"></span>Mencari data anggota...';
+
+
+      message
+        .classList
+        .add("show");
+
+
+      button.disabled =
+        true;
+
+
+      button.textContent =
+        "..."
+
+
+      /* BUAT CALLBACK UNIK */
+
+      const callbackName =
+        "ombCallback_" +
+        Date.now() +
+        "_" +
+        Math.floor(
+          Math.random() * 100000
+        );
+
+
+      let script =
+        null;
+
+
+      let selesai =
+        false;
+
+
+      /* FUNGSI SELESAI */
+
+      function bersihkan() {
+
+        if (script) {
+
+          script.remove();
+
+        }
+
+
+        if (
+          window[callbackName]
+        ) {
+
+          delete window[callbackName];
+
+        }
+
+
+        button.disabled =
+          false;
+
+
+        button.textContent =
+          "Cari";
+
+
+        selesai =
+          true;
+
+      }
+
+
+      /* TIMEOUT */
+
+      const timeout =
+        setTimeout(
+          function() {
+
+            if (!selesai) {
+
+              bersihkan();
+
+
+              tampilPesan(
+                "❌ Koneksi ke database terlalu lama. Silakan coba lagi.",
+                true
+              );
+
+            }
+
+          },
+          20000
+        );
+
+
+      /* CALLBACK HASIL API */
+
+      window[callbackName] =
+        function(data) {
+
+          clearTimeout(
+            timeout
+          );
+
+
+          bersihkan();
+
+
+          /* DATA KOSONG */
+
+          if (!data) {
+
+            tampilPesan(
+              "❌ Data anggota tidak ditemukan.",
+              true
+            );
+
+            return;
+
+          }
+
+
+          /* DATA TIDAK DITEMUKAN */
+
+          if (
+            data.found === false
+          ) {
+
+            tampilPesan(
+              "❌ " +
+              (
+                data.message ||
+                "Data anggota tidak ditemukan."
+              ),
+              true
+            );
+
+            return;
+
+          }
+
+
+          /* TAMPILKAN DATA */
+
+          tampilData(
+            data
+          );
+
+        };
+
+
+      /* BUAT URL JSONP */
+
+      const separator =
+        API_URL.includes("?")
+          ? "&"
+          : "?";
+
+
+      const url =
+        API_URL +
+        separator +
+        "keyword=" +
+        encodeURIComponent(keyword) +
+        "&callback=" +
+        encodeURIComponent(callbackName) +
+        "&_=" +
+        Date.now();
+
+
+      /* BUAT SCRIPT API */
+
+      script =
+        document.createElement(
+          "script"
+        );
+
+
+      script.src =
+        url;
+
+
+      script.async =
+        true;
+
+
+      script.onerror =
+        function() {
+
+          clearTimeout(
+            timeout
+          );
+
+
+          bersihkan();
+
+
+          tampilPesan(
+            "❌ Gagal terhubung ke database. Periksa koneksi atau URL API.",
+            true
+          );
+
+        };
+
+
+      document
+        .body
+        .appendChild(script);
+
+    }
+
+
+    /* =====================================================
+       TAMPILKAN DATA
+       ===================================================== */
+
+    function tampilData(data) {
+
+      const message =
+        document
+          .getElementById("message");
+
+
+      const card =
+        document
+          .getElementById("memberCard");
+
+
+      /* NAMA */
+
+      const nama =
+        data.nama ||
+        data.namaPanggilan ||
+        data.namaLengkap ||
+        "-";
+
+
+      /* ID */
+
+      const id =
+        data.id ||
+        data.idAnggota ||
+        "-";
+
+
+      /* DOMISILI */
+
+      const domisili =
+        data.domisili ||
+        "-";
+
+
+      /* STATUS */
+
+      const status =
+        data.status ||
+        "-";
+
+
+      /* MOTOR */
+
+      const motor =
+        data.motor ||
+        "-";
+
+
+      /* OJOL */
+
+      const aplikasiOjol =
+        data.aplikasiOjol ||
+        "-";
+
+
+      /* FOTO */
+
+      const foto =
+        data.foto ||
+        "";
+
+
+      /* TAMPILKAN NAMA */
+
+      document
+        .getElementById("memberName")
+        .textContent =
+        nama;
+
+
+      /* TAMPILKAN ID */
+
+      document
+        .getElementById("memberId")
+        .textContent =
+        id;
+
+
+      /* TAMPILKAN DOMISILI */
+
+      document
+        .getElementById("memberDomisili")
+        .textContent =
+        domisili;
+
+
+      /* TAMPILKAN STATUS */
+
+      document
+        .getElementById("memberStatus")
+        .textContent =
+        status;
+
+
+      /* TAMPILKAN MOTOR */
+
+      document
+        .getElementById("memberMotor")
+        .textContent =
+        motor;
+
+
+      /* TAMPILKAN OJOL */
+
+      document
+        .getElementById("memberOjol")
+        .textContent =
+        aplikasiOjol;
+
+
+      /* FOTO */
+
+      const photo =
+        document
+          .getElementById("memberPhoto");
+
+
+      const fotoUrl =
+        ubahLinkFoto(
+          foto
+        );
+
+
+      photo.onerror =
+        function() {
+
+          this.onerror =
+            null;
+
+          this.src =
+            FOTO_DEFAULT;
+
+        };
+
+
+      photo.src =
+        fotoUrl ||
+        FOTO_DEFAULT;
+
+
+      /* SEMBUNYIKAN MESSAGE */
+
+      message
+        .classList
+        .remove("show");
+
+
+      /* TAMPILKAN CARD */
+
+      card
+        .classList
+        .add("show");
+
+
+      /* SCROLL KE HASIL */
+
+      setTimeout(
+        function() {
+
+          card.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        },
+        100
+      );
+
+    }
+
+
+    /* =====================================================
+       UBAH LINK FOTO
+       ===================================================== */
+
+    function ubahLinkFoto(link) {
+
+      if (!link) {
+
+        return "";
+
+      }
+
+
+      link =
+        String(link)
+        .trim();
+
+
+      /* URL BIASA */
+
+      if (
+        !link.includes(
+          "drive.google.com"
+        )
+      ) {
+
+        return link;
+
+      }
+
+
+      /* AMBIL FILE ID */
+
+      const match =
+        link.match(
+          /[-\w]{25,}/
+        );
+
+
+      if (match) {
+
+        const fileId =
+          match[0];
+
+
+        return (
+          "https://drive.google.com/thumbnail?id=" +
+          encodeURIComponent(fileId) +
+          "&sz=w1000"
+        );
+
+      }
+
+
+      return link;
+
+    }
+
+
+    /* =====================================================
+       TAMPILKAN PESAN
+       ===================================================== */
+
+    function tampilPesan(
+      text,
+      isError
+    ) {
+
+      const message =
+        document
+          .getElementById("message");
+
+
+      message.innerHTML =
+        text;
+
+
+      message
+        .classList
+        .add("show");
+
+
+      if (isError) {
+
+        message
+          .classList
+          .add("error");
+
+      } else {
+
+        message
+          .classList
+          .remove("error");
+
+      }
+
+    }
+
+
+    /* =====================================================
+       PREVIEW FOTO
+       ===================================================== */
+
+    function previewFoto() {
+
+      const foto =
+        document
+          .getElementById("memberPhoto")
+          .src;
+
+
+      if (
+        !foto ||
+        foto === FOTO_DEFAULT
+      ) {
+
+        return;
+
+      }
+
+
+      document
+        .getElementById("previewImage")
+        .src =
+        foto;
+
+
+      document
+        .getElementById("photoModal")
+        .classList
+        .add("show");
+
+    }
+
+
+    /* =====================================================
+       TUTUP PREVIEW
+       ===================================================== */
+
+    function closePreview() {
+
+      document
+        .getElementById("photoModal")
+        .classList
+        .remove("show");
+
+    }
+
+
+    function tutupPreview(event) {
+
+      if (
+        event.target.id ===
+        "photoModal"
+      ) {
+
+        closePreview();
+
+      }
+
+    }
+
+
+    /* ESC = TUTUP FOTO */
+
+    document
+      .addEventListener(
+        "keydown",
+        function(event) {
+
+          if (
+            event.key === "Escape"
+          ) {
+
+            closePreview();
+
+          }
+
+        }
+      );
+
+  </script>
+
+</body>
+
+</html>
