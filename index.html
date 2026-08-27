@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,7 +11,10 @@
 
   <title>Cek Keanggotaan OMB</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
   <link
     rel="preconnect"
@@ -26,6 +30,7 @@
   <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
   <style>
 
     *{
@@ -33,6 +38,12 @@
       margin:0;
       padding:0;
     }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
 
     body{
       min-height:100vh;
@@ -46,9 +57,11 @@
       color:#243029;
     }
 
+
     .app{
       width:100%;
       max-width:720px;
+      min-height:100vh;
       margin:auto;
       padding-bottom:35px;
     }
@@ -60,7 +73,7 @@
 
     .hero{
       text-align:center;
-      padding:24px 16px 28px;
+      padding:28px 16px 30px;
       background:
         linear-gradient(
           135deg,
@@ -74,33 +87,41 @@
         rgba(0,70,30,.18);
     }
 
+
     .logo-box{
-      width:76px;
-      height:76px;
-      margin:0 auto 10px;
+      width:84px;
+      height:84px;
+      margin:0 auto 12px;
+      padding:5px;
+      overflow:hidden;
       border-radius:50%;
       background:#fff;
-      padding:5px;
       box-shadow:
         0 8px 22px
         rgba(0,0,0,.22);
     }
 
+
     .logo-box img{
+      display:block;
       width:100%;
       height:100%;
       object-fit:cover;
       border-radius:50%;
     }
 
+
     .hero h1{
-      font-size:24px;
+      font-size:25px;
       font-weight:800;
+      line-height:1.2;
     }
 
+
     .hero p{
-      font-size:12px;
-      opacity:.86;
+      margin-top:5px;
+      font-size:14px;
+      opacity:.88;
     }
 
 
@@ -109,7 +130,7 @@
     ======================================== */
 
     .content{
-      padding:16px;
+      padding:18px 16px;
     }
 
 
@@ -119,26 +140,38 @@
 
     .search-card{
       display:flex;
-      gap:8px;
-      padding:8px;
-      border-radius:18px;
+      align-items:center;
+      gap:10px;
+      width:100%;
+      padding:10px;
+      border-radius:22px;
       background:#fff;
       box-shadow:
         0 10px 28px
         rgba(20,70,40,.10);
     }
 
+
     .search-input{
-      flex:1;
+      flex:1 1 auto;
+      width:100%;
       min-width:0;
-      height:50px;
-      padding:0 14px;
+      height:56px;
+      padding:0 16px;
       border:1px solid #dce5df;
-      border-radius:13px;
+      border-radius:16px;
       outline:none;
       background:#f8faf9;
+      color:#243029;
       font-family:inherit;
+      font-size:14px;
     }
+
+
+    .search-input::placeholder{
+      color:#8b958f;
+    }
+
 
     .search-input:focus{
       border-color:#087337;
@@ -147,12 +180,14 @@
         rgba(8,115,55,.10);
     }
 
+
     .search-button{
-      min-width:82px;
-      height:50px;
-      padding:0 18px;
+      flex:0 0 105px;
+      min-width:105px;
+      height:56px;
+      padding:0 16px;
       border:0;
-      border-radius:13px;
+      border-radius:16px;
       cursor:pointer;
       background:
         linear-gradient(
@@ -162,11 +197,17 @@
         );
       color:#fff;
       font-family:inherit;
+      font-size:15px;
       font-weight:700;
+      box-shadow:
+        0 5px 12px
+        rgba(8,115,55,.16);
     }
 
+
     .search-button:disabled{
-      opacity:.6;
+      opacity:.65;
+      cursor:wait;
     }
 
 
@@ -175,58 +216,76 @@
     ======================================== */
 
     .stats-section{
-      margin-top:18px;
+      margin-top:20px;
     }
 
+
     .stats-title{
-      margin-bottom:10px;
-      font-size:13px;
+      margin-bottom:11px;
+      font-size:15px;
       font-weight:800;
       color:#4c5a51;
     }
 
+
     .stats-grid{
       display:grid;
       grid-template-columns:
-        repeat(3,1fr);
-      gap:9px;
+        repeat(3,minmax(0,1fr));
+      gap:10px;
     }
 
+
     .stat-card{
-      padding:13px 8px;
+      min-width:0;
+      padding:16px 7px;
       text-align:center;
-      border-radius:17px;
+      border-radius:18px;
       background:#fff;
       box-shadow:
         0 8px 20px
         rgba(20,70,40,.08);
     }
 
+
+    .stat-icon{
+      font-size:23px;
+      line-height:1;
+    }
+
+
     .stat-number{
-      margin-top:3px;
-      font-size:20px;
+      margin-top:7px;
+      font-size:23px;
       font-weight:800;
       color:#087337;
     }
 
+
     .stat-label{
-      font-size:9px;
+      margin-top:2px;
+      font-size:10px;
       font-weight:700;
       color:#7a867e;
+      line-height:1.35;
     }
+
 
     .stats-more-button{
       width:100%;
-      margin-top:11px;
-      padding:11px;
+      margin-top:13px;
+      padding:14px;
       border:1px solid #dce9df;
-      border-radius:14px;
+      border-radius:16px;
       background:#fff;
       color:#087337;
       font-family:inherit;
-      font-size:12px;
-      font-weight:700;
+      font-size:14px;
+      font-weight:800;
       cursor:pointer;
+      box-shadow:
+        0 6px 16px
+        rgba(20,70,40,.05);
     }
 
 
@@ -246,9 +305,11 @@
       font-weight:600;
     }
 
+
     .message.show{
       display:block;
     }
+
 
     .message.error{
       background:#fff7f7;
@@ -265,9 +326,11 @@
       margin-top:18px;
     }
 
+
     .multiple-results.show{
       display:block;
     }
+
 
     .multiple-title{
       margin-bottom:10px;
@@ -276,10 +339,12 @@
       color:#56635b;
     }
 
+
     .result-list{
       display:grid;
       gap:9px;
     }
+
 
     .result-item{
       width:100%;
@@ -292,28 +357,34 @@
       background:#fff;
       text-align:left;
       cursor:pointer;
+      color:#243029;
       font-family:inherit;
     }
 
+
     .result-photo{
-      width:48px;
-      height:48px;
+      width:50px;
+      height:50px;
       flex:none;
       overflow:hidden;
       border-radius:50%;
       background:#edf2ee;
     }
 
+
     .result-photo img{
+      display:block;
       width:100%;
       height:100%;
       object-fit:cover;
     }
 
+
     .result-info{
       flex:1;
       min-width:0;
     }
+
 
     .result-name{
       overflow:hidden;
@@ -323,14 +394,18 @@
       font-weight:800;
     }
 
+
     .result-id{
+      margin-top:2px;
       font-size:10px;
       font-weight:700;
       color:#087337;
     }
 
+
     .result-arrow{
-      font-size:20px;
+      flex:none;
+      font-size:22px;
       color:#8b968f;
     }
 
@@ -350,9 +425,11 @@
         rgba(20,70,40,.13);
     }
 
+
     .member-card.show{
       display:block;
     }
+
 
     .top-line{
       height:4px;
@@ -366,20 +443,24 @@
     }
 
 
-    /* PROFILE */
+    /* ========================================
+       PROFILE
+    ======================================== */
 
     .profile{
-      padding:22px 18px 18px;
+      padding:24px 18px 20px;
       text-align:center;
       border-bottom:
         1px solid #edf0ee;
     }
 
+
     .profile-photo{
-      width:96px;
-      height:96px;
-      margin:0 auto 12px;
+      width:110px;
+      height:110px;
+      margin:0 auto 14px;
       padding:4px;
+      overflow:hidden;
       border-radius:50%;
       background:
         linear-gradient(
@@ -388,9 +469,14 @@
           #e0b72d
         );
       cursor:pointer;
+      box-shadow:
+        0 5px 16px
+        rgba(20,70,40,.15);
     }
 
+
     .profile-photo img{
+      display:block;
       width:100%;
       height:100%;
       object-fit:cover;
@@ -398,23 +484,36 @@
       background:#edf1ee;
     }
 
+
     .member-name{
-      font-size:24px;
+      font-size:25px;
       font-weight:800;
-      line-height:1.2;
+      line-height:1.25;
     }
 
+
     .member-nickname{
-      margin-top:4px;
+      min-height:20px;
+      margin-top:5px;
       color:#758078;
-      font-size:13px;
+      font-size:14px;
       font-weight:600;
     }
 
+
+    .member-meta{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      margin-top:10px;
+    }
+
+
     .member-id{
       display:inline-block;
-      margin-top:9px;
-      padding:5px 12px;
+      padding:7px 13px;
       border-radius:30px;
       background:#e8f4ec;
       color:#087337;
@@ -422,70 +521,84 @@
       font-weight:800;
     }
 
+
     .status-badge{
       display:inline-flex;
       align-items:center;
       gap:6px;
-      margin-top:10px;
-      padding:7px 12px;
+      padding:8px 13px;
       border-radius:30px;
       font-size:10px;
       font-weight:800;
+      line-height:1.2;
+      text-align:left;
     }
+
 
     .status-badge.active{
       background:#e7f6eb;
       color:#178342;
     }
 
+
     .status-badge.inactive{
       background:#fff1f1;
       color:#c44747;
     }
+
 
     .status-badge.pending{
       background:#fff7e2;
       color:#b77c00;
     }
 
+
     .status-dot{
       width:7px;
       height:7px;
+      flex:none;
       border-radius:50%;
       background:currentColor;
     }
 
 
-    /* INFO */
+    /* ========================================
+       INFO
+    ======================================== */
 
     .info-grid{
       display:grid;
       grid-template-columns:
-        repeat(2,1fr);
+        repeat(2,minmax(0,1fr));
       gap:10px;
       padding:16px;
     }
 
+
     .info-box{
-      padding:14px;
-      border-radius:16px;
+      min-width:0;
+      padding:15px;
+      border:1px solid #e8eeea;
+      border-radius:17px;
       background:#f5f8f6;
-      border:
-        1px solid #e8eeea;
     }
 
+
     .info-label{
-      margin-bottom:7px;
+      margin-bottom:8px;
       font-size:10px;
       font-weight:700;
       color:#7c8780;
       text-transform:uppercase;
+      line-height:1.4;
     }
+
 
     .info-value{
       overflow-wrap:anywhere;
-      font-size:13px;
+      font-size:14px;
       font-weight:700;
+      line-height:1.4;
     }
 
 
@@ -498,64 +611,82 @@
         0 16px 18px;
     }
 
+
     .section-title{
       padding-bottom:9px;
       border-bottom:
         1px solid #e7ece8;
-      font-size:12px;
+      font-size:14px;
       font-weight:800;
       color:#59665f;
     }
 
+
     .motor-box{
       margin-top:12px;
-      padding:15px;
-      border-radius:17px;
+      padding:16px;
+      border:1px solid #e0e9e3;
+      border-radius:18px;
       background:#f3f7f4;
-      border:
-        1px solid #e0e9e3;
     }
 
+
     .motor-name{
-      font-size:15px;
+      font-size:17px;
       font-weight:800;
+      overflow-wrap:anywhere;
     }
+
 
     .ojol-row{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:10px;
-      margin-top:13px;
-      padding-top:12px;
+      margin-top:14px;
+      padding-top:13px;
       border-top:
         1px solid #dce8df;
     }
 
+
     .ojol-label{
-      font-size:11px;
+      flex:none;
+      font-size:12px;
       color:#77827b;
     }
 
+
     .ojol-value{
-      max-width:65%;
-      padding:6px 11px;
+      max-width:68%;
+      padding:7px 12px;
       border-radius:20px;
       background:#fff;
       color:#087337;
       font-size:11px;
       font-weight:800;
       text-align:right;
+      overflow-wrap:anywhere;
     }
 
 
-    /* FOOTER */
+    /* ========================================
+       FOOTER
+    ======================================== */
 
     .footer{
-      padding:25px 10px 5px;
+      padding:27px 10px 5px;
       text-align:center;
       color:#88928c;
       font-size:10px;
+      line-height:1.8;
+    }
+
+
+    .footer a{
+      color:#087337;
+      font-weight:700;
+      text-decoration:none;
     }
 
 
@@ -575,9 +706,11 @@
         rgba(0,0,0,.55);
     }
 
+
     .modal.show{
       display:flex;
     }
+
 
     .modal-box{
       width:min(100%,520px);
@@ -590,6 +723,7 @@
         rgba(0,0,0,.25);
     }
 
+
     .modal-header{
       display:flex;
       justify-content:space-between;
@@ -599,39 +733,47 @@
         1px solid #edf0ee;
     }
 
+
     .modal-title{
       font-size:16px;
       font-weight:800;
     }
 
+
     .close-button{
       width:36px;
       height:36px;
+      flex:none;
       border:0;
       border-radius:50%;
       background:#f1f4f2;
+      color:#243029;
       font-size:21px;
       cursor:pointer;
     }
+
 
     .stats-modal-content{
       padding:16px;
     }
 
+
     .stats-detail-grid{
       display:grid;
       grid-template-columns:
-        repeat(2,1fr);
+        repeat(2,minmax(0,1fr));
       gap:10px;
     }
 
+
     .detail-stat{
+      min-width:0;
       padding:15px;
+      border:1px solid #e8eeea;
       border-radius:16px;
       background:#f5f8f6;
-      border:
-        1px solid #e8eeea;
     }
+
 
     .detail-number{
       font-size:22px;
@@ -639,15 +781,19 @@
       color:#087337;
     }
 
+
     .detail-label{
+      margin-top:2px;
       font-size:10px;
       font-weight:700;
       color:#78847d;
     }
 
+
     .stats-list-section{
       margin-top:20px;
     }
+
 
     .stats-list-title{
       margin-bottom:9px;
@@ -656,10 +802,12 @@
       color:#56635b;
     }
 
+
     .stats-list{
       display:grid;
       gap:8px;
     }
+
 
     .stats-list-item{
       display:flex;
@@ -667,20 +815,23 @@
       align-items:center;
       gap:12px;
       padding:12px 13px;
+      border:1px solid #edf1ee;
       border-radius:14px;
       background:#f7f9f8;
-      border:
-        1px solid #edf1ee;
     }
 
+
     .stats-list-name{
+      min-width:0;
+      overflow-wrap:anywhere;
       font-size:12px;
       font-weight:700;
     }
 
+
     .stats-list-total{
-      min-width:32px;
-      padding:4px 8px;
+      min-width:34px;
+      padding:5px 9px;
       border-radius:20px;
       text-align:center;
       background:#e7f4eb;
@@ -690,42 +841,102 @@
     }
 
 
-    /* FOTO MODAL */
+    /* ========================================
+       FOTO MODAL
+    ======================================== */
 
     .photo-modal-content{
       position:relative;
       width:min(92vw,520px);
     }
 
+
     .photo-modal-content img{
+      display:block;
       width:100%;
       max-height:80vh;
       object-fit:contain;
       border-radius:18px;
+      background:#fff;
     }
 
 
+    /* ========================================
+       RESPONSIVE HP
+    ======================================== */
+
     @media(max-width:480px){
 
-      .hero h1{
-        font-size:20px;
+      .hero{
+        padding:26px 14px 28px;
       }
+
+
+      .hero h1{
+        font-size:22px;
+      }
+
+
+      .hero p{
+        font-size:13px;
+      }
+
 
       .content{
-        padding:13px 12px 20px;
+        padding:16px 12px 20px;
       }
 
-      .stat-card{
-        padding:12px 5px;
+
+      .search-card{
+        gap:8px;
+        padding:8px;
       }
+
+
+      .search-input{
+        height:54px;
+        padding:0 13px;
+        font-size:13px;
+      }
+
+
+      .search-button{
+        flex-basis:90px;
+        min-width:90px;
+        height:54px;
+        padding:0 10px;
+        font-size:14px;
+      }
+
+
+      .stat-card{
+        padding:14px 5px;
+      }
+
+
+      .stat-number{
+        font-size:21px;
+      }
+
+
+      .stat-label{
+        font-size:9px;
+      }
+
+
+      .member-name{
+        font-size:23px;
+      }
+
 
       .info-grid{
         padding:12px;
         gap:8px;
       }
 
+
       .motor-section{
-        padding:0 12px 14px;
+        padding:0 12px 16px;
       }
 
     }
@@ -737,23 +948,37 @@
         flex-direction:column;
       }
 
+
       .search-button{
         width:100%;
       }
+
 
       .info-grid,
       .stats-detail-grid{
         grid-template-columns:1fr;
       }
 
+
+      .member-meta{
+        flex-direction:column;
+      }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
 <div class="app">
+
+
+  <!-- ========================================
+       HERO
+  ======================================== -->
 
   <header class="hero">
 
@@ -766,6 +991,7 @@
 
     </div>
 
+
     <h1>CEK KEANGGOTAAN OMB</h1>
 
     <p>Ojol Molis Bersatu</p>
@@ -776,7 +1002,9 @@
   <main class="content">
 
 
-    <!-- SEARCH -->
+    <!-- ========================================
+         SEARCH
+    ======================================== -->
 
     <div class="search-card">
 
@@ -788,6 +1016,7 @@
         autocomplete="off"
       >
 
+
       <button
         id="searchButton"
         class="search-button"
@@ -798,7 +1027,9 @@
     </div>
 
 
-    <!-- STATISTIK -->
+    <!-- ========================================
+         STATISTIK
+    ======================================== -->
 
     <section class="stats-section">
 
@@ -809,9 +1040,12 @@
 
       <div class="stats-grid">
 
+
         <div class="stat-card">
 
-          <div>👥</div>
+          <div class="stat-icon">
+            👥
+          </div>
 
           <div
             id="statTotal"
@@ -829,7 +1063,9 @@
 
         <div class="stat-card">
 
-          <div>🟢</div>
+          <div class="stat-icon">
+            🟢
+          </div>
 
           <div
             id="statAktif"
@@ -847,7 +1083,9 @@
 
         <div class="stat-card">
 
-          <div>🛵</div>
+          <div class="stat-icon">
+            🛵
+          </div>
 
           <div
             id="statMotor"
@@ -862,6 +1100,7 @@
 
         </div>
 
+
       </div>
 
 
@@ -875,7 +1114,9 @@
     </section>
 
 
-    <!-- MESSAGE -->
+    <!-- ========================================
+         MESSAGE
+    ======================================== -->
 
     <div
       id="message"
@@ -883,7 +1124,9 @@
     ></div>
 
 
-    <!-- MULTIPLE RESULT -->
+    <!-- ========================================
+         MULTIPLE RESULT
+    ======================================== -->
 
     <section
       id="multipleResults"
@@ -897,6 +1140,7 @@
         Pilih anggota:
       </div>
 
+
       <div
         id="resultList"
         class="result-list"
@@ -905,7 +1149,9 @@
     </section>
 
 
-    <!-- MEMBER CARD -->
+    <!-- ========================================
+         MEMBER CARD
+    ======================================== -->
 
     <section
       id="memberCard"
@@ -919,9 +1165,11 @@
 
       <div class="profile">
 
+
         <div
           class="profile-photo"
           onclick="previewFoto()"
+          title="Klik untuk memperbesar foto"
         >
 
           <img
@@ -947,31 +1195,39 @@
         ></div>
 
 
-        <div
-          id="memberId"
-          class="member-id"
-        >
-          OMB-000
-        </div>
+        <div class="member-meta">
 
 
-        <div
-          id="statusBadge"
-          class="status-badge pending"
-        >
+          <div
+            id="memberId"
+            class="member-id"
+          >
+            OMB-000
+          </div>
 
-          <span class="status-dot"></span>
 
-          <span id="statusBadgeText">
-            STATUS
-          </span>
+          <div
+            id="statusBadge"
+            class="status-badge pending"
+          >
+
+            <span class="status-dot"></span>
+
+            <span id="statusBadgeText">
+              MENUNGGU VERIFIKASI
+            </span>
+
+          </div>
+
 
         </div>
 
       </div>
 
 
-      <!-- INFO ANGGOTA -->
+      <!-- ========================================
+           INFO ANGGOTA
+      ======================================== -->
 
       <div class="info-grid">
 
@@ -1039,10 +1295,13 @@
 
         </div>
 
+
       </div>
 
 
-      <!-- DATA MOTOR -->
+      <!-- ========================================
+           DATA MOTOR
+      ======================================== -->
 
       <div class="motor-section">
 
@@ -1052,6 +1311,7 @@
 
 
         <div class="motor-box">
+
 
           <div
             id="memberMotor"
@@ -1067,6 +1327,7 @@
               📱 Aplikasi Ojol
             </div>
 
+
             <div
               id="memberOjol"
               class="ojol-value"
@@ -1076,32 +1337,38 @@
 
           </div>
 
+
         </div>
 
       </div>
 
+
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
 
     <footer class="footer">
 
       <div>
         © 2026 OMB • Ojol Molis Bersatu Semarang
       </div>
-<div>
-  Created by
-  <a
-    href="https://www.instagram.com/zulfikrian"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    @zulfikrian
-  </a>
-</div>
+
+      <div>
+        Created by
+        <a
+          href="https://www.instagram.com/zulfikrian"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @zulfikrian
+        </a>
+      </div>
 
     </footer>
+
 
   </main>
 
@@ -1126,6 +1393,7 @@
       <div class="modal-title">
         📊 Statistik OMB
       </div>
+
 
       <button
         class="close-button"
@@ -1206,14 +1474,18 @@
 
         </div>
 
+
       </div>
 
+
+      <!-- STAT MOTOR -->
 
       <div class="stats-list-section">
 
         <div class="stats-list-title">
           🛵 Berdasarkan Merek Motor
         </div>
+
 
         <div
           id="motorStatsList"
@@ -1223,11 +1495,14 @@
       </div>
 
 
+      <!-- STAT OJOL -->
+
       <div class="stats-list-section">
 
         <div class="stats-list-title">
           📱 Berdasarkan Aplikasi Ojol
         </div>
+
 
         <div
           id="ojolStatsList"
@@ -1235,6 +1510,7 @@
         ></div>
 
       </div>
+
 
     </div>
 
@@ -1255,6 +1531,7 @@
 
   <div class="photo-modal-content">
 
+
     <button
       class="close-button"
       style="
@@ -1274,6 +1551,7 @@
       src=""
       alt="Preview Foto"
     >
+
 
   </div>
 
@@ -1302,12 +1580,16 @@
 
 
   /* ==========================================
-     NAMA TABLE SUPABASE
+     NAMA TABLE
   ========================================== */
 
   const TABLE_NAME =
     "anggota_omb";
 
+
+  /* ==========================================
+     FOTO DEFAULT
+  ========================================== */
 
   const FOTO_DEFAULT =
     "https://cdn-icons-png.flaticon.com/512/149/149071.png";
@@ -1389,6 +1671,12 @@
 
       semuaAnggota =
         data || [];
+
+
+      console.log(
+        "Data anggota:",
+        semuaAnggota
+      );
 
 
       loadStatistik();
@@ -1533,6 +1821,8 @@
         ),
 
 
+      /* KOLOM FOTO SUPABASE */
+
       foto:
         getValue(
           data,
@@ -1546,6 +1836,91 @@
         data
 
     };
+
+  }
+
+
+  /* ==========================================
+     FORMAT FOTO URL
+
+     Mendukung:
+     1. Google Drive /file/d/ID/view
+     2. Google Drive open?id=ID
+     3. Google Drive thumbnail
+     4. URL gambar biasa
+  ========================================== */
+
+  function formatFotoUrl(url) {
+
+    if (!url) {
+      return FOTO_DEFAULT;
+    }
+
+
+    const value =
+      String(url).trim();
+
+
+    /* Sudah berupa thumbnail Google Drive */
+
+    if (
+      value.includes(
+        "drive.google.com/thumbnail"
+      )
+    ) {
+
+      return value;
+
+    }
+
+
+    /* Google Drive /file/d/FILE_ID */
+
+    const driveMatch =
+      value.match(
+        /\/d\/([a-zA-Z0-9_-]+)/
+      );
+
+
+    if (
+      driveMatch &&
+      driveMatch[1]
+    ) {
+
+      return (
+        "https://drive.google.com/thumbnail?id=" +
+        driveMatch[1] +
+        "&sz=w1000"
+      );
+
+    }
+
+
+    /* Google Drive ?id=FILE_ID */
+
+    const idMatch =
+      value.match(
+        /[?&]id=([a-zA-Z0-9_-]+)/
+      );
+
+
+    if (
+      idMatch &&
+      idMatch[1]
+    ) {
+
+      return (
+        "https://drive.google.com/thumbnail?id=" +
+        idMatch[1] +
+        "&sz=w1000"
+      );
+
+    }
+
+
+    /* URL gambar biasa */
+
+    return value;
 
   }
 
@@ -1582,6 +1957,16 @@
     multipleResults.classList.remove(
       "show"
     );
+
+
+    document
+      .getElementById(
+        "message"
+      )
+      .classList
+      .remove(
+        "show"
+      );
 
 
     if (!keyword) {
@@ -1674,6 +2059,21 @@
 
     }
 
+    catch (error) {
+
+      console.error(
+        "ERROR PENCARIAN:",
+        error
+      );
+
+
+      tampilPesan(
+        "❌ Terjadi kesalahan saat mencari data.",
+        true
+      );
+
+    }
+
     finally {
 
       searchButton.disabled =
@@ -1750,8 +2150,9 @@
 
 
         const foto =
-          member.foto ||
-          FOTO_DEFAULT;
+          formatFotoUrl(
+            member.foto
+          );
 
 
         button.innerHTML =
@@ -1760,7 +2161,7 @@
 
           '<img src="' +
           escapeHtml(foto) +
-          '" onerror="this.src=\'' +
+          '" onerror="this.onerror=null;this.src=\'' +
           FOTO_DEFAULT +
           '\'">' +
 
@@ -1924,14 +2325,26 @@
     );
 
 
+    /* FOTO */
+
     const photo =
       document.getElementById(
         "memberPhoto"
       );
 
 
+    const fotoUrl =
+      formatFotoUrl(
+        data.foto
+      );
+
+
     photo.onerror =
       function() {
+
+        this.onerror =
+          null;
+
 
         this.src =
           FOTO_DEFAULT;
@@ -1940,9 +2353,10 @@
 
 
     photo.src =
-      data.foto ||
-      FOTO_DEFAULT;
+      fotoUrl;
 
+
+    /* RESET TAMPILAN */
 
     document
       .getElementById(
@@ -1963,6 +2377,8 @@
         "show"
       );
 
+
+    /* TAMPILKAN CARD */
 
     const card =
       document.getElementById(
@@ -2010,9 +2426,60 @@
     }
 
 
+    const value =
+      String(
+        tanggal
+      ).trim();
+
+
+    /*
+      Hindari pergeseran tanggal
+      akibat timezone
+    */
+
+    const match =
+      value.match(
+        /^(\d{4})-(\d{2})-(\d{2})/
+      );
+
+
+    if (match) {
+
+      const tahun =
+        Number(match[1]);
+
+
+      const bulan =
+        Number(match[2]) - 1;
+
+
+      const hari =
+        Number(match[3]);
+
+
+      const date =
+        new Date(
+          tahun,
+          bulan,
+          hari
+        );
+
+
+      return date.toLocaleDateString(
+        "id-ID",
+        {
+          day:"numeric",
+          month:"long",
+          year:"numeric"
+        }
+      );
+
+    }
+
+
     const date =
       new Date(
-        tanggal
+        value
       );
 
 
@@ -2022,7 +2489,7 @@
       )
     ) {
 
-      return tanggal;
+      return value;
 
     }
 
@@ -2030,16 +2497,9 @@
     return date.toLocaleDateString(
       "id-ID",
       {
-
-        day:
-          "numeric",
-
-        month:
-          "long",
-
-        year:
-          "numeric"
-
+        day:"numeric",
+        month:"long",
+        year:"numeric"
       }
     );
 
@@ -2204,6 +2664,8 @@
       );
 
 
+    /* CARD UTAMA */
+
     document
       .getElementById(
         "statTotal"
@@ -2227,6 +2689,8 @@
       .textContent =
       penggunaMotor;
 
+
+    /* MODAL */
 
     document
       .getElementById(
@@ -2275,7 +2739,7 @@
 
 
   /* ==========================================
-     HITUNG KATEGORI BIASA
+     HITUNG KATEGORI MOTOR
   ========================================== */
 
   function hitungKategori(
@@ -2345,14 +2809,71 @@
 
 
   /* ==========================================
+     NORMALISASI NAMA APLIKASI OJOL
+  ========================================== */
+
+  function normalisasiNamaOjol(
+    nama
+  ) {
+
+    const value =
+      String(
+        nama || ""
+      )
+      .trim()
+      .toLowerCase();
+
+
+    if (
+      value === "grab"
+    ) {
+      return "Grab";
+    }
+
+
+    if (
+      value === "shopeefood"
+      ||
+      value === "shopee food"
+    ) {
+      return "Shopeefood";
+    }
+
+
+    if (
+      value === "gojek"
+      ||
+      value === "go-jek"
+    ) {
+      return "Gojek";
+    }
+
+
+    if (
+      value === "maxim"
+    ) {
+      return "Maxim";
+    }
+
+
+    return String(
+      nama || ""
+    ).trim();
+
+  }
+
+
+  /* ==========================================
      HITUNG APLIKASI OJOL
 
      Contoh:
-     "Grab, ShopeeFood"
-     akan dihitung menjadi:
+
+     "Grab, Shopeefood"
+
+     Akan menjadi:
 
      Grab = +1
-     ShopeeFood = +1
+     Shopeefood = +1
   ========================================== */
 
   function hitungKategoriOjol(
@@ -2391,7 +2912,9 @@
           function(item) {
 
             const nama =
-              item.trim();
+              normalisasiNamaOjol(
+                item
+              );
 
 
             if (!nama) {
@@ -2584,7 +3107,10 @@
         .src;
 
 
-    if (!foto) {
+    if (
+      !foto ||
+      foto === FOTO_DEFAULT
+    ) {
       return;
     }
 
@@ -2665,7 +3191,7 @@
 
     message.classList.toggle(
       "error",
-      isError
+      Boolean(isError)
     );
 
   }
