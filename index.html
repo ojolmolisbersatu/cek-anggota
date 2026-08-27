@@ -2,84 +2,231 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
   <title>Cek Keanggotaan OMB</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FONT -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+
     body{
       min-height:100vh;
       font-family:"Poppins",sans-serif;
-      background:linear-gradient(180deg,#f5f8f6,#edf2ee);
+      background:linear-gradient(
+        180deg,
+        #f5f8f6,
+        #edf2ee
+      );
       color:#243029;
     }
 
-    .app{width:100%;max-width:720px;margin:auto;padding-bottom:35px}
+
+    .app{
+      width:100%;
+      max-width:720px;
+      margin:auto;
+      padding-bottom:35px;
+    }
+
+
+    /* ==========================================
+       HERO
+    ========================================== */
 
     .hero{
       text-align:center;
       padding:24px 16px 28px;
-      background:linear-gradient(135deg,#075d2b,#087337 55%,#0b8b43);
+
+      background:linear-gradient(
+        135deg,
+        #075d2b,
+        #087337 55%,
+        #0b8b43
+      );
+
       color:#fff;
-      box-shadow:0 6px 20px rgba(0,70,30,.18);
+
+      box-shadow:
+        0 6px 20px
+        rgba(0,70,30,.18);
     }
+
 
     .logo-box{
-      width:76px;height:76px;margin:0 auto 10px;
-      border-radius:50%;background:#fff;padding:5px;
-      box-shadow:0 8px 22px rgba(0,0,0,.22);
+      width:76px;
+      height:76px;
+      margin:0 auto 10px;
+      padding:5px;
+
+      border-radius:50%;
+      background:#fff;
+
+      box-shadow:
+        0 8px 22px
+        rgba(0,0,0,.22);
     }
+
 
     .logo-box img{
-      width:100%;height:100%;
-      object-fit:cover;border-radius:50%;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:50%;
     }
 
-    .hero h1{font-size:24px;font-weight:800}
-    .hero p{font-size:12px;opacity:.86}
 
-    .content{padding:16px}
+    .hero h1{
+      font-size:24px;
+      font-weight:800;
+    }
+
+
+    .hero p{
+      margin-top:3px;
+      font-size:12px;
+      opacity:.86;
+    }
+
+
+    /* ==========================================
+       CONTENT
+    ========================================== */
+
+    .content{
+      padding:16px;
+    }
+
+
+    /* ==========================================
+       SEARCH
+    ========================================== */
 
     .search-card{
-      display:flex;gap:8px;padding:8px;
-      border-radius:18px;background:#fff;
-      box-shadow:0 10px 28px rgba(20,70,40,.1);
+      display:flex;
+      align-items:center;
+      gap:8px;
+
+      width:100%;
+      padding:8px;
+
+      border-radius:18px;
+      background:#fff;
+
+      box-shadow:
+        0 10px 28px
+        rgba(20,70,40,.10);
     }
 
+
     .search-input{
-      flex:1;min-width:0;height:50px;padding:0 14px;
-      border:1px solid #dce5df;border-radius:13px;
-      outline:none;background:#f8faf9;font-family:inherit;
+      flex:1 1 auto;
+      width:100%;
+      min-width:0;
+
+      height:50px;
+      padding:0 14px;
+
+      border:1px solid #dce5df;
+      border-radius:13px;
+
+      outline:none;
+
+      background:#f8faf9;
+
+      font-family:inherit;
+      font-size:14px;
     }
+
 
     .search-input:focus{
       border-color:#087337;
-      box-shadow:0 0 0 3px rgba(8,115,55,.1);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(8,115,55,.10);
     }
+
 
     .search-button{
-      min-width:72px;height:50px;padding:0 16px;
-      border:0;border-radius:13px;cursor:pointer;
-      background:linear-gradient(135deg,#087337,#0b9147);
-      color:#fff;font-family:inherit;font-weight:700;
+      flex:0 0 auto;
+
+      width:58px;
+      min-width:58px;
+      height:50px;
+      padding:0 8px;
+
+      border:0;
+      border-radius:13px;
+
+      cursor:pointer;
+
+      background:linear-gradient(
+        135deg,
+        #087337,
+        #0b9147
+      );
+
+      color:#fff;
+
+      font-family:inherit;
+      font-size:12px;
+      font-weight:700;
     }
 
-    .search-button:disabled{opacity:.6}
 
-    .stats-section{margin-top:18px}
+    .search-button:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
+
+
+    /* ==========================================
+       STATISTIK
+    ========================================== */
+
+    .stats-section{
+      margin-top:18px;
+    }
+
 
     .stats-title{
-      margin-bottom:10px;font-size:13px;
-      font-weight:800;color:#4c5a51;
+      margin-bottom:10px;
+
+      font-size:13px;
+      font-weight:800;
+      color:#4c5a51;
     }
+
 
     .stats-grid{
       display:grid;
@@ -87,1437 +234,2380 @@
       gap:9px;
     }
 
+
     .stat-card{
-      padding:13px 8px;text-align:center;
-      border-radius:17px;background:#fff;
-      box-shadow:0 8px 20px rgba(20,70,40,.08);
+      padding:13px 8px;
+
+      text-align:center;
+
+      border-radius:17px;
+      background:#fff;
+
+      box-shadow:
+        0 8px 20px
+        rgba(20,70,40,.08);
     }
+
 
     .stat-number{
-      margin-top:3px;font-size:20px;
-      font-weight:800;color:#087337;
+      margin-top:3px;
+
+      font-size:20px;
+      font-weight:800;
+      color:#087337;
     }
+
 
     .stat-label{
-      font-size:9px;font-weight:700;color:#7a867e;
+      font-size:9px;
+      font-weight:700;
+      color:#7a867e;
     }
 
+
     .stats-more-button{
-      width:100%;margin-top:11px;padding:11px;
-      border:1px solid #dce9df;border-radius:14px;
-      background:#fff;color:#087337;
-      font-family:inherit;font-size:12px;font-weight:700;
+      width:100%;
+      margin-top:11px;
+      padding:11px;
+
+      border:1px solid #dce9df;
+      border-radius:14px;
+
+      background:#fff;
+      color:#087337;
+
+      font-family:inherit;
+      font-size:12px;
+      font-weight:700;
+
       cursor:pointer;
     }
 
+
+    /* ==========================================
+       PESAN
+    ========================================== */
+
     .message{
-      display:none;margin-top:18px;padding:16px;
-      border-radius:16px;text-align:center;
-      background:#fff;color:#68736d;
-      font-size:13px;font-weight:600;
+      display:none;
+
+      margin-top:18px;
+      padding:16px;
+
+      border-radius:16px;
+
+      text-align:center;
+
+      background:#fff;
+      color:#68736d;
+
+      font-size:13px;
+      font-weight:600;
     }
 
-    .message.show{display:block}
-    .message.error{background:#fff7f7;color:#bd3d3d}
 
-    .multiple-results{display:none;margin-top:18px}
-    .multiple-results.show{display:block}
+    .message.show{
+      display:block;
+    }
+
+
+    .message.error{
+      background:#fff7f7;
+      color:#bd3d3d;
+    }
+
+
+    /* ==========================================
+       HASIL GANDA
+    ========================================== */
+
+    .multiple-results{
+      display:none;
+      margin-top:18px;
+    }
+
+
+    .multiple-results.show{
+      display:block;
+    }
+
 
     .multiple-title{
-      margin-bottom:10px;font-size:13px;
-      font-weight:700;color:#56635b;
+      margin-bottom:10px;
+
+      font-size:13px;
+      font-weight:700;
+      color:#56635b;
     }
 
-    .result-list{display:grid;gap:9px}
+
+    .result-list{
+      display:grid;
+      gap:9px;
+    }
+
 
     .result-item{
-      width:100%;display:flex;align-items:center;gap:12px;
-      padding:12px;border:1px solid #e2e9e4;
-      border-radius:17px;background:#fff;
-      text-align:left;cursor:pointer;
+      width:100%;
+
+      display:flex;
+      align-items:center;
+      gap:12px;
+
+      padding:12px;
+
+      border:1px solid #e2e9e4;
+      border-radius:17px;
+
+      background:#fff;
+
+      text-align:left;
+      cursor:pointer;
+
       font-family:inherit;
     }
 
+
     .result-photo{
-      width:48px;height:48px;flex:none;
-      overflow:hidden;border-radius:50%;background:#edf2ee;
+      width:48px;
+      height:48px;
+      flex:none;
+
+      overflow:hidden;
+
+      border-radius:50%;
+      background:#edf2ee;
     }
+
 
     .result-photo img{
-      width:100%;height:100%;object-fit:cover;
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
     }
 
-    .result-info{flex:1;min-width:0}
+
+    .result-info{
+      flex:1;
+      min-width:0;
+    }
+
 
     .result-name{
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-      font-size:14px;font-weight:800;
+      overflow:hidden;
+
+      text-overflow:ellipsis;
+      white-space:nowrap;
+
+      font-size:14px;
+      font-weight:800;
     }
+
 
     .result-id{
-      font-size:10px;font-weight:700;color:#087337;
+      font-size:10px;
+      font-weight:700;
+      color:#087337;
     }
 
-    .result-arrow{font-size:20px;color:#8b968f}
+
+    .result-arrow{
+      font-size:20px;
+      color:#8b968f;
+    }
+
+
+    /* ==========================================
+       MEMBER CARD
+    ========================================== */
 
     .member-card{
-      display:none;margin-top:18px;overflow:hidden;
-      border-radius:24px;background:#fff;
-      box-shadow:0 12px 32px rgba(20,70,40,.13);
+      display:none;
+
+      margin-top:18px;
+      overflow:hidden;
+
+      border-radius:24px;
+      background:#fff;
+
+      box-shadow:
+        0 12px 32px
+        rgba(20,70,40,.13);
     }
 
-    .member-card.show{display:block}
+
+    .member-card.show{
+      display:block;
+    }
+
 
     .top-line{
       height:4px;
-      background:linear-gradient(90deg,#087337,#0b8f45,#e0b72d);
+
+      background:linear-gradient(
+        90deg,
+        #087337,
+        #0b8f45,
+        #e0b72d
+      );
     }
+
+
+    /* ==========================================
+       PROFILE
+    ========================================== */
 
     .profile{
-      padding:22px 18px 18px;text-align:center;
-      border-bottom:1px solid #edf0ee;
+      padding:22px 18px 18px;
+
+      text-align:center;
+
+      border-bottom:
+        1px solid #edf0ee;
     }
 
+
     .profile-photo{
-      width:96px;height:96px;margin:0 auto 12px;
-      padding:4px;border-radius:50%;
-      background:linear-gradient(135deg,#087337,#e0b72d);
+      width:96px;
+      height:96px;
+
+      margin:0 auto 12px;
+      padding:4px;
+
+      border-radius:50%;
+
+      background:linear-gradient(
+        135deg,
+        #087337,
+        #e0b72d
+      );
+
       cursor:pointer;
     }
 
+
     .profile-photo img{
-      width:100%;height:100%;object-fit:cover;
-      border-radius:50%;background:#edf1ee;
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      border-radius:50%;
+      background:#edf1ee;
     }
+
 
     .member-name{
-      font-size:24px;font-weight:800;
+      font-size:24px;
+      font-weight:800;
     }
+
 
     .member-id{
-      display:inline-block;margin-top:8px;padding:5px 12px;
-      border-radius:30px;background:#e8f4ec;
-      color:#087337;font-size:11px;font-weight:800;
+      display:inline-block;
+
+      margin-top:8px;
+      padding:5px 12px;
+
+      border-radius:30px;
+
+      background:#e8f4ec;
+      color:#087337;
+
+      font-size:11px;
+      font-weight:800;
     }
+
 
     .status-badge{
-      display:inline-flex;align-items:center;gap:6px;
-      margin-top:10px;padding:6px 12px;
-      border-radius:30px;font-size:10px;font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+
+      margin-top:10px;
+      padding:6px 12px;
+
+      border-radius:30px;
+
+      font-size:10px;
+      font-weight:800;
     }
 
-    .status-badge.active{background:#e7f6eb;color:#178342}
-    .status-badge.inactive{background:#fff1f1;color:#c44747}
-    .status-badge.pending{background:#fff7e2;color:#b77c00}
+
+    .status-badge.active{
+      background:#e7f6eb;
+      color:#178342;
+    }
+
+
+    .status-badge.inactive{
+      background:#fff1f1;
+      color:#c44747;
+    }
+
+
+    .status-badge.pending{
+      background:#fff7e2;
+      color:#b77c00;
+    }
+
 
     .status-dot{
-      width:7px;height:7px;border-radius:50%;
+      width:7px;
+      height:7px;
+
+      border-radius:50%;
+
       background:currentColor;
     }
 
+
+    /* ==========================================
+       INFO
+    ========================================== */
+
     .info-grid{
-      display:grid;grid-template-columns:repeat(2,1fr);
-      gap:10px;padding:16px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+
+      padding:16px;
     }
+
 
     .info-box{
-      padding:14px;border-radius:16px;
-      background:#f5f8f6;border:1px solid #e8eeea;
+      padding:14px;
+
+      border:1px solid #e8eeea;
+      border-radius:16px;
+
+      background:#f5f8f6;
     }
 
+
     .info-label{
-      margin-bottom:7px;font-size:10px;
-      font-weight:700;color:#7c8780;
+      margin-bottom:7px;
+
+      font-size:10px;
+      font-weight:700;
+      color:#7c8780;
+
       text-transform:uppercase;
     }
 
+
     .info-value{
-      overflow-wrap:anywhere;font-size:14px;font-weight:700;
+      overflow-wrap:anywhere;
+
+      font-size:14px;
+      font-weight:700;
     }
 
-    .motor-section{padding:0 16px 18px}
+
+    /* ==========================================
+       MOTOR
+    ========================================== */
+
+    .motor-section{
+      padding:0 16px 18px;
+    }
+
 
     .section-title{
-      padding-bottom:9px;border-bottom:1px solid #e7ece8;
-      font-size:12px;font-weight:800;color:#59665f;
+      padding-bottom:9px;
+
+      border-bottom:
+        1px solid #e7ece8;
+
+      font-size:12px;
+      font-weight:800;
+      color:#59665f;
     }
+
 
     .motor-box{
-      margin-top:12px;padding:15px;border-radius:17px;
-      background:#f3f7f4;border:1px solid #e0e9e3;
+      margin-top:12px;
+      padding:15px;
+
+      border:1px solid #e0e9e3;
+      border-radius:17px;
+
+      background:#f3f7f4;
     }
 
-    .motor-name{font-size:15px;font-weight:800}
+
+    .motor-name{
+      font-size:15px;
+      font-weight:800;
+    }
+
 
     .ojol-row{
-      display:flex;justify-content:space-between;align-items:center;
-      gap:10px;margin-top:13px;padding-top:12px;
-      border-top:1px solid #dce8df;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+
+      margin-top:13px;
+      padding-top:12px;
+
+      border-top:
+        1px solid #dce8df;
     }
 
-    .ojol-label{font-size:11px;color:#77827b}
+
+    .ojol-label{
+      font-size:11px;
+      color:#77827b;
+    }
+
 
     .ojol-value{
-      padding:6px 11px;border-radius:20px;background:#fff;
-      color:#087337;font-size:11px;font-weight:800;
+      padding:6px 11px;
+
+      border-radius:20px;
+
+      background:#fff;
+      color:#087337;
+
+      font-size:11px;
+      font-weight:800;
     }
+
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
 
     .footer{
-      padding:25px 10px 5px;text-align:center;
-      color:#88928c;font-size:10px;
+      padding:25px 10px 5px;
+
+      text-align:center;
+
+      color:#88928c;
+      font-size:10px;
     }
+
+
+    /* ==========================================
+       MODAL
+    ========================================== */
 
     .modal{
-      display:none;position:fixed;z-index:9999;inset:0;
-      padding:20px;align-items:center;justify-content:center;
-      background:rgba(0,0,0,.55);
+      display:none;
+
+      position:fixed;
+      z-index:9999;
+      inset:0;
+
+      padding:20px;
+
+      align-items:center;
+      justify-content:center;
+
+      background:
+        rgba(0,0,0,.55);
     }
 
-    .modal.show{display:flex}
+
+    .modal.show{
+      display:flex;
+    }
+
 
     .modal-box{
-      width:min(100%,520px);max-height:85vh;
-      overflow:auto;border-radius:24px;background:#fff;
-      box-shadow:0 20px 55px rgba(0,0,0,.25);
+      width:min(100%,520px);
+      max-height:85vh;
+
+      overflow:auto;
+
+      border-radius:24px;
+      background:#fff;
+
+      box-shadow:
+        0 20px 55px
+        rgba(0,0,0,.25);
     }
+
 
     .modal-header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:18px;border-bottom:1px solid #edf0ee;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:18px;
+
+      border-bottom:
+        1px solid #edf0ee;
     }
 
-    .modal-title{font-size:16px;font-weight:800}
+
+    .modal-title{
+      font-size:16px;
+      font-weight:800;
+    }
+
 
     .close-button{
-      width:36px;height:36px;border:0;border-radius:50%;
-      background:#f1f4f2;font-size:21px;cursor:pointer;
+      width:36px;
+      height:36px;
+
+      border:0;
+      border-radius:50%;
+
+      background:#f1f4f2;
+
+      font-size:21px;
+
+      cursor:pointer;
     }
 
-    .stats-modal-content{padding:16px}
+
+    .stats-modal-content{
+      padding:16px;
+    }
+
 
     .stats-detail-grid{
-      display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
     }
+
 
     .detail-stat{
-      padding:15px;border-radius:16px;
-      background:#f5f8f6;border:1px solid #e8eeea;
+      padding:15px;
+
+      border:1px solid #e8eeea;
+      border-radius:16px;
+
+      background:#f5f8f6;
     }
+
 
     .detail-number{
-      font-size:22px;font-weight:800;color:#087337;
+      font-size:22px;
+      font-weight:800;
+      color:#087337;
     }
+
 
     .detail-label{
-      font-size:10px;font-weight:700;color:#78847d;
+      font-size:10px;
+      font-weight:700;
+      color:#78847d;
     }
 
-    .stats-list-section{margin-top:20px}
+
+    .stats-list-section{
+      margin-top:20px;
+    }
+
 
     .stats-list-title{
-      margin-bottom:9px;font-size:12px;
-      font-weight:800;color:#56635b;
+      margin-bottom:9px;
+
+      font-size:12px;
+      font-weight:800;
+      color:#56635b;
     }
 
-    .stats-list{display:grid;gap:8px}
+
+    .stats-list{
+      display:grid;
+      gap:8px;
+    }
+
 
     .stats-list-item{
-      display:flex;justify-content:space-between;align-items:center;
-      gap:12px;padding:12px 13px;border-radius:14px;
-      background:#f7f9f8;border:1px solid #edf1ee;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+
+      padding:12px 13px;
+
+      border:1px solid #edf1ee;
+      border-radius:14px;
+
+      background:#f7f9f8;
     }
 
-    .stats-list-name{font-size:12px;font-weight:700}
+
+    .stats-list-name{
+      font-size:12px;
+      font-weight:700;
+    }
+
 
     .stats-list-total{
-      min-width:32px;padding:4px 8px;border-radius:20px;
-      text-align:center;background:#e7f4eb;
-      color:#087337;font-size:11px;font-weight:800;
+      min-width:32px;
+      padding:4px 8px;
+
+      border-radius:20px;
+
+      text-align:center;
+
+      background:#e7f4eb;
+      color:#087337;
+
+      font-size:11px;
+      font-weight:800;
     }
+
+
+    /* ==========================================
+       FOTO MODAL
+    ========================================== */
 
     .photo-modal-content{
-      position:relative;width:min(92vw,520px);
+      position:relative;
+      width:min(92vw,520px);
     }
 
+
     .photo-modal-content img{
-      width:100%;max-height:80vh;object-fit:contain;
+      width:100%;
+      max-height:80vh;
+
+      object-fit:contain;
+
       border-radius:18px;
     }
 
+
+    /* ==========================================
+       RESPONSIVE
+    ========================================== */
+
     @media(max-width:480px){
-      .hero h1{font-size:20px}
-      .content{padding:13px 12px 20px}
-      .stat-card{padding:12px 5px}
-      .info-grid{padding:12px;gap:8px}
-      .motor-section{padding:0 12px 14px}
+
+      .hero h1{
+        font-size:20px;
+      }
+
+
+      .content{
+        padding:13px 12px 20px;
+      }
+
+
+      .stat-card{
+        padding:12px 5px;
+      }
+
+
+      .info-grid{
+        padding:12px;
+        gap:8px;
+      }
+
+
+      .motor-section{
+        padding:0 12px 14px;
+      }
+
+
+      .search-card{
+        gap:7px;
+        padding:7px;
+      }
+
+
+      .search-input{
+        padding:0 12px;
+        font-size:13px;
+      }
+
+
+      .search-button{
+        width:56px;
+        min-width:56px;
+        font-size:11px;
+      }
+
     }
 
+
     @media(max-width:360px){
-      .search-card{flex-direction:column}
-      .search-button{width:100%}
-      .info-grid,.stats-detail-grid{grid-template-columns:1fr}
+
+      .info-grid,
+      .stats-detail-grid{
+        grid-template-columns:1fr;
+      }
+
+
+      .search-button{
+        width:52px;
+        min-width:52px;
+        padding:0 4px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-<div class="app">
+  <div class="app">
 
-  <header class="hero">
-    <div class="logo-box">
-      <img src="https://drive.google.com/thumbnail?id=1WOCYeF-v5IAqF7QnaoakBiLukuULA5Cd&sz=w300" alt="Logo OMB">
-    </div>
-    <h1>CEK KEANGGOTAAN OMB</h1>
-    <p>Ojol Molis Bersatu</p>
-  </header>
+    <!-- ========================================
+         HEADER
+    ========================================= -->
 
-  <main class="content">
+    <header class="hero">
 
-    <div class="search-card">
-      <input
-        type="search"
-        id="keyword"
-        class="search-input"
-        placeholder="🔎 Cari ID atau nama..."
-        autocomplete="off"
-      >
-      <button id="searchButton" class="search-button">Cari</button>
-    </div>
-
-    <section class="stats-section">
-      <div class="stats-title">📊 Statistik OMB</div>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div>👥</div>
-          <div id="statTotal" class="stat-number">-</div>
-          <div class="stat-label">Total Anggota</div>
-        </div>
-
-        <div class="stat-card">
-          <div>🟢</div>
-          <div id="statAktif" class="stat-number">-</div>
-          <div class="stat-label">Anggota Aktif</div>
-        </div>
-
-        <div class="stat-card">
-          <div>🛵</div>
-          <div id="statMotor" class="stat-number">-</div>
-          <div class="stat-label">Data Motor</div>
-        </div>
+      <div class="logo-box">
+        <img
+          src="https://drive.google.com/thumbnail?id=1WOCYeF-v5IAqF7QnaoakBiLukuULA5Cd&sz=w300"
+          alt="Logo OMB"
+        >
       </div>
 
-      <button class="stats-more-button" onclick="bukaStatistik()">
-        📊 Lihat Statistik OMB ›
-      </button>
-    </section>
+      <h1>CEK KEANGGOTAAN OMB</h1>
 
-    <div id="message" class="message"></div>
+      <p>Ojol Molis Bersatu</p>
 
-    <section id="multipleResults" class="multiple-results">
-      <div id="multipleTitle" class="multiple-title">
-        Pilih anggota:
-      </div>
-      <div id="resultList" class="result-list"></div>
-    </section>
+    </header>
 
-    <section id="memberCard" class="member-card">
 
-      <div class="top-line"></div>
+    <!-- ========================================
+         CONTENT
+    ========================================= -->
 
-      <div class="profile">
+    <main class="content">
 
-        <div class="profile-photo" onclick="previewFoto()">
-          <img id="memberPhoto" src="" alt="Foto Anggota">
-        </div>
+      <!-- SEARCH -->
 
-        <h2 id="memberName" class="member-name">-</h2>
+      <div class="search-card">
 
-        <div id="memberId" class="member-id">OMB-000</div>
+        <input
+          type="search"
+          id="keyword"
+          class="search-input"
+          placeholder="🔎 Cari ID atau nama..."
+          autocomplete="off"
+        >
 
-        <div id="statusBadge" class="status-badge pending">
-          <span class="status-dot"></span>
-          <span id="statusBadgeText">STATUS</span>
-        </div>
+        <button
+          id="searchButton"
+          class="search-button"
+        >
+          Cari
+        </button>
 
       </div>
 
-      <div class="info-grid">
 
-        <div class="info-box">
-          <div class="info-label">📍 Domisili</div>
-          <div id="memberDomisili" class="info-value">-</div>
+      <!-- ========================================
+           STATISTIK
+      ========================================= -->
+
+      <section class="stats-section">
+
+        <div class="stats-title">
+          📊 Statistik OMB
         </div>
 
-        <div class="info-box">
-          <div class="info-label">🟢 Status Keanggotaan</div>
-          <div id="memberStatus" class="info-value">-</div>
-        </div>
 
-      </div>
+        <div class="stats-grid">
 
-      <div class="motor-section">
+          <div class="stat-card">
+            <div>👥</div>
+            <div
+              id="statTotal"
+              class="stat-number"
+            >
+              -
+            </div>
+            <div class="stat-label">
+              Total Anggota
+            </div>
+          </div>
 
-        <div class="section-title">🛵 DATA MOTOR</div>
 
-        <div class="motor-box">
+          <div class="stat-card">
+            <div>🟢</div>
+            <div
+              id="statAktif"
+              class="stat-number"
+            >
+              -
+            </div>
+            <div class="stat-label">
+              Anggota Aktif
+            </div>
+          </div>
 
-          <div id="memberMotor" class="motor-name">-</div>
 
-          <div class="ojol-row">
-            <div class="ojol-label">📱 Aplikasi Ojol</div>
-            <div id="memberOjol" class="ojol-value">-</div>
+          <div class="stat-card">
+            <div>🛵</div>
+            <div
+              id="statMotor"
+              class="stat-number"
+            >
+              -
+            </div>
+            <div class="stat-label">
+              Data Motor
+            </div>
           </div>
 
         </div>
 
+
+        <button
+          class="stats-more-button"
+          onclick="bukaStatistik()"
+        >
+          📊 Lihat Statistik OMB ›
+        </button>
+
+      </section>
+
+
+      <!-- PESAN -->
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+
+      <!-- ========================================
+           HASIL GANDA
+      ========================================= -->
+
+      <section
+        id="multipleResults"
+        class="multiple-results"
+      >
+
+        <div
+          id="multipleTitle"
+          class="multiple-title"
+        >
+          Pilih anggota:
+        </div>
+
+        <div
+          id="resultList"
+          class="result-list"
+        ></div>
+
+      </section>
+
+
+      <!-- ========================================
+           MEMBER CARD
+      ========================================= -->
+
+      <section
+        id="memberCard"
+        class="member-card"
+      >
+
+        <div class="top-line"></div>
+
+
+        <!-- PROFILE -->
+
+        <div class="profile">
+
+          <div
+            class="profile-photo"
+            onclick="previewFoto()"
+          >
+
+            <img
+              id="memberPhoto"
+              src=""
+              alt="Foto Anggota"
+            >
+
+          </div>
+
+
+          <h2
+            id="memberName"
+            class="member-name"
+          >
+            -
+          </h2>
+
+
+          <div
+            id="memberId"
+            class="member-id"
+          >
+            OMB-000
+          </div>
+
+
+          <div
+            id="statusBadge"
+            class="status-badge pending"
+          >
+
+            <span
+              class="status-dot"
+            ></span>
+
+            <span
+              id="statusBadgeText"
+            >
+              STATUS
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <div class="info-grid">
+
+          <div class="info-box">
+
+            <div class="info-label">
+              📍 Domisili
+            </div>
+
+            <div
+              id="memberDomisili"
+              class="info-value"
+            >
+              -
+            </div>
+
+          </div>
+
+
+          <div class="info-box">
+
+            <div class="info-label">
+              🟢 Status Keanggotaan
+            </div>
+
+            <div
+              id="memberStatus"
+              class="info-value"
+            >
+              -
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DATA MOTOR -->
+
+        <div class="motor-section">
+
+          <div class="section-title">
+            🛵 DATA MOTOR
+          </div>
+
+
+          <div class="motor-box">
+
+            <div
+              id="memberMotor"
+              class="motor-name"
+            >
+              -
+            </div>
+
+
+            <div class="ojol-row">
+
+              <div class="ojol-label">
+                📱 Aplikasi Ojol
+              </div>
+
+              <div
+                id="memberOjol"
+                class="ojol-value"
+              >
+                -
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FOOTER -->
+
+      <footer class="footer">
+
+        <div>
+          © 2026 OMB • Ojol Molis Bersatu Semarang
+        </div>
+
+        <div>
+          Created by Fikri Elektrik
+        </div>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- ==========================================
+       MODAL STATISTIK
+  =========================================== -->
+
+  <div
+    id="statsModal"
+    class="modal"
+    onclick="tutupModalStatistik(event)"
+  >
+
+    <div class="modal-box">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          📊 Statistik OMB
+        </div>
+
+        <button
+          class="close-button"
+          onclick="closeStatistik()"
+        >
+          ×
+        </button>
+
       </div>
 
-    </section>
 
-    <footer class="footer">
-      <div>© 2026 OMB • Ojol Molis Bersatu Semarang</div>
-      <div>Created by Fikri Elektrik</div>
-    </footer>
+      <div class="stats-modal-content">
 
-  </main>
-</div>
+        <div class="stats-detail-grid">
+
+          <div class="detail-stat">
+
+            <div
+              id="detailTotal"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              TOTAL ANGGOTA
+            </div>
+
+          </div>
 
 
-<!-- MODAL STATISTIK -->
-<div id="statsModal" class="modal" onclick="tutupModalStatistik(event)">
+          <div class="detail-stat">
 
-  <div class="modal-box">
+            <div
+              id="detailAktif"
+              class="detail-number"
+            >
+              -
+            </div>
 
-    <div class="modal-header">
-      <div class="modal-title">📊 Statistik OMB</div>
-      <button class="close-button" onclick="closeStatistik()">×</button>
+            <div class="detail-label">
+              ANGGOTA AKTIF
+            </div>
+
+          </div>
+
+
+          <div class="detail-stat">
+
+            <div
+              id="detailMotor"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              PENGGUNA MOTOR
+            </div>
+
+          </div>
+
+
+          <div class="detail-stat">
+
+            <div
+              id="detailOjol"
+              class="detail-number"
+            >
+              -
+            </div>
+
+            <div class="detail-label">
+              PENGGUNA OJOL
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="stats-list-section">
+
+          <div class="stats-list-title">
+            🛵 Berdasarkan Merek Motor
+          </div>
+
+          <div
+            id="motorStatsList"
+            class="stats-list"
+          ></div>
+
+        </div>
+
+
+        <div class="stats-list-section">
+
+          <div class="stats-list-title">
+            📱 Berdasarkan Aplikasi Ojol
+          </div>
+
+          <div
+            id="ojolStatsList"
+            class="stats-list"
+          ></div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="stats-modal-content">
+  </div>
 
-      <div class="stats-detail-grid">
 
-        <div class="detail-stat">
-          <div id="detailTotal" class="detail-number">-</div>
-          <div class="detail-label">TOTAL ANGGOTA</div>
-        </div>
+  <!-- ==========================================
+       MODAL FOTO
+  =========================================== -->
 
-        <div class="detail-stat">
-          <div id="detailAktif" class="detail-number">-</div>
-          <div class="detail-label">ANGGOTA AKTIF</div>
-        </div>
+  <div
+    id="photoModal"
+    class="modal"
+    onclick="tutupPreview(event)"
+  >
 
-        <div class="detail-stat">
-          <div id="detailMotor" class="detail-number">-</div>
-          <div class="detail-label">PENGGUNA MOTOR</div>
-        </div>
+    <div class="photo-modal-content">
 
-        <div class="detail-stat">
-          <div id="detailOjol" class="detail-number">-</div>
-          <div class="detail-label">PENGGUNA OJOL</div>
-        </div>
+      <button
+        class="close-button"
+        style="
+          position:absolute;
+          top:-14px;
+          right:-10px;
+          z-index:2
+        "
+        onclick="closePreview()"
+      >
+        ×
+      </button>
 
-      </div>
 
-      <div class="stats-list-section">
-        <div class="stats-list-title">🛵 Berdasarkan Merek Motor</div>
-        <div id="motorStatsList" class="stats-list"></div>
-      </div>
-
-      <div class="stats-list-section">
-        <div class="stats-list-title">📱 Berdasarkan Aplikasi Ojol</div>
-        <div id="ojolStatsList" class="stats-list"></div>
-      </div>
+      <img
+        id="previewImage"
+        src=""
+        alt="Preview Foto"
+      >
 
     </div>
-  </div>
-</div>
-
-
-<!-- MODAL FOTO -->
-<div id="photoModal" class="modal" onclick="tutupPreview(event)">
-  <div class="photo-modal-content">
-
-    <button
-      class="close-button"
-      style="position:absolute;top:-14px;right:-10px;z-index:2"
-      onclick="closePreview()"
-    >×</button>
-
-    <img id="previewImage" src="" alt="Preview Foto">
 
   </div>
-</div>
 
 
-<script>
+  <!-- ==========================================
+       JAVASCRIPT
+  =========================================== -->
 
-  /* ==========================================
-     KONFIGURASI SUPABASE
-  ========================================== */
+  <script>
 
-  const SUPABASE_URL =
-    "https://yloxoxgvedepmegihver.supabase.co";
+    /* ==========================================
+       KONFIGURASI SUPABASE
+    ========================================== */
 
-  const SUPABASE_KEY =
-    "sb_publishable_DWylNJ9ELqHckOp3UsfQqw_AIQW9nQU";
+    const SUPABASE_URL =
+      "https://yloxoxgvedepmegihver.supabase.co";
 
-  const supabaseClient =
-    supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
+
+    const SUPABASE_KEY =
+      "sb_publishable_DWylNJ9ELqHckOp3UsfQqw_AIQW9nQU";
+
+
+    const supabaseClient =
+      supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    /* ==========================================
+       NAMA TABEL SUPABASE
+    ========================================== */
+
+    const TABLE_NAME =
+      "anggota_omb";
+
+
+    /* ==========================================
+       FOTO DEFAULT
+    ========================================== */
+
+    const FOTO_DEFAULT =
+      "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
+
+    let semuaAnggota = [];
+
+    let statistikData = null;
+
+
+    const inputKeyword =
+      document.getElementById(
+        "keyword"
+      );
+
+
+    const searchButton =
+      document.getElementById(
+        "searchButton"
+      );
+
+
+    /* ==========================================
+       LOAD AWAL
+    ========================================== */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      async function() {
+
+        await loadDataAnggota();
+
+      }
     );
 
 
-  /* ==========================================
-     PENTING
-     Nama tabel Supabase:
-     anggota
-  ========================================== */
+    inputKeyword.addEventListener(
+      "keydown",
+      function(event) {
 
-  const TABLE_NAME = "anggota";
+        if (
+          event.key === "Enter"
+        ) {
 
+          event.preventDefault();
 
-  const FOTO_DEFAULT =
-    "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+          cariAnggota();
 
-  let semuaAnggota = [];
-  let statistikData = null;
+        }
 
-
-  const inputKeyword =
-    document.getElementById("keyword");
-
-  const searchButton =
-    document.getElementById("searchButton");
+      }
+    );
 
 
-  document.addEventListener(
-    "DOMContentLoaded",
-    async function() {
-
-      await loadDataAnggota();
-
-    }
-  );
+    searchButton.addEventListener(
+      "click",
+      cariAnggota
+    );
 
 
-  inputKeyword.addEventListener(
-    "keydown",
-    function(event) {
+    /* ==========================================
+       LOAD DATABASE
+    ========================================== */
 
-      if (event.key === "Enter") {
-        event.preventDefault();
-        cariAnggota();
+    async function loadDataAnggota() {
+
+      try {
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .from(TABLE_NAME)
+            .select("*");
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        semuaAnggota =
+          data || [];
+
+
+        console.log(
+          "Data anggota berhasil dimuat:",
+          semuaAnggota.length
+        );
+
+
+        loadStatistik();
+
       }
 
-    }
-  );
+      catch (error) {
+
+        console.error(
+          "ERROR SUPABASE:",
+          error
+        );
 
 
-  searchButton.addEventListener(
-    "click",
-    cariAnggota
-  );
+        tampilPesan(
+          "❌ Gagal memuat database anggota.",
+          true
+        );
 
-
-  /* ==========================================
-     LOAD DATABASE
-  ========================================== */
-
-  async function loadDataAnggota() {
-
-    try {
-
-      const {
-        data,
-        error
-      } = await supabaseClient
-        .from(TABLE_NAME)
-        .select("*");
-
-
-      if (error) {
-        throw error;
-      }
-
-
-      semuaAnggota = data || [];
-
-
-      loadStatistik();
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "ERROR SUPABASE:",
-        error
-      );
-
-      tampilPesan(
-        "❌ Gagal memuat database anggota.",
-        true
-      );
-
-    }
-
-  }
-
-
-  /* ==========================================
-     NORMALISASI DATA
-  ========================================== */
-
-  function getValue(
-    data,
-    keys
-  ) {
-
-    for (const key of keys) {
-
-      if (
-        data[key] !== undefined &&
-        data[key] !== null &&
-        data[key] !== ""
-      ) {
-        return String(data[key]).trim();
       }
 
     }
 
-    return "";
 
-  }
+    /* ==========================================
+       NORMALISASI DATA
+    ========================================== */
 
+    function getValue(
+      data,
+      keys
+    ) {
 
-  function normalisasiMember(data) {
+      for (const key of keys) {
 
-    return {
+        if (
+          data[key] !== undefined &&
+          data[key] !== null &&
+          data[key] !== ""
+        ) {
 
-      nama: getValue(
-        data,
-        [
-          "nama",
-          "nama_panggilan",
-          "namaPanggilan",
-          "nama_lengkap",
-          "namaLengkap"
-        ]
-      ),
+          return String(
+            data[key]
+          ).trim();
 
-      id: getValue(
-        data,
-        [
-          "id_anggota",
-          "id",
-          "member_id"
-        ]
-      ),
+        }
 
-      domisili: getValue(
-        data,
-        [
-          "domisili",
-          "alamat"
-        ]
-      ),
-
-      status: getValue(
-        data,
-        [
-          "status",
-          "status_keanggotaan"
-        ]
-      ),
-
-      motor: getValue(
-        data,
-        [
-          "motor",
-          "merek_motor",
-          "kendaraan"
-        ]
-      ),
-
-      aplikasiOjol: getValue(
-        data,
-        [
-          "aplikasi_ojol",
-          "aplikasiOjol",
-          "ojol"
-        ]
-      ),
-
-      foto: getValue(
-        data,
-        [
-          "foto",
-          "foto_url",
-          "photo_url"
-        ]
-      ),
-
-      raw: data
-
-    };
-
-  }
+      }
 
 
-  /* ==========================================
-     CARI ANGGOTA
-  ========================================== */
-
-  function cariAnggota() {
-
-    const keyword =
-      inputKeyword.value
-        .trim()
-        .toLowerCase();
-
-
-    const card =
-      document.getElementById("memberCard");
-
-    const multipleResults =
-      document.getElementById("multipleResults");
-
-
-    card.classList.remove("show");
-    multipleResults.classList.remove("show");
-
-
-    if (!keyword) {
-
-      tampilPesan(
-        "Masukkan ID atau nama anggota terlebih dahulu.",
-        true
-      );
-
-      inputKeyword.focus();
-
-      return;
+      return "";
 
     }
 
 
-    searchButton.disabled = true;
-    searchButton.textContent = "...";
+    function normalisasiMember(data) {
+
+      return {
+
+        nama:
+          getValue(
+            data,
+            [
+              "nama",
+              "nama_panggilan",
+              "namaPanggilan",
+              "nama_lengkap",
+              "namaLengkap"
+            ]
+          ),
 
 
-    try {
-
-      const hasil =
-        semuaAnggota
-          .map(normalisasiMember)
-          .filter(
-            function(member) {
-
-              const nama =
-                member.nama.toLowerCase();
-
-              const id =
-                member.id.toLowerCase();
+        id:
+          getValue(
+            data,
+            [
+              "id_anggota",
+              "id",
+              "member_id"
+            ]
+          ),
 
 
-              return (
-                nama.includes(keyword) ||
-                id.includes(keyword)
+        domisili:
+          getValue(
+            data,
+            [
+              "domisili",
+              "alamat"
+            ]
+          ),
+
+
+        status:
+          getValue(
+            data,
+            [
+              "status",
+              "status_keanggotaan"
+            ]
+          ),
+
+
+        motor:
+          getValue(
+            data,
+            [
+              "motor",
+              "merek_motor",
+              "kendaraan"
+            ]
+          ),
+
+
+        aplikasiOjol:
+          getValue(
+            data,
+            [
+              "aplikasi_ojol",
+              "aplikasiOjol",
+              "ojol"
+            ]
+          ),
+
+
+        foto:
+          getValue(
+            data,
+            [
+              "foto",
+              "foto_url",
+              "photo_url"
+            ]
+          ),
+
+
+        raw:
+          data
+
+      };
+
+    }
+
+
+    /* ==========================================
+       CARI ANGGOTA
+    ========================================== */
+
+    function cariAnggota() {
+
+      const keyword =
+        inputKeyword.value
+          .trim()
+          .toLowerCase();
+
+
+      const card =
+        document.getElementById(
+          "memberCard"
+        );
+
+
+      const multipleResults =
+        document.getElementById(
+          "multipleResults"
+        );
+
+
+      card.classList.remove(
+        "show"
+      );
+
+
+      multipleResults.classList.remove(
+        "show"
+      );
+
+
+      if (!keyword) {
+
+        tampilPesan(
+          "Masukkan ID atau nama anggota terlebih dahulu.",
+          true
+        );
+
+
+        inputKeyword.focus();
+
+        return;
+
+      }
+
+
+      searchButton.disabled =
+        true;
+
+
+      searchButton.textContent =
+        "...";
+
+
+      try {
+
+        const hasil =
+          semuaAnggota
+            .map(
+              normalisasiMember
+            )
+            .filter(
+              function(member) {
+
+                const nama =
+                  member.nama.toLowerCase();
+
+
+                const id =
+                  member.id.toLowerCase();
+
+
+                return (
+                  nama.includes(keyword) ||
+                  id.includes(keyword)
+                );
+
+              }
+            );
+
+
+        if (
+          hasil.length === 0
+        ) {
+
+          tampilPesan(
+            "❌ Data anggota tidak ditemukan.",
+            true
+          );
+
+          return;
+
+        }
+
+
+        if (
+          hasil.length === 1
+        ) {
+
+          tampilData(
+            hasil[0]
+          );
+
+          return;
+
+        }
+
+
+        tampilHasilGanda(
+          hasil
+        );
+
+      }
+
+      finally {
+
+        searchButton.disabled =
+          false;
+
+
+        searchButton.textContent =
+          "Cari";
+
+      }
+
+    }
+
+
+    /* ==========================================
+       HASIL GANDA
+    ========================================== */
+
+    function tampilHasilGanda(members) {
+
+      const container =
+        document.getElementById(
+          "resultList"
+        );
+
+
+      const multipleResults =
+        document.getElementById(
+          "multipleResults"
+        );
+
+
+      document
+        .getElementById("message")
+        .classList
+        .remove("show");
+
+
+      container.innerHTML =
+        "";
+
+
+      document
+        .getElementById("multipleTitle")
+        .textContent =
+          "Ditemukan " +
+          members.length +
+          " anggota. Pilih anggota yang dimaksud:";
+
+
+      members.forEach(
+        function(member) {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "result-item";
+
+
+          const foto =
+            member.foto ||
+            FOTO_DEFAULT;
+
+
+          button.innerHTML =
+
+            '<div class="result-photo">' +
+
+            '<img src="' +
+            escapeHtml(foto) +
+            '">' +
+
+            '</div>' +
+
+            '<div class="result-info">' +
+
+            '<div class="result-name">' +
+
+            escapeHtml(
+              member.nama || "-"
+            ) +
+
+            '</div>' +
+
+            '<div class="result-id">' +
+
+            escapeHtml(
+              member.id || "-"
+            ) +
+
+            '</div>' +
+
+            '</div>' +
+
+            '<div class="result-arrow">›</div>';
+
+
+          button.addEventListener(
+            "click",
+            function() {
+
+              tampilData(
+                member
               );
 
             }
           );
 
 
-      if (hasil.length === 0) {
+          container.appendChild(
+            button
+          );
 
-        tampilPesan(
-          "❌ Data anggota tidak ditemukan.",
-          true
+        }
+      );
+
+
+      multipleResults
+        .classList
+        .add("show");
+
+
+      multipleResults.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+      });
+
+    }
+
+
+    /* ==========================================
+       TAMPIL DATA ANGGOTA
+    ========================================== */
+
+    function tampilData(data) {
+
+      document
+        .getElementById("memberName")
+        .textContent =
+          data.nama || "-";
+
+
+      document
+        .getElementById("memberId")
+        .textContent =
+          data.id || "-";
+
+
+      document
+        .getElementById("memberDomisili")
+        .textContent =
+          data.domisili || "-";
+
+
+      document
+        .getElementById("memberStatus")
+        .textContent =
+          data.status || "-";
+
+
+      document
+        .getElementById("memberMotor")
+        .textContent =
+          data.motor || "-";
+
+
+      document
+        .getElementById("memberOjol")
+        .textContent =
+          data.aplikasiOjol || "-";
+
+
+      updateStatusBadge(
+        data.status
+      );
+
+
+      const photo =
+        document.getElementById(
+          "memberPhoto"
         );
 
-        return;
 
-      }
+      photo.onerror =
+        function() {
+
+          this.src =
+            FOTO_DEFAULT;
+
+        };
 
 
-      if (hasil.length === 1) {
+      photo.src =
+        data.foto ||
+        FOTO_DEFAULT;
 
-        tampilData(
-          hasil[0]
+
+      document
+        .getElementById("message")
+        .classList
+        .remove("show");
+
+
+      document
+        .getElementById("multipleResults")
+        .classList
+        .remove("show");
+
+
+      const card =
+        document.getElementById(
+          "memberCard"
         );
 
-        return;
 
-      }
+      card
+        .classList
+        .add("show");
 
 
-      tampilHasilGanda(
-        hasil
+      setTimeout(
+        function() {
+
+          card.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+          });
+
+        },
+        100
       );
 
     }
 
-    finally {
 
-      searchButton.disabled = false;
-      searchButton.textContent = "Cari";
+    /* ==========================================
+       STATUS BADGE
+    ========================================== */
+
+    function updateStatusBadge(status) {
+
+      const badge =
+        document.getElementById(
+          "statusBadge"
+        );
+
+
+      const text =
+        document.getElementById(
+          "statusBadgeText"
+        );
+
+
+      const value =
+        String(status || "")
+          .toLowerCase()
+          .trim();
+
+
+      badge.className =
+        "status-badge";
+
+
+      if (
+        value === "aktif" ||
+        value === "active"
+      ) {
+
+        badge.classList.add(
+          "active"
+        );
+
+
+        text.textContent =
+          "✓ ANGGOTA RESMI AKTIF";
+
+      }
+
+      else if (
+        value.includes("nonaktif") ||
+        value.includes("tidak aktif")
+      ) {
+
+        badge.classList.add(
+          "inactive"
+        );
+
+
+        text.textContent =
+          "✕ TIDAK AKTIF";
+
+      }
+
+      else {
+
+        badge.classList.add(
+          "pending"
+        );
+
+
+        text.textContent =
+          "● " +
+          (status || "STATUS");
+
+      }
 
     }
 
-  }
+
+    /* ==========================================
+       STATISTIK
+    ========================================== */
+
+    function loadStatistik() {
+
+      const members =
+        semuaAnggota.map(
+          normalisasiMember
+        );
 
 
-  /* ==========================================
-     HASIL GANDA
-  ========================================== */
-
-  function tampilHasilGanda(members) {
-
-    const container =
-      document.getElementById("resultList");
-
-    const multipleResults =
-      document.getElementById("multipleResults");
+      const totalAnggota =
+        members.length;
 
 
-    document
-      .getElementById("message")
-      .classList
-      .remove("show");
+      const totalAktif =
+        members.filter(
+          function(member) {
+
+            return (
+              String(member.status)
+                .toLowerCase()
+                .trim() === "aktif"
+            );
+
+          }
+        ).length;
 
 
-    container.innerHTML = "";
+      const penggunaMotor =
+        members.filter(
+          function(member) {
+
+            return (
+              member.motor &&
+              member.motor !== "-"
+            );
+
+          }
+        ).length;
 
 
-    document
-      .getElementById("multipleTitle")
-      .textContent =
-      "Ditemukan " +
-      members.length +
-      " anggota. Pilih anggota yang dimaksud:";
+      const penggunaOjol =
+        members.filter(
+          function(member) {
+
+            return (
+              member.aplikasiOjol &&
+              member.aplikasiOjol !== "-"
+            );
+
+          }
+        ).length;
 
 
-    members.forEach(
-      function(member) {
-
-        const button =
-          document.createElement("button");
-
-        button.type = "button";
-        button.className = "result-item";
+      const motor =
+        hitungKategori(
+          members,
+          "motor"
+        );
 
 
-        const foto =
-          member.foto ||
-          FOTO_DEFAULT;
+      const ojol =
+        hitungKategori(
+          members,
+          "aplikasiOjol"
+        );
 
 
-        button.innerHTML =
+      statistikData = {
 
-          '<div class="result-photo">' +
-          '<img src="' + escapeHtml(foto) + '">' +
-          '</div>' +
+        totalAnggota,
 
-          '<div class="result-info">' +
-          '<div class="result-name">' +
-          escapeHtml(member.nama || "-") +
-          '</div>' +
+        totalAktif,
 
-          '<div class="result-id">' +
-          escapeHtml(member.id || "-") +
-          '</div>' +
-          '</div>' +
+        penggunaMotor,
 
-          '<div class="result-arrow">›</div>';
+        penggunaOjol,
+
+        motor,
+
+        ojol
+
+      };
 
 
-        button.addEventListener(
-          "click",
-          function() {
+      document
+        .getElementById("statTotal")
+        .textContent =
+          totalAnggota;
 
-            tampilData(member);
+
+      document
+        .getElementById("statAktif")
+        .textContent =
+          totalAktif;
+
+
+      document
+        .getElementById("statMotor")
+        .textContent =
+          penggunaMotor;
+
+
+      document
+        .getElementById("detailTotal")
+        .textContent =
+          totalAnggota;
+
+
+      document
+        .getElementById("detailAktif")
+        .textContent =
+          totalAktif;
+
+
+      document
+        .getElementById("detailMotor")
+        .textContent =
+          penggunaMotor;
+
+
+      document
+        .getElementById("detailOjol")
+        .textContent =
+          penggunaOjol;
+
+
+      renderStatsList(
+        "motorStatsList",
+        motor
+      );
+
+
+      renderStatsList(
+        "ojolStatsList",
+        ojol
+      );
+
+    }
+
+
+    function hitungKategori(
+      members,
+      field
+    ) {
+
+      const hasil = {};
+
+
+      members.forEach(
+        function(member) {
+
+          const value =
+            String(
+              member[field] || ""
+            ).trim();
+
+
+          if (
+            !value ||
+            value === "-"
+          ) {
+
+            return;
+
+          }
+
+
+          hasil[value] =
+            (hasil[value] || 0) + 1;
+
+        }
+      );
+
+
+      return Object
+        .entries(hasil)
+        .map(
+          function(item) {
+
+            return {
+
+              name:item[0],
+
+              total:item[1]
+
+            };
+
+          }
+        )
+        .sort(
+          function(a,b) {
+
+            return (
+              b.total -
+              a.total
+            );
 
           }
         );
 
-
-        container.appendChild(button);
-
-      }
-    );
+    }
 
 
-    multipleResults
-      .classList
-      .add("show");
-
-
-    multipleResults.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-
-  /* ==========================================
-     TAMPIL DATA ANGGOTA
-  ========================================== */
-
-  function tampilData(data) {
-
-    document
-      .getElementById("memberName")
-      .textContent =
-      data.nama || "-";
-
-
-    document
-      .getElementById("memberId")
-      .textContent =
-      data.id || "-";
-
-
-    document
-      .getElementById("memberDomisili")
-      .textContent =
-      data.domisili || "-";
-
-
-    document
-      .getElementById("memberStatus")
-      .textContent =
-      data.status || "-";
-
-
-    document
-      .getElementById("memberMotor")
-      .textContent =
-      data.motor || "-";
-
-
-    document
-      .getElementById("memberOjol")
-      .textContent =
-      data.aplikasiOjol || "-";
-
-
-    updateStatusBadge(
-      data.status
-    );
-
-
-    const photo =
-      document.getElementById("memberPhoto");
-
-
-    photo.onerror =
-      function() {
-        this.src = FOTO_DEFAULT;
-      };
-
-
-    photo.src =
-      data.foto ||
-      FOTO_DEFAULT;
-
-
-    document
-      .getElementById("message")
-      .classList
-      .remove("show");
-
-
-    document
-      .getElementById("multipleResults")
-      .classList
-      .remove("show");
-
-
-    const card =
-      document.getElementById("memberCard");
-
-
-    card
-      .classList
-      .add("show");
-
-
-    setTimeout(
-      function() {
-
-        card.scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
-
-      },
-      100
-    );
-
-  }
-
-
-  /* ==========================================
-     STATUS BADGE
-  ========================================== */
-
-  function updateStatusBadge(status) {
-
-    const badge =
-      document.getElementById("statusBadge");
-
-    const text =
-      document.getElementById("statusBadgeText");
-
-
-    const value =
-      String(status || "")
-        .toLowerCase()
-        .trim();
-
-
-    badge.className =
-      "status-badge";
-
-
-    if (
-      value === "aktif" ||
-      value === "active"
+    function renderStatsList(
+      elementId,
+      items
     ) {
 
-      badge.classList.add("active");
+      const container =
+        document.getElementById(
+          elementId
+        );
 
-      text.textContent =
-        "✓ ANGGOTA RESMI AKTIF";
-
-    }
-
-    else if (
-      value.includes("nonaktif") ||
-      value.includes("tidak aktif")
-    ) {
-
-      badge.classList.add("inactive");
-
-      text.textContent =
-        "✕ TIDAK AKTIF";
-
-    }
-
-    else {
-
-      badge.classList.add("pending");
-
-      text.textContent =
-        "● " +
-        (status || "STATUS");
-
-    }
-
-  }
-
-
-  /* ==========================================
-     STATISTIK
-  ========================================== */
-
-  function loadStatistik() {
-
-    const members =
-      semuaAnggota.map(
-        normalisasiMember
-      );
-
-
-    const totalAnggota =
-      members.length;
-
-
-    const totalAktif =
-      members.filter(
-        function(member) {
-
-          return String(member.status)
-            .toLowerCase()
-            .trim() === "aktif";
-
-        }
-      ).length;
-
-
-    const penggunaMotor =
-      members.filter(
-        function(member) {
-
-          return (
-            member.motor &&
-            member.motor !== "-"
-          );
-
-        }
-      ).length;
-
-
-    const penggunaOjol =
-      members.filter(
-        function(member) {
-
-          return (
-            member.aplikasiOjol &&
-            member.aplikasiOjol !== "-"
-          );
-
-        }
-      ).length;
-
-
-    const motor =
-      hitungKategori(
-        members,
-        "motor"
-      );
-
-
-    const ojol =
-      hitungKategori(
-        members,
-        "aplikasiOjol"
-      );
-
-
-    statistikData = {
-      totalAnggota,
-      totalAktif,
-      penggunaMotor,
-      penggunaOjol,
-      motor,
-      ojol
-    };
-
-
-    document
-      .getElementById("statTotal")
-      .textContent =
-      totalAnggota;
-
-
-    document
-      .getElementById("statAktif")
-      .textContent =
-      totalAktif;
-
-
-    document
-      .getElementById("statMotor")
-      .textContent =
-      penggunaMotor;
-
-
-    document
-      .getElementById("detailTotal")
-      .textContent =
-      totalAnggota;
-
-
-    document
-      .getElementById("detailAktif")
-      .textContent =
-      totalAktif;
-
-
-    document
-      .getElementById("detailMotor")
-      .textContent =
-      penggunaMotor;
-
-
-    document
-      .getElementById("detailOjol")
-      .textContent =
-      penggunaOjol;
-
-
-    renderStatsList(
-      "motorStatsList",
-      motor
-    );
-
-
-    renderStatsList(
-      "ojolStatsList",
-      ojol
-    );
-
-  }
-
-
-  function hitungKategori(
-    members,
-    field
-  ) {
-
-    const hasil = {};
-
-
-    members.forEach(
-      function(member) {
-
-        const value =
-          String(
-            member[field] || ""
-          ).trim();
-
-
-        if (
-          !value ||
-          value === "-"
-        ) {
-          return;
-        }
-
-
-        hasil[value] =
-          (hasil[value] || 0) + 1;
-
-      }
-    );
-
-
-    return Object.entries(hasil)
-      .map(
-        function(item) {
-
-          return {
-            name:item[0],
-            total:item[1]
-          };
-
-        }
-      )
-      .sort(
-        function(a,b) {
-
-          return b.total - a.total;
-
-        }
-      );
-
-  }
-
-
-  function renderStatsList(
-    elementId,
-    items
-  ) {
-
-    const container =
-      document.getElementById(elementId);
-
-
-    container.innerHTML = "";
-
-
-    if (!items.length) {
 
       container.innerHTML =
-        '<div class="stats-list-item">' +
-        '<div class="stats-list-name">Belum ada data</div>' +
-        '</div>';
-
-      return;
-
-    }
+        "";
 
 
-    items.forEach(
-      function(item) {
+      if (!items.length) {
 
-        const row =
-          document.createElement("div");
+        container.innerHTML =
 
-        row.className =
-          "stats-list-item";
+          '<div class="stats-list-item">' +
 
-
-        row.innerHTML =
           '<div class="stats-list-name">' +
-          escapeHtml(item.name) +
+
+          'Belum ada data' +
+
           '</div>' +
 
-          '<div class="stats-list-total">' +
-          item.total +
           '</div>';
 
 
-        container.appendChild(row);
+        return;
 
       }
-    );
-
-  }
 
 
-  /* ==========================================
-     MODAL STATISTIK
-  ========================================== */
+      items.forEach(
+        function(item) {
 
-  function bukaStatistik() {
-
-    document
-      .getElementById("statsModal")
-      .classList
-      .add("show");
-
-  }
+          const row =
+            document.createElement(
+              "div"
+            );
 
 
-  function closeStatistik() {
-
-    document
-      .getElementById("statsModal")
-      .classList
-      .remove("show");
-
-  }
+          row.className =
+            "stats-list-item";
 
 
-  function tutupModalStatistik(event) {
+          row.innerHTML =
 
-    if (
-      event.target.id === "statsModal"
-    ) {
+            '<div class="stats-list-name">' +
 
-      closeStatistik();
+            escapeHtml(item.name) +
+
+            '</div>' +
+
+            '<div class="stats-list-total">' +
+
+            item.total +
+
+            '</div>';
+
+
+          container.appendChild(
+            row
+          );
+
+        }
+      );
 
     }
 
-  }
 
+    /* ==========================================
+       MODAL STATISTIK
+    ========================================== */
 
-  /* ==========================================
-     FOTO
-  ========================================== */
+    function bukaStatistik() {
 
-  function previewFoto() {
-
-    const foto =
       document
-        .getElementById("memberPhoto")
-        .src;
-
-
-    if (!foto) {
-      return;
-    }
-
-
-    document
-      .getElementById("previewImage")
-      .src =
-      foto;
-
-
-    document
-      .getElementById("photoModal")
-      .classList
-      .add("show");
-
-  }
-
-
-  function closePreview() {
-
-    document
-      .getElementById("photoModal")
-      .classList
-      .remove("show");
-
-  }
-
-
-  function tutupPreview(event) {
-
-    if (
-      event.target.id === "photoModal"
-    ) {
-
-      closePreview();
+        .getElementById("statsModal")
+        .classList
+        .add("show");
 
     }
 
-  }
+
+    function closeStatistik() {
+
+      document
+        .getElementById("statsModal")
+        .classList
+        .remove("show");
+
+    }
 
 
-  /* ==========================================
-     PESAN
-  ========================================== */
-
-  function tampilPesan(
-    text,
-    isError
-  ) {
-
-    const message =
-      document.getElementById("message");
-
-
-    message.textContent = text;
-
-
-    message.classList.add("show");
-
-
-    message.classList.toggle(
-      "error",
-      isError
-    );
-
-  }
-
-
-  /* ==========================================
-     ESC
-  ========================================== */
-
-  document.addEventListener(
-    "keydown",
-    function(event) {
+    function tutupModalStatistik(event) {
 
       if (
-        event.key === "Escape"
+        event.target.id ===
+        "statsModal"
       ) {
 
-        closePreview();
         closeStatistik();
 
       }
 
     }
-  );
 
 
-  /* ==========================================
-     ESCAPE HTML
-  ========================================== */
+    /* ==========================================
+       PREVIEW FOTO
+    ========================================== */
 
-  function escapeHtml(value) {
+    function previewFoto() {
 
-    return String(value || "")
-      .replace(/&/g,"&amp;")
-      .replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;")
-      .replace(/"/g,"&quot;")
-      .replace(/'/g,"&#039;");
+      const foto =
+        document
+          .getElementById("memberPhoto")
+          .src;
 
-  }
 
-</script>
+      if (!foto) {
+        return;
+      }
+
+
+      document
+        .getElementById("previewImage")
+        .src =
+          foto;
+
+
+      document
+        .getElementById("photoModal")
+        .classList
+        .add("show");
+
+    }
+
+
+    function closePreview() {
+
+      document
+        .getElementById("photoModal")
+        .classList
+        .remove("show");
+
+    }
+
+
+    function tutupPreview(event) {
+
+      if (
+        event.target.id ===
+        "photoModal"
+      ) {
+
+        closePreview();
+
+      }
+
+    }
+
+
+    /* ==========================================
+       PESAN
+    ========================================== */
+
+    function tampilPesan(
+      text,
+      isError
+    ) {
+
+      const message =
+        document.getElementById(
+          "message"
+        );
+
+
+      message.textContent =
+        text;
+
+
+      message.classList.add(
+        "show"
+      );
+
+
+      message.classList.toggle(
+        "error",
+        isError
+      );
+
+    }
+
+
+    /* ==========================================
+       TOMBOL ESC
+    ========================================== */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closePreview();
+
+          closeStatistik();
+
+        }
+
+      }
+    );
+
+
+    /* ==========================================
+       ESCAPE HTML
+    ========================================== */
+
+    function escapeHtml(value) {
+
+      return String(
+        value || ""
+      )
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+  </script>
 
 </body>
 </html>
