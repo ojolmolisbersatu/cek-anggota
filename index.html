@@ -93,12 +93,16 @@
 
 
     .logo-box{
-      width:92px;
-      height:92px;
-      margin:0 auto 12px;
-      padding:5px;
+      width:108px;
+      height:108px;
+      margin:0 auto 14px;
+      padding:0;
+      overflow:hidden;
       border-radius:50%;
       background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       box-shadow:
         0 8px 22px
         rgba(0,0,0,.22);
@@ -108,8 +112,11 @@
     .logo-box img{
       width:100%;
       height:100%;
+      display:block;
       object-fit:contain;
       border-radius:50%;
+      transform:scale(1.55);
+      transform-origin:center;
     }
 
 
@@ -141,9 +148,12 @@
     ======================================== */
 
     .search-card{
+      width:100%;
       display:flex;
+      align-items:center;
       gap:10px;
       padding:10px;
+      box-sizing:border-box;
       border-radius:22px;
       background:#fff;
       box-shadow:
@@ -153,10 +163,12 @@
 
 
     .search-input{
-      flex:1;
+      flex:1 1 auto;
+      width:0;
       min-width:0;
       height:54px;
       padding:0 16px;
+      box-sizing:border-box;
       border:1px solid #dce5df;
       border-radius:15px;
       outline:none;
@@ -175,9 +187,11 @@
 
 
     .search-button{
+      flex:0 0 110px;
       min-width:110px;
       height:54px;
       padding:0 20px;
+      box-sizing:border-box;
       border:0;
       border-radius:15px;
       cursor:pointer;
@@ -1151,14 +1165,25 @@
         padding:14px 12px 20px;
       }
 
+      .logo-box{
+        width:104px;
+        height:104px;
+      }
+
       .search-card{
         gap:8px;
         padding:8px;
       }
 
+      .search-input{
+        font-size:13px;
+        padding:0 12px;
+      }
+
       .search-button{
-        min-width:86px;
-        padding:0 14px;
+        flex:0 0 92px;
+        min-width:92px;
+        padding:0 10px;
       }
 
       .stat-card{
@@ -1192,16 +1217,25 @@
 
     @media(max-width:360px){
 
+      .content{
+        padding-left:10px;
+        padding-right:10px;
+      }
+
       .search-card{
-        flex-direction:column;
+        gap:6px;
+        padding:6px;
       }
 
       .search-input{
-        width:100%;
+        font-size:12px;
+        padding:0 10px;
       }
 
       .search-button{
-        width:100%;
+        flex-basis:82px;
+        min-width:82px;
+        padding:0 8px;
       }
 
       .stats-detail-grid{
@@ -1503,21 +1537,6 @@
 
         </div>
 
-
-        <div class="info-box">
-
-          <div class="info-label">
-            📅 Terdaftar Sejak
-          </div>
-
-          <div
-            id="memberTanggal"
-            class="info-value"
-          >
-            -
-          </div>
-
-        </div>
 
 
         <div class="info-box">
@@ -1932,21 +1951,6 @@
 
         </div>
 
-
-        <div class="share-info-box">
-
-          <div class="share-info-label">
-            📅 Terdaftar Sejak
-          </div>
-
-          <div
-            id="shareTanggal"
-            class="share-info-value"
-          >
-            -
-          </div>
-
-        </div>
 
 
         <div class="share-info-box">
@@ -2790,15 +2794,6 @@
       .textContent =
       data.domisili || "-";
 
-
-    document
-      .getElementById(
-        "memberTanggal"
-      )
-      .textContent =
-      formatTanggal(
-        data.tanggalBergabung
-      );
 
 
     document
@@ -3784,15 +3779,6 @@
       .textContent =
       data.jabatan || "-";
 
-
-    document
-      .getElementById(
-        "shareTanggal"
-      )
-      .textContent =
-      formatTanggal(
-        data.tanggalBergabung
-      );
 
 
     document
