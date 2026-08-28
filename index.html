@@ -641,6 +641,40 @@
     }
 
 
+    .motor-header-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .motor-info{
+      flex:1;
+      min-width:0;
+    }
+
+    .motor-preview-button{
+      flex:none;
+      min-height:42px;
+      padding:9px 13px;
+      border:1px solid #d7e6db;
+      border-radius:14px;
+      background:#fff;
+      color:#087337;
+      font-family:inherit;
+      font-size:12px;
+      font-weight:800;
+      white-space:nowrap;
+      cursor:pointer;
+      box-shadow:0 5px 12px rgba(20,70,40,.07);
+    }
+
+    .motor-preview-button:disabled{
+      opacity:.5;
+      cursor:not-allowed;
+    }
+
+
     .ojol-row{
       display:flex;
       justify-content:space-between;
@@ -1194,6 +1228,12 @@
         font-size:22px;
       }
 
+      .motor-preview-button{
+        min-height:40px;
+        padding:8px 10px;
+        font-size:11px;
+      }
+
       .info-grid{
         grid-template-columns:1fr;
         padding:12px;
@@ -1568,18 +1608,35 @@
 
         <div class="motor-box">
 
-          <div
-            id="memberMotor"
-            class="motor-name"
-          >
-            -
+          <div class="motor-header-row">
+
+            <div class="motor-info">
+
+              <div
+                id="memberMotor"
+                class="motor-name"
+              >
+                -
+              </div>
+
+              <div
+                id="memberTipeMotor"
+                class="motor-type"
+              ></div>
+
+            </div>
+
+            <button
+              id="motorPreviewButton"
+              class="motor-preview-button"
+              type="button"
+              onclick="previewFotoMotor()"
+              disabled
+            >
+              📷 Lihat Motor
+            </button>
+
           </div>
-
-
-          <div
-            id="memberTipeMotor"
-            class="motor-type"
-          ></div>
 
 
           <div class="ojol-row">
@@ -1601,20 +1658,6 @@
 
       </div>
 
-
-      <!-- BAGIKAN PROFIL -->
-
-      <div class="share-section">
-
-        <button
-          id="shareButton"
-          class="share-button"
-          onclick="bagikanProfil()"
-        >
-          📤 Bagikan Profil
-        </button>
-
-      </div>
 
     </section>
 
@@ -2455,6 +2498,19 @@
         ),
 
 
+      fotoMotor:
+        normalisasiFoto(
+          getValue(
+            data,
+            [
+              "foto_motor",
+              "fotoMotor",
+              "foto_motor_url"
+            ]
+          )
+        ),
+
+
       raw:
         data
 
@@ -2842,6 +2898,19 @@
       )
       .textContent =
       data.aplikasiOjol || "-";
+
+
+    const motorPreviewButton =
+      document.getElementById(
+        "motorPreviewButton"
+      );
+
+    const adaFotoMotor =
+      data.fotoMotor &&
+      data.fotoMotor !== FOTO_DEFAULT;
+
+    motorPreviewButton.disabled =
+      !adaFotoMotor;
 
 
     updateStatusBadge(
@@ -3611,6 +3680,78 @@
 
     previewImage.src =
       foto;
+
+
+    document
+      .getElementById(
+        "photoModal"
+      )
+      .classList
+      .add(
+        "show"
+      );
+
+  }
+
+
+  function previewFotoMotor() {
+
+    if (
+      !memberAktif
+    ) {
+
+      return;
+
+    }
+
+
+    const fotoMotor =
+      normalisasiFoto(
+        memberAktif.fotoMotor
+      );
+
+
+    if (
+      !fotoMotor ||
+      fotoMotor === FOTO_DEFAULT
+    ) {
+
+      tampilPesan(
+        "Foto motor belum tersedia.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    const previewImage =
+      document.getElementById(
+        "previewImage"
+      );
+
+    previewImage.onerror =
+      function() {
+
+        this.onerror =
+          null;
+
+        closePreview();
+
+        tampilPesan(
+          "Foto motor tidak dapat dimuat.",
+          true
+        );
+
+      };
+
+
+    previewImage.alt =
+      "Preview Foto Motor";
+
+    previewImage.src =
+      fotoMotor;
 
 
     document
