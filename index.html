@@ -3696,75 +3696,149 @@
 
   function previewFotoMotor() {
 
-    if (
-      !memberAktif
-    ) {
-
+    if (!memberAktif) {
       return;
-
     }
 
-
     const fotoMotor =
-      normalisasiFoto(
-        memberAktif.fotoMotor
-      );
+      String(
+        memberAktif.fotoMotor || ""
+      ).trim();
 
-
-    if (
-      !fotoMotor ||
-      fotoMotor === FOTO_DEFAULT
-    ) {
-
+    if (!fotoMotor || fotoMotor === FOTO_DEFAULT) {
       tampilPesan(
         "Foto motor belum tersedia.",
         true
       );
-
       return;
-
     }
-
 
     const previewImage =
       document.getElementById(
         "previewImage"
       );
 
-    previewImage.onerror =
-      function() {
+    const modal =
+      document.getElementById(
+        "photoModal"
+      );
 
-        this.onerror =
-          null;
+    const daftarFoto =
+      buatAlternatifFotoMotor(
+        fotoMotor
+      );
 
-        closePreview();
+    if (daftarFoto.length === 0) {
+      tampilPesan(
+        "Foto motor belum tersedia.",
+        true
+      );
+      return;
+    }
 
-        tampilPesan(
-          "Foto motor tidak dapat dimuat.",
-          true
-        );
-
-      };
-
+    let percobaan = 0;
 
     previewImage.alt =
       "Preview Foto Motor";
 
-    previewImage.src =
-      fotoMotor;
+    modal.classList.add(
+      "show"
+    );
 
+    function cobaMuatFoto() {
 
-    document
-      .getElementById(
-        "photoModal"
-      )
-      .classList
-      .add(
-        "show"
-      );
+      previewImage.onload =
+        function() {
+          previewImage.onload = null;
+          previewImage.onerror = null;
+        };
 
+      previewImage.onerror =
+        function() {
+          percobaan++;
+
+          if (percobaan < daftarFoto.length) {
+            setTimeout(
+              cobaMuatFoto,
+              300
+            );
+            return;
+          }
+
+          closePreview();
+
+          tampilPesan(
+            "Foto motor tidak dapat dimuat. Pastikan link foto dapat diakses publik.",
+            true
+          );
+        };
+
+      previewImage.src =
+        daftarFoto[percobaan];
+    }
+
+    cobaMuatFoto();
   }
 
+
+  function buatAlternatifFotoMotor(url) {
+
+    const value =
+      String(url || "").trim();
+
+    if (!value) {
+      return [];
+    }
+
+    const fileId =
+      ambilGoogleDriveFileId(value);
+
+    if (!fileId) {
+      const normal =
+        normalisasiFoto(value);
+
+      return normal && normal !== FOTO_DEFAULT
+        ? [normal]
+        : [];
+    }
+
+    return [
+      "https://drive.google.com/thumbnail?id=" + fileId + "&sz=s4000",
+      "https://drive.google.com/thumbnail?id=" + fileId + "&sz=w1000",
+      "https://drive.google.com/uc?export=view&id=" + fileId
+    ];
+  }
+
+
+  function ambilGoogleDriveFileId(url) {
+
+    const value =
+      String(url || "").trim();
+
+    if (!value) {
+      return "";
+    }
+
+    let match =
+      value.match(
+        /\/file\/d\/([^/?#]+)/
+      );
+
+    if (match && match[1]) {
+      return decodeURIComponent(match[1]);
+    }
+
+    match =
+      value.match(
+        /[?&]id=([^&#]+)/
+      );
+
+    if (match && match[1]) {
+      return decodeURIComponent(match[1]);
+    }
+
+    return "";
+  }
 
   function closePreview() {
 
